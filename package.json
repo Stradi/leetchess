@@ -13,6 +13,7 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "chess.js": "^1.0.0-beta.3",
     "chessground": "^8.3.7",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
@@ -20,5 +21,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/chess.js": "^0.13.4"
   }
 }
