@@ -19,6 +19,7 @@ export interface TutorialProps {
 export default function Tutorial({ data }: TutorialProps) {
   const chessRef = useRef<LegalChessRef>(null);
   const boardRef = useRef<ChessgroundRef>(null);
+  const latestExplanationRef = useRef<HTMLParagraphElement>(null);
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [helpIndex, setHelpIndex] = useState(0);
@@ -39,17 +40,24 @@ export default function Tutorial({ data }: TutorialProps) {
   }, [currentStepIndex, data.steps]);
 
   const getExplanationText = useCallback(() => {
-    const stepExplanation = data.steps[currentStepIndex].explanation;
-    const allHelps = data.steps[currentStepIndex].helps;
-    if (!allHelps) {
-      return stepExplanation;
-    }
+    const refCondition = (idx: number) =>
+      idx === allExplanations.length + openedHelps.length - 1;
+
+    const allExplanations = data.steps
+      .filter((step) => step.explanation)
+      .slice(0, currentStepIndex + 1)
+      .map((step) => step.explanation);
+
+    const allHelps = data.steps[currentStepIndex].helps || [];
     const openedHelps = allHelps
       .slice(0, helpIndex)
       .filter((help) => help.explanation)
       .map((help) => help.explanation);
-    return [stepExplanation, ...openedHelps].map((text, idx) => (
-      <p key={idx}>{text}</p>
+
+    return [...allExplanations, ...openedHelps].map((text, idx) => (
+      <p ref={refCondition(idx) ? latestExplanationRef : undefined} key={idx}>
+        {text}
+      </p>
     ));
   }, [currentStepIndex, data.steps, helpIndex]);
 
@@ -95,6 +103,10 @@ export default function Tutorial({ data }: TutorialProps) {
     }
   }, [currentStepIndex, data.steps, safeIncrementStep]);
 
+  useEffect(() => {
+    latestExplanationRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [currentStepIndex, helpIndex]);
+
   function onMove(move: { from: string; to: string }) {
     if (!canMakeMove) {
       chessRef.current?.undo();
@@ -126,7 +138,9 @@ export default function Tutorial({ data }: TutorialProps) {
             {data.subtitle}
           </h2>
         </div>
-        <p className="grow space-y-4">{getExplanationText()}</p>
+        <div className="space-y-4 grow h-0 overflow-y-scroll">
+          {getExplanationText()}
+        </div>
         <div className="flex gap-2">
           <Button
             variant="secondary"
