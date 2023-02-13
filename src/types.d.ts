@@ -8,6 +8,11 @@ interface IChessMove {
   to: TChessSquare;
 }
 
+interface IChessHelp {
+  shape: IChessShape;
+  explanation?: string;
+}
+
 interface IChessShape {
   from: TChessSquare;
   to?: TChessSquare;
@@ -20,12 +25,14 @@ interface ITutorialStep {
   explanation?: string;
   autoPlay?: boolean = false;
 
-  helps?: IChessShape[];
+  helps?: IChessHelp[];
   shapes?: IChessShape[];
 }
 
 interface IChessTutorial {
   id: number;
+  name: string;
+  subtitle: string;
   startingFen: string;
   steps: ITutorialStep[];
 }

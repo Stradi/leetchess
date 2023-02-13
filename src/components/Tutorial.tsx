@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Button from "./Button";
+import Card from "./Card";
 import { ChessgroundRef } from "./Chessground";
 import LegalChess, { LegalChessRef } from "./LegalChess";
 
@@ -21,6 +23,35 @@ export default function Tutorial({ data }: TutorialProps) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [helpIndex, setHelpIndex] = useState(0);
   const [canMakeMove, setCanMakeMove] = useState(false);
+
+  const isHelpAvailable = useMemo(() => {
+    const helps = data.steps[currentStepIndex].helps;
+    return helps && helpIndex < helps.length;
+  }, [currentStepIndex, data.steps, helpIndex]);
+
+  const availableHelpCount = useMemo(() => {
+    const helps = data.steps[currentStepIndex].helps;
+    return helps ? helps.length - helpIndex : 0;
+  }, [currentStepIndex, data.steps, helpIndex]);
+
+  const isCompleted = useMemo(() => {
+    return currentStepIndex === data.steps.length - 1;
+  }, [currentStepIndex, data.steps]);
+
+  const getExplanationText = useCallback(() => {
+    const stepExplanation = data.steps[currentStepIndex].explanation;
+    const allHelps = data.steps[currentStepIndex].helps;
+    if (!allHelps) {
+      return stepExplanation;
+    }
+    const openedHelps = allHelps
+      .slice(0, helpIndex)
+      .filter((help) => help.explanation)
+      .map((help) => help.explanation);
+    return [stepExplanation, ...openedHelps].map((text, idx) => (
+      <p key={idx}>{text}</p>
+    ));
+  }, [currentStepIndex, data.steps, helpIndex]);
 
   const safeIncrementStep = useCallback(() => {
     if (currentStepIndex < data.steps.length - 1) {
@@ -52,7 +83,7 @@ export default function Tutorial({ data }: TutorialProps) {
       setHelpIndex(helpIndex + 1);
 
       boardRef.current?.setAutoShapes(
-        helps.slice(0, helpIndex + 1).map(convertShape)
+        helps.slice(0, helpIndex + 1).map((help) => convertShape(help.shape))
       );
     }
   }, [helpIndex, currentStepIndex, data.steps]);
@@ -80,17 +111,54 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   return (
-    <div>
+    <div className="flex gap-4">
       <LegalChess
         boardRef={boardRef}
         ref={chessRef}
-        className="w-[500px] h-[500px]"
+        className="flex-grow-0 flex-shrink-0 aspect-square w-3/5"
         startingFen={data.startingFen}
         onMove={onMove}
       />
-      <div>{data.steps[currentStepIndex].explanation}</div>
-      <button onClick={() => !canMakeMove && safeIncrementStep()}>Next</button>
-      <button onClick={() => safeIncrementHelp()}>Help!</button>
+      <Card className="flex flex-col w-2/5">
+        <div>
+          <h1 className="text-2xl font-medium text-neutral-700">{data.name}</h1>
+          <h2 className="text-sm font-medium text-neutral-500">
+            {data.subtitle}
+          </h2>
+        </div>
+        <p className="grow space-y-4">{getExplanationText()}</p>
+        <div className="flex gap-2">
+          <Button
+            variant="secondary"
+            disabled={!isHelpAvailable}
+            onClick={() => safeIncrementHelp()}
+          >
+            Hint
+          </Button>
+          <Button
+            disabled={canMakeMove && !isCompleted}
+            onClick={() => !canMakeMove && safeIncrementStep()}
+          >
+            {isCompleted ? "Next Lesson" : "Next Step"}
+          </Button>
+        </div>
+        <p className="text-sm font-medium text-neutral-500 select-none">
+          <span className="flex justify-between">
+            {!isCompleted ? (
+              <span>
+                Step {currentStepIndex + 1} of {data.steps.length}
+              </span>
+            ) : (
+              <span>Completed</span>
+            )}
+            <span>
+              {isHelpAvailable
+                ? `${availableHelpCount} hints available`
+                : "No hints available."}
+            </span>
+          </span>
+        </p>
+      </Card>
     </div>
   );
 }
