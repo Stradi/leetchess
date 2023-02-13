@@ -20,7 +20,7 @@ export interface LegalChessProps extends ComponentPropsWithoutRef<"div"> {
   onThreefoldRepetition?: () => void;
   onInsufficientMaterial?: () => void;
 
-  onMove?: (move: IChessMove) => void;
+  onMove?: (move: { from: string; to: string }) => void;
 }
 
 const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
@@ -129,7 +129,7 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
           onMove?.({
             from: move.from,
             to: move.to,
-          } as IChessMove);
+          });
         }, 0);
       }
     }
