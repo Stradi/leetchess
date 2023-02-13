@@ -7,11 +7,15 @@ import {
   useEffect,
   useImperativeHandle,
   useMemo,
+  useRef,
   useState,
 } from "react";
-import Chessground from "./Chessground";
+import Chessground, { ChessgroundRef } from "./Chessground";
 
-export interface LegalChessRef extends Chess {}
+export interface LegalChessRef {
+  state: Chess;
+  board: ChessgroundRef;
+}
 export interface LegalChessProps extends ComponentPropsWithoutRef<"div"> {
   startingFen: string;
   onCheckmate?: (winner: "white" | "black") => void;
@@ -37,6 +41,8 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
     },
     ref
   ) => {
+    const boardRef = useRef<ChessgroundRef>(null);
+
     const [chessState] = useState<Chess>(new Chess(startingFen));
     const [fen, setFen] = useState(startingFen);
 
@@ -70,7 +76,10 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
         };
       });
 
-      return chessState;
+      return {
+        state: chessState,
+        board: boardRef.current!,
+      };
     });
 
     // Doing this calculation in a callback allows us to memoize the
@@ -137,6 +146,7 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
     return (
       <div {...props}>
         <Chessground
+          ref={boardRef}
           fen={fen}
           turnColor={currentTurn.full}
           check={chessState.inCheck()}
