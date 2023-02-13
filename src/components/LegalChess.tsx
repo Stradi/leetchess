@@ -19,6 +19,8 @@ export interface LegalChessProps extends ComponentPropsWithoutRef<"div"> {
   onStalemate?: () => void;
   onThreefoldRepetition?: () => void;
   onInsufficientMaterial?: () => void;
+
+  onMove?: (move: IChessMove) => void;
 }
 
 const LegalChess = forwardRef<LegalChessRef, LegalChessProps>((props, ref) => {
@@ -102,6 +104,18 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>((props, ref) => {
     const move = chessState.move({ from: orig, to: dest, promotion: "q" });
     if (move) {
       setFen(chessState.fen());
+
+      // In here we are basically queueing the onMove call until the js engine
+      // executes the current call stack. This is because we want to make sure
+      // that the chessboard state is updated before the onMove callback is
+      // called. Technically any timeout will work, but 0 is the fastest and
+      // we don't want to restrict the user of this component.
+      setTimeout(() => {
+        props.onMove?.({
+          from: move.from,
+          to: move.to,
+        } as IChessMove);
+      }, 0);
     }
   }
 
