@@ -23,121 +23,137 @@ export interface LegalChessProps extends ComponentPropsWithoutRef<"div"> {
   onMove?: (move: IChessMove) => void;
 }
 
-const LegalChess = forwardRef<LegalChessRef, LegalChessProps>((props, ref) => {
-  const [chessState] = useState<Chess>(new Chess(props.startingFen));
-  const [fen, setFen] = useState(props.startingFen);
-
-  useImperativeHandle(ref, () => {
-    // We should intercept all methods that mutate the chessboard state
-    // and update the fen state. If we don't do this, the fen state will
-    // be out of sync with the chessboard state. Also we wouldn't be
-    // able to update chess state outside of this component.
-    // This is a bit of a hack, but it works.
-
-    const methodsToIntercept = [
-      "clear",
-      "reset",
-      "load",
-      "loadPgn",
-      "move",
-      "put",
-      "remove",
-      "reset",
-      "undo",
-    ] as const;
-
-    methodsToIntercept.forEach((methodName) => {
-      const originalMethod = chessState[methodName] as (...args: any[]) => any;
-      chessState[methodName] = (...args: any[]) => {
-        const result = originalMethod.apply(chessState, args);
-        setFen(chessState.fen());
-        return result;
-      };
-    });
-
-    return chessState;
-  });
-
-  // Doing this calculation in a callback allows us to memoize the
-  // function and only recompute the destinations when the fen changes.
-  const generateDestinations = useCallback(() => {
-    const destinations = new Map();
-    SQUARES.forEach((square) => {
-      const moves = chessState.moves({ square, verbose: true });
-      if (moves.length) {
-        destinations.set(
-          square,
-          moves.map((move) => move.to)
-        );
-      }
-    });
-
-    return destinations;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fen]);
-
-  const currentTurn = useMemo(
-    () => {
-      const abbr = chessState.turn();
-      const full = abbr === "w" ? "white" : "black";
-      return {
-        abbr,
-        full,
-      } as const;
+const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
+  (
+    {
+      startingFen,
+      onCheckmate,
+      onDraw,
+      onStalemate,
+      onThreefoldRepetition,
+      onInsufficientMaterial,
+      onMove,
+      ...props
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [fen]
-  );
+    ref
+  ) => {
+    const [chessState] = useState<Chess>(new Chess(startingFen));
+    const [fen, setFen] = useState(startingFen);
 
-  useEffect(() => {
-    chessState.isCheckmate() && props.onCheckmate?.(currentTurn.full);
-    chessState.isDraw() && props.onDraw?.();
-    chessState.isStalemate() && props.onStalemate?.();
-    chessState.isThreefoldRepetition() && props.onThreefoldRepetition?.();
-    chessState.isInsufficientMaterial() && props.onInsufficientMaterial?.();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fen]);
+    useImperativeHandle(ref, () => {
+      // We should intercept all methods that mutate the chessboard state
+      // and update the fen state. If we don't do this, the fen state will
+      // be out of sync with the chessboard state. Also we wouldn't be
+      // able to update chess state outside of this component.
+      // This is a bit of a hack, but it works.
 
-  function handleMove(orig: string, dest: string) {
-    // TODO: We should handle promotions better. Because some tutorials
-    // could need a correct promotion move to be made.
-    const move = chessState.move({ from: orig, to: dest, promotion: "q" });
-    if (move) {
-      setFen(chessState.fen());
+      const methodsToIntercept = [
+        "clear",
+        "reset",
+        "load",
+        "loadPgn",
+        "move",
+        "put",
+        "remove",
+        "reset",
+        "undo",
+      ] as const;
 
-      // In here we are basically queueing the onMove call until the js engine
-      // executes the current call stack. This is because we want to make sure
-      // that the chessboard state is updated before the onMove callback is
-      // called. Technically any timeout will work, but 0 is the fastest and
-      // we don't want to restrict the user of this component.
-      setTimeout(() => {
-        props.onMove?.({
-          from: move.from,
-          to: move.to,
-        } as IChessMove);
-      }, 0);
+      methodsToIntercept.forEach((methodName) => {
+        const originalMethod = chessState[methodName] as (
+          ...args: any[]
+        ) => any;
+        chessState[methodName] = (...args: any[]) => {
+          const result = originalMethod.apply(chessState, args);
+          setFen(chessState.fen());
+          return result;
+        };
+      });
+
+      return chessState;
+    });
+
+    // Doing this calculation in a callback allows us to memoize the
+    // function and only recompute the destinations when the fen changes.
+    const generateDestinations = useCallback(() => {
+      const destinations = new Map();
+      SQUARES.forEach((square) => {
+        const moves = chessState.moves({ square, verbose: true });
+        if (moves.length) {
+          destinations.set(
+            square,
+            moves.map((move) => move.to)
+          );
+        }
+      });
+
+      return destinations;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fen]);
+
+    const currentTurn = useMemo(
+      () => {
+        const abbr = chessState.turn();
+        const full = abbr === "w" ? "white" : "black";
+        return {
+          abbr,
+          full,
+        } as const;
+      },
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [fen]
+    );
+
+    useEffect(() => {
+      chessState.isCheckmate() && onCheckmate?.(currentTurn.full);
+      chessState.isDraw() && onDraw?.();
+      chessState.isStalemate() && onStalemate?.();
+      chessState.isThreefoldRepetition() && onThreefoldRepetition?.();
+      chessState.isInsufficientMaterial() && onInsufficientMaterial?.();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fen]);
+
+    function handleMove(orig: string, dest: string) {
+      // TODO: We should handle promotions better. Because some tutorials
+      // could need a correct promotion move to be made.
+      const move = chessState.move({ from: orig, to: dest, promotion: "q" });
+      if (move) {
+        setFen(chessState.fen());
+
+        // In here we are basically queueing the onMove call until the js engine
+        // executes the current call stack. This is because we want to make sure
+        // that the chessboard state is updated before the onMove callback is
+        // called. Technically any timeout will work, but 0 is the fastest and
+        // we don't want to restrict the user of this component.
+        setTimeout(() => {
+          onMove?.({
+            from: move.from,
+            to: move.to,
+          } as IChessMove);
+        }, 0);
+      }
     }
-  }
 
-  return (
-    <div {...props}>
-      <Chessground
-        fen={fen}
-        turnColor={currentTurn.full}
-        check={chessState.inCheck()}
-        movable={{
-          free: false,
-          showDests: true,
-          dests: generateDestinations(),
-          color: currentTurn.full,
-        }}
-        events={{
-          move: handleMove,
-        }}
-      />
-    </div>
-  );
-});
+    return (
+      <div {...props}>
+        <Chessground
+          fen={fen}
+          turnColor={currentTurn.full}
+          check={chessState.inCheck()}
+          movable={{
+            free: false,
+            showDests: true,
+            dests: generateDestinations(),
+            color: currentTurn.full,
+          }}
+          events={{
+            move: handleMove,
+          }}
+        />
+      </div>
+    );
+  }
+);
 
 LegalChess.displayName = "LegalChess";
 export default LegalChess;
