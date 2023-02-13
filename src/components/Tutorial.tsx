@@ -1,3 +1,4 @@
+import { cn } from "@/utils/tw";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Button from "./Button";
 import Card from "./Card";
@@ -55,7 +56,14 @@ export default function Tutorial({ data }: TutorialProps) {
       .map((help) => help.explanation);
 
     return [...allExplanations, ...openedHelps].map((text, idx) => (
-      <p ref={refCondition(idx) ? latestExplanationRef : undefined} key={idx}>
+      <p
+        ref={refCondition(idx) ? latestExplanationRef : undefined}
+        key={idx}
+        className={cn(
+          "font-medium text-neutral-500",
+          refCondition(idx) && "text-neutral-900"
+        )}
+      >
         {text}
       </p>
     ));
