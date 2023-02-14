@@ -20,14 +20,29 @@ interface IChessHint {
   text?: string;
 }
 
+interface IChessVariant {
+  fen: string;
+  moves: IChessMove[];
+}
+
+type IStepComment =
+  | {
+      type: "text";
+      value: string;
+    }
+  | {
+      type: "variant";
+      value: IChessVariant;
+    };
+
 interface ITutorialStep {
   fen: string;
 
   move?: IChessMove;
   autoPlay?: boolean = false;
 
-  text?: string;
-  afterMove?: string;
+  comment?: IStepComment[];
+  afterMove?: IStepComment[];
 
   hints?: IChessHint[];
   highlights?: IChessHighlight[];

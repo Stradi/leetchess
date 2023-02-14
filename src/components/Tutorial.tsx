@@ -1,3 +1,4 @@
+import { transformComment } from "@/utils/comment";
 import { cn } from "@/utils/tw";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "./Button";
@@ -25,8 +26,6 @@ export default function Tutorial({ data }: TutorialProps) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [hintIndex, setHintIndex] = useState(0);
 
-  const [conversationHistory, setConversationHistory] = useState<string[]>([]);
-
   const isCompleted = currentStepIndex === data.steps.length - 1;
   const currentStep = data.steps[currentStepIndex];
 
@@ -40,12 +39,8 @@ export default function Tutorial({ data }: TutorialProps) {
     return hints ? hints.length - hintIndex : 0;
   }
 
-  const safeIncrementStep = useCallback(() => {
+  function safeIncrementStep() {
     if (currentStepIndex < data.steps.length - 1) {
-      if (currentStep.afterMove) {
-        setConversationHistory([...conversationHistory, currentStep.afterMove]);
-      }
-
       setHintIndex(0);
       setCurrentStepIndex(currentStepIndex + 1);
 
@@ -59,25 +54,9 @@ export default function Tutorial({ data }: TutorialProps) {
         boardRef.current?.setAutoShapes([]);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStepIndex, data.steps]);
+  }
 
-  useEffect(() => {
-    setConversationHistory([...conversationHistory, currentStep.text || ""]);
-    chessRef.current?.load(currentStep.fen);
-
-    if (currentStep.move && currentStep.autoPlay) {
-      chessRef.current?.move({
-        from: currentStep.move.from,
-        to: currentStep.move.to,
-      });
-
-      safeIncrementStep();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStepIndex]);
-
-  const safeIncrementHint = useCallback(() => {
+  function safeIncrementHint() {
     const hints = data.steps[currentStepIndex].hints;
     if (!hints) {
       return;
@@ -92,7 +71,91 @@ export default function Tutorial({ data }: TutorialProps) {
           .map((hint) => convertHighlight(hint.highlight))
       );
     }
-  }, [hintIndex, currentStepIndex, data.steps]);
+  }
+
+  function textConverter(value: string) {
+    return <p>{value}</p>;
+  }
+
+  const variantConverter = useCallback(
+    (value: IChessVariant) => {
+      const moves = value.moves.map((move, idx) => (
+        <li
+          key={`${move.from}-${move.to}`}
+          onMouseEnter={() => {
+            for (const move of value.moves.slice(0, idx + 1)) {
+              chessRef.current?.move({
+                from: move.from,
+                to: move.to,
+              });
+            }
+          }}
+          onMouseLeave={() => {
+            chessRef.current?.load(value.fen);
+          }}
+        >
+          <code>{`${move.from}-${move.to}`}</code>
+        </li>
+      ));
+
+      return (
+        <ul
+          onMouseEnter={() => {
+            chessRef.current?.load(value.fen);
+          }}
+          onMouseLeave={() => {
+            chessRef.current?.load(currentStep.fen);
+          }}
+        >
+          {moves}
+        </ul>
+      );
+    },
+    [currentStep]
+  );
+
+  const getConversationHistory = useCallback(() => {
+    const history = data.steps
+      .slice(0, currentStepIndex + 1)
+      .map((step, idx) => {
+        if (step.comment) {
+          const node = transformComment(step.comment, {
+            text: textConverter,
+            variant: variantConverter,
+          });
+
+          return (
+            <div
+              key={idx}
+              ref={idx === currentStepIndex ? latestExplanationRef : null}
+              className={cn(
+                "font-medium text-neutral-500",
+                idx === currentStepIndex && "text-neutral-900"
+              )}
+            >
+              {node}
+            </div>
+          );
+        }
+      })
+      .filter((x) => x);
+
+    return <div className="flex flex-col gap-4">{history}</div>;
+  }, [data.steps, currentStepIndex, variantConverter]);
+
+  useEffect(() => {
+    chessRef.current?.load(currentStep.fen);
+
+    if (currentStep.move && currentStep.autoPlay) {
+      chessRef.current?.move({
+        from: currentStep.move.from,
+        to: currentStep.move.to,
+      });
+
+      safeIncrementStep();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStepIndex]);
 
   useEffect(() => {
     latestExplanationRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -128,23 +191,8 @@ export default function Tutorial({ data }: TutorialProps) {
             {data.subtitle}
           </h2>
         </div>
-        <div className="space-y-4 grow h-0 overflow-y-scroll">
-          {conversationHistory.map((text, idx) => (
-            <p
-              ref={
-                idx === conversationHistory.length - 1
-                  ? latestExplanationRef
-                  : undefined
-              }
-              key={idx}
-              className={cn(
-                "font-medium text-neutral-500",
-                idx === conversationHistory.length - 1 && "text-neutral-900"
-              )}
-            >
-              {text}
-            </p>
-          ))}
+        <div className="grow h-0 overflow-y-scroll">
+          {getConversationHistory()}
         </div>
         <div className="flex gap-2">
           <Button
