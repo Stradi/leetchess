@@ -1,15 +1,15 @@
 import { cn } from "@/utils/tw";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Card from "./Card";
 import { ChessgroundRef } from "./Chessground";
 import LegalChess, { LegalChessRef } from "./LegalChess";
 
-function convertShape(shape: IChessShape) {
+function convertHighlight(highlight: IChessHighlight) {
   return {
-    orig: shape.from,
-    dest: shape.to,
-    brush: shape.color || "green",
+    orig: highlight.from,
+    dest: highlight.to,
+    brush: highlight.color || "green",
   };
 }
 
@@ -23,106 +23,114 @@ export default function Tutorial({ data }: TutorialProps) {
   const latestExplanationRef = useRef<HTMLParagraphElement>(null);
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [helpIndex, setHelpIndex] = useState(0);
-  const [canMakeMove, setCanMakeMove] = useState(false);
+  const [hintIndex, setHintIndex] = useState(0);
 
-  const isHelpAvailable = useMemo(() => {
-    const helps = data.steps[currentStepIndex].helps;
-    return helps && helpIndex < helps.length;
-  }, [currentStepIndex, data.steps, helpIndex]);
+  const [conversationHistory, setConversationHistory] = useState<string[]>([]);
 
-  const availableHelpCount = useMemo(() => {
-    const helps = data.steps[currentStepIndex].helps;
-    return helps ? helps.length - helpIndex : 0;
-  }, [currentStepIndex, data.steps, helpIndex]);
+  const isCompleted = currentStepIndex === data.steps.length - 1;
+  const currentStep = data.steps[currentStepIndex];
 
-  const isCompleted = useMemo(() => {
-    return currentStepIndex === data.steps.length - 1;
-  }, [currentStepIndex, data.steps]);
+  function isHintAvailable() {
+    const hints = data.steps[currentStepIndex].hints;
+    return hints && hintIndex < hints.length;
+  }
 
-  const getExplanationText = useCallback(() => {
-    const refCondition = (idx: number) =>
-      idx === allExplanations.length + openedHelps.length - 1;
+  function availableHintCount() {
+    const hints = data.steps[currentStepIndex].hints;
+    return hints ? hints.length - hintIndex : 0;
+  }
+  //   const refCondition = (idx: number) =>
+  //     idx === allExplanations.length + openedHints.length - 1;
 
-    const allExplanations = data.steps
-      .filter((step) => step.explanation)
-      .slice(0, currentStepIndex + 1)
-      .map((step) => step.explanation);
+  //   const allExplanations = data.steps
+  //     .filter((step) => step.text)
+  //     .slice(0, currentStepIndex + 1)
+  //     .map((step) => step.text);
 
-    const allHelps = data.steps[currentStepIndex].helps || [];
-    const openedHelps = allHelps
-      .slice(0, helpIndex)
-      .filter((help) => help.explanation)
-      .map((help) => help.explanation);
+  //   const allHints = data.steps[currentStepIndex].hints || [];
+  //   const openedHints = allHints
+  //     .slice(0, hintIndex)
+  //     .filter((hint) => hint.text)
+  //     .map((hint) => hint.explanation);
 
-    return [...allExplanations, ...openedHelps].map((text, idx) => (
-      <p
-        ref={refCondition(idx) ? latestExplanationRef : undefined}
-        key={idx}
-        className={cn(
-          "font-medium text-neutral-500",
-          refCondition(idx) && "text-neutral-900"
-        )}
-      >
-        {text}
-      </p>
-    ));
-  }, [currentStepIndex, data.steps, helpIndex]);
+  //   return [...allExplanations, ...openedHints].map((text, idx) => (
+  //     <p
+  //       ref={refCondition(idx) ? latestExplanationRef : undefined}
+  //       key={idx}
+  //       className={cn(
+  //         "font-medium text-neutral-500",
+  //         refCondition(idx) && "text-neutral-900"
+  //       )}
+  //     >
+  //       {text}
+  //     </p>
+  //   ));
+  // }, [currentStepIndex, data.steps, hintIndex]);
 
   const safeIncrementStep = useCallback(() => {
     if (currentStepIndex < data.steps.length - 1) {
-      setHelpIndex(0);
+      if (currentStep.afterMove) {
+        setConversationHistory([...conversationHistory, currentStep.afterMove]);
+      }
+
+      setHintIndex(0);
       setCurrentStepIndex(currentStepIndex + 1);
+
       const nextStep = data.steps[currentStepIndex + 1];
 
-      if (nextStep.shapes) {
-        boardRef.current?.setAutoShapes(nextStep.shapes.map(convertShape));
+      if (nextStep.highlights) {
+        boardRef.current?.setAutoShapes(
+          nextStep.highlights.map(convertHighlight)
+        );
       } else {
         boardRef.current?.setAutoShapes([]);
       }
-
-      if (nextStep.move) {
-        setCanMakeMove(true);
-      } else {
-        setCanMakeMove(false);
-      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStepIndex, data.steps]);
 
-  const safeIncrementHelp = useCallback(() => {
-    const helps = data.steps[currentStepIndex].helps;
-    if (!helps) {
+  useEffect(() => {
+    setConversationHistory([...conversationHistory, currentStep.text || ""]);
+
+    if (currentStep.move && currentStep.autoPlay) {
+      chessRef.current?.move({
+        from: currentStep.move.from,
+        to: currentStep.move.to,
+      });
+
+      safeIncrementStep();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStepIndex]);
+
+  const safeIncrementHint = useCallback(() => {
+    const hints = data.steps[currentStepIndex].hints;
+    if (!hints) {
       return;
     }
 
-    if (helpIndex <= helps.length - 1) {
-      setHelpIndex(helpIndex + 1);
+    if (hintIndex <= hints.length - 1) {
+      setHintIndex(hintIndex + 1);
 
       boardRef.current?.setAutoShapes(
-        helps.slice(0, helpIndex + 1).map((help) => convertShape(help.shape))
+        hints
+          .slice(0, hintIndex + 1)
+          .map((hint) => convertHighlight(hint.highlight))
       );
     }
-  }, [helpIndex, currentStepIndex, data.steps]);
-
-  useEffect(() => {
-    if (data.steps[currentStepIndex].autoPlay) {
-      chessRef.current?.move(data.steps[currentStepIndex].move as IChessMove);
-      safeIncrementStep();
-    }
-  }, [currentStepIndex, data.steps, safeIncrementStep]);
+  }, [hintIndex, currentStepIndex, data.steps]);
 
   useEffect(() => {
     latestExplanationRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [currentStepIndex, helpIndex]);
+  }, [currentStepIndex, hintIndex]);
 
   function onMove(move: { from: string; to: string }) {
-    if (!canMakeMove) {
+    if (!currentStep.move) {
       chessRef.current?.undo();
       return;
     }
 
     const requiredMove = data.steps[currentStepIndex].move as IChessMove;
-
     if (move.from === requiredMove.from && move.to === requiredMove.to) {
       safeIncrementStep();
     } else {
@@ -147,19 +155,34 @@ export default function Tutorial({ data }: TutorialProps) {
           </h2>
         </div>
         <div className="space-y-4 grow h-0 overflow-y-scroll">
-          {getExplanationText()}
+          {conversationHistory.map((text, idx) => (
+            <p
+              ref={
+                idx === conversationHistory.length - 1
+                  ? latestExplanationRef
+                  : undefined
+              }
+              key={idx}
+              className={cn(
+                "font-medium text-neutral-500",
+                idx === conversationHistory.length - 1 && "text-neutral-900"
+              )}
+            >
+              {text}
+            </p>
+          ))}
         </div>
         <div className="flex gap-2">
           <Button
             variant="secondary"
-            disabled={!isHelpAvailable}
-            onClick={() => safeIncrementHelp()}
+            disabled={!isHintAvailable()}
+            onClick={() => safeIncrementHint()}
           >
             Hint
           </Button>
           <Button
-            disabled={canMakeMove && !isCompleted}
-            onClick={() => !canMakeMove && safeIncrementStep()}
+            disabled={currentStep.move && !isCompleted}
+            onClick={() => !currentStep.move && safeIncrementStep()}
           >
             {isCompleted ? "Next Lesson" : "Next Step"}
           </Button>
@@ -174,8 +197,8 @@ export default function Tutorial({ data }: TutorialProps) {
               <span>Completed</span>
             )}
             <span>
-              {isHelpAvailable
-                ? `${availableHelpCount} hints available`
+              {isHintAvailable()
+                ? `${availableHintCount()} hints available`
                 : "No hints available."}
             </span>
           </span>
