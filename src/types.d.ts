@@ -21,6 +21,8 @@ interface IChessHint {
 }
 
 interface ITutorialStep {
+  fen: string;
+
   move?: IChessMove;
   autoPlay?: boolean = false;
 
@@ -35,6 +37,5 @@ interface IChessTutorial {
   id: number;
   name: string;
   subtitle: string;
-  startingFen: string;
   steps: ITutorialStep[];
 }

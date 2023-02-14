@@ -64,6 +64,7 @@ export default function Tutorial({ data }: TutorialProps) {
 
   useEffect(() => {
     setConversationHistory([...conversationHistory, currentStep.text || ""]);
+    chessRef.current?.load(currentStep.fen);
 
     if (currentStep.move && currentStep.autoPlay) {
       chessRef.current?.move({
@@ -99,7 +100,7 @@ export default function Tutorial({ data }: TutorialProps) {
 
   function onMove(move: { from: string; to: string }) {
     if (!currentStep.move) {
-      chessRef.current?.undo();
+      chessRef.current?.load(currentStep.fen);
       return;
     }
 
@@ -107,7 +108,7 @@ export default function Tutorial({ data }: TutorialProps) {
     if (move.from === requiredMove.from && move.to === requiredMove.to) {
       safeIncrementStep();
     } else {
-      chessRef.current?.undo();
+      chessRef.current?.load(currentStep.fen);
     }
   }
 
@@ -117,7 +118,7 @@ export default function Tutorial({ data }: TutorialProps) {
         boardRef={boardRef}
         ref={chessRef}
         className="flex-grow-0 flex-shrink-0 aspect-square w-3/5"
-        startingFen={data.startingFen}
+        startingFen={currentStep.fen}
         onMove={onMove}
       />
       <Card className="flex flex-col w-2/5">
