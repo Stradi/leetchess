@@ -39,33 +39,6 @@ export default function Tutorial({ data }: TutorialProps) {
     const hints = data.steps[currentStepIndex].hints;
     return hints ? hints.length - hintIndex : 0;
   }
-  //   const refCondition = (idx: number) =>
-  //     idx === allExplanations.length + openedHints.length - 1;
-
-  //   const allExplanations = data.steps
-  //     .filter((step) => step.text)
-  //     .slice(0, currentStepIndex + 1)
-  //     .map((step) => step.text);
-
-  //   const allHints = data.steps[currentStepIndex].hints || [];
-  //   const openedHints = allHints
-  //     .slice(0, hintIndex)
-  //     .filter((hint) => hint.text)
-  //     .map((hint) => hint.explanation);
-
-  //   return [...allExplanations, ...openedHints].map((text, idx) => (
-  //     <p
-  //       ref={refCondition(idx) ? latestExplanationRef : undefined}
-  //       key={idx}
-  //       className={cn(
-  //         "font-medium text-neutral-500",
-  //         refCondition(idx) && "text-neutral-900"
-  //       )}
-  //     >
-  //       {text}
-  //     </p>
-  //   ));
-  // }, [currentStepIndex, data.steps, hintIndex]);
 
   const safeIncrementStep = useCallback(() => {
     if (currentStepIndex < data.steps.length - 1) {
