@@ -14,3 +14,23 @@
   font-display: swap;
   font-style: normal;
 }
+
+body {
+  @apply bg-neutral-900 text-neutral-50;
+}
+
+cg-board {
+  @apply rounded-2xl;
+}
+
+#conversation::-webkit-scrollbar {
+  @apply w-3;
+}
+
+#conversation::-webkit-scrollbar-track {
+  @apply bg-neutral-800 rounded-full;
+}
+
+#conversation::-webkit-scrollbar-thumb {
+  @apply bg-neutral-600 rounded-full hover:bg-neutral-500;
+}

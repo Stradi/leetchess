@@ -2,7 +2,6 @@ import { transformComment } from "@/utils/comment";
 import { cn } from "@/utils/tw";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "../Button";
-import Card from "../Card";
 import { ChessgroundRef } from "../Chessground";
 import LegalChess, { LegalChessRef } from "../LegalChess";
 import ConversationVariant from "./ConversationVariant";
@@ -106,10 +105,16 @@ export default function Tutorial({ data }: TutorialProps) {
               key={idx}
               ref={idx === currentStepIndex ? latestExplanationRef : null}
               className={cn(
-                "font-medium text-neutral-500",
-                idx === currentStepIndex && "text-neutral-900"
+                "mr-2 flex gap-4 font-medium text-neutral-500",
+                idx === currentStepIndex && "text-neutral-400"
               )}
             >
+              <span
+                className={cn(
+                  "select-none font-bold text-neutral-700",
+                  idx === currentStepIndex && "text-neutral-500"
+                )}
+              >{`${idx + 1}.`}</span>
               <div className="relative">{node}</div>
             </div>
           );
@@ -156,25 +161,34 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   return (
-    <div className="md:flex md:gap-4 space-y-4 md:space-y-0">
+    <div className="flex gap-4 rounded-3xl bg-neutral-800 p-6">
       <LegalChess
         boardRef={boardRef}
         ref={chessRef}
-        className="flex-grow-0 flex-shrink-0 aspect-square md:w-3/5"
+        className="aspect-square w-3/5 shrink-0 grow-0"
         startingFen={currentStep.fen}
         onMove={onMove}
       />
-      <Card className="flex flex-col md:w-2/5">
-        <div>
-          <h1 className="text-2xl font-medium text-neutral-700">{data.name}</h1>
+      <div className="flex w-2/5 flex-col gap-4 rounded-2xl bg-neutral-900 p-4">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-neutral-50">{data.name}</h1>
           <h2 className="text-sm font-medium text-neutral-500">
             {data.subtitle}
           </h2>
         </div>
-        <div className="grow md:h-0 h-36 overflow-y-scroll">
+        <hr className="border-neutral-800" />
+        <div className="h-0 grow overflow-y-scroll" id="conversation">
           {getConversationHistory()}
         </div>
+        <hr className="border-neutral-800" />
         <div className="flex gap-2">
+          <Button
+            className="w-full"
+            disabled={currentStep.move && !isCompleted}
+            onClick={() => !currentStep.move && safeIncrementStep()}
+          >
+            {isCompleted ? "Next Lesson" : "Next Step"}
+          </Button>
           <Button
             variant="secondary"
             disabled={!isHintAvailable()}
@@ -182,14 +196,10 @@ export default function Tutorial({ data }: TutorialProps) {
           >
             Hint
           </Button>
-          <Button
-            disabled={currentStep.move && !isCompleted}
-            onClick={() => !currentStep.move && safeIncrementStep()}
-          >
-            {isCompleted ? "Next Lesson" : "Next Step"}
-          </Button>
         </div>
-        <p className="text-sm font-medium text-neutral-500 select-none">
+        <hr className="border-neutral-800" />
+
+        <p className="select-none text-sm font-medium text-neutral-500">
           <span className="flex justify-between">
             {!isCompleted ? (
               <span>
@@ -205,7 +215,7 @@ export default function Tutorial({ data }: TutorialProps) {
             </span>
           </span>
         </p>
-      </Card>
+      </div>
     </div>
   );
 }

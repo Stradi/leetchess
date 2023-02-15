@@ -33,12 +33,12 @@ export default function ConversationVariant({
       {showVariantMoves && (
         <span
           className={cn(
-            "peer absolute left-0 right-0 bottom-0 z-50",
-            "p-4 translate-y-full w-full",
-            "bg-blue-50 rounded-lg shadow-lg shadow-blue-500/20 ring-1 ring-blue-500"
+            "peer absolute inset-x-0 bottom-0 z-50",
+            "w-full translate-y-full p-4",
+            "rounded-lg bg-blue-50 shadow-lg shadow-blue-500/20 ring-1 ring-blue-500"
           )}
         >
-          <ul className="flex [&>*]:px-2 flex-wrap">
+          <ul className="flex flex-wrap [&>*]:px-2">
             {variant.moves.map((move, idx) => (
               <li
                 key={`${move.from}-${move.to}`}
@@ -55,7 +55,7 @@ export default function ConversationVariant({
                 }}
                 className={cn(
                   "cursor-pointer font-bold text-black",
-                  "hover:ring-1 hover:ring-blue-500 rounded-lg"
+                  "rounded-lg hover:ring-1 hover:ring-blue-500"
                 )}
               >
                 <code>{`${idx + 1}. ${move.from}-${move.to}`}</code>
@@ -67,10 +67,10 @@ export default function ConversationVariant({
       <span
         className={cn(
           "inline-block rounded-lg px-4",
-          "font-mono text-lg select-none font-bold",
+          "select-none font-mono text-lg font-bold",
           "transition duration-100",
-          "peer-hover:ring-1 peer-hover:ring-blue-500 peer-hover:text-black peer-hover:bg-blue-50",
-          "hover:ring-1 hover:ring-blue-500 hover:text-black hover:bg-blue-50"
+          "peer-hover:bg-blue-50 peer-hover:text-black peer-hover:ring-1 peer-hover:ring-blue-500",
+          "hover:bg-blue-50 hover:text-black hover:ring-1 hover:ring-blue-500"
         )}
       >
         {variantName}
