@@ -21,6 +21,7 @@ interface IChessHint {
 }
 
 interface IChessVariant {
+  displayName?: string;
   fen: string;
   moves: IChessMove[];
 }
