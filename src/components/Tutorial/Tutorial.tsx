@@ -124,12 +124,15 @@ export default function Tutorial({ data }: TutorialProps) {
     chessRef.current?.load(currentStep.fen);
 
     if (currentStep.move && currentStep.autoPlay) {
-      chessRef.current?.move({
-        from: currentStep.move.from,
-        to: currentStep.move.to,
-      });
+      const move = currentStep.move;
+      setTimeout(() => {
+        chessRef.current?.move({
+          from: move.from,
+          to: move.to,
+        });
 
-      safeIncrementStep();
+        safeIncrementStep();
+      }, 500);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStepIndex]);
