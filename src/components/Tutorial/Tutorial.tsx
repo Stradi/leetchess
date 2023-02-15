@@ -1,10 +1,11 @@
 import { transformComment } from "@/utils/comment";
 import { cn } from "@/utils/tw";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Button from "./Button";
-import Card from "./Card";
-import { ChessgroundRef } from "./Chessground";
-import LegalChess, { LegalChessRef } from "./LegalChess";
+import Button from "../Button";
+import Card from "../Card";
+import { ChessgroundRef } from "../Chessground";
+import LegalChess, { LegalChessRef } from "../LegalChess";
+import ConversationVariant from "./ConversationVariant";
 
 function convertHighlight(highlight: IChessHighlight) {
   return {
@@ -74,41 +75,17 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   function textConverter(value: string) {
-    return <p>{value}</p>;
+    return <span>{value}</span>;
   }
 
   const variantConverter = useCallback(
     (value: IChessVariant) => {
-      const moves = value.moves.map((move, idx) => (
-        <li
-          key={`${move.from}-${move.to}`}
-          onMouseEnter={() => {
-            for (const move of value.moves.slice(0, idx + 1)) {
-              chessRef.current?.move({
-                from: move.from,
-                to: move.to,
-              });
-            }
-          }}
-          onMouseLeave={() => {
-            chessRef.current?.load(value.fen);
-          }}
-        >
-          <code>{`${move.from}-${move.to}`}</code>
-        </li>
-      ));
-
       return (
-        <ul
-          onMouseEnter={() => {
-            chessRef.current?.load(value.fen);
-          }}
-          onMouseLeave={() => {
-            chessRef.current?.load(currentStep.fen);
-          }}
-        >
-          {moves}
-        </ul>
+        <ConversationVariant
+          defaultFen={currentStep.fen}
+          chessRef={chessRef}
+          variant={value}
+        />
       );
     },
     [currentStep]
@@ -133,14 +110,14 @@ export default function Tutorial({ data }: TutorialProps) {
                 idx === currentStepIndex && "text-neutral-900"
               )}
             >
-              {node}
+              <div className="relative">{node}</div>
             </div>
           );
         }
       })
       .filter((x) => x);
 
-    return <div className="flex flex-col gap-4">{history}</div>;
+    return <div className="space-y-4">{history}</div>;
   }, [data.steps, currentStepIndex, variantConverter]);
 
   useEffect(() => {
@@ -176,22 +153,22 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   return (
-    <div className="flex gap-4">
+    <div className="md:flex md:gap-4 space-y-4 md:space-y-0">
       <LegalChess
         boardRef={boardRef}
         ref={chessRef}
-        className="flex-grow-0 flex-shrink-0 aspect-square w-3/5"
+        className="flex-grow-0 flex-shrink-0 aspect-square md:w-3/5"
         startingFen={currentStep.fen}
         onMove={onMove}
       />
-      <Card className="flex flex-col w-2/5">
+      <Card className="flex flex-col md:w-2/5">
         <div>
           <h1 className="text-2xl font-medium text-neutral-700">{data.name}</h1>
           <h2 className="text-sm font-medium text-neutral-500">
             {data.subtitle}
           </h2>
         </div>
-        <div className="grow h-0 overflow-y-scroll">
+        <div className="grow md:h-0 h-36 overflow-y-scroll">
           {getConversationHistory()}
         </div>
         <div className="flex gap-2">

@@ -11,11 +11,7 @@ export default function Home() {
         comment: [
           {
             type: "text",
-            value: "Welcome to the tutorial!",
-          },
-          {
-            type: "text",
-            value: "I am going to show some variants.",
+            value: "Welcome to the tutorial! I am going to show some variants.",
           },
           {
             type: "variant",
@@ -29,6 +25,22 @@ export default function Home() {
                 {
                   from: "e7",
                   to: "e5",
+                },
+                {
+                  from: "a2",
+                  to: "a3",
+                },
+                {
+                  from: "a7",
+                  to: "a6",
+                },
+                {
+                  from: "a3",
+                  to: "a4",
+                },
+                {
+                  from: "a6",
+                  to: "a5",
                 },
               ],
             },
