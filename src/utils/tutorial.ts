@@ -3,6 +3,7 @@ import path from "path";
 
 const DATA_PATH = "data";
 const TUTORIALS_PATH = "tutorials";
+const TAGS_PATH = "tags";
 
 export async function getAllTutorials() {
   const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH);
@@ -24,7 +25,11 @@ export async function getTutorialMeta(slug: string) {
     throw new Error(`Meta file doesn't exists: ${metaPath}`);
   }
 
-  return (await fs.readJSON(metaPath)) as IChessTutorialMeta;
+  const meta = (await fs.readJSON(metaPath)) as IChessTutorialMeta;
+
+  // At this point, tags are just string. So we can safely map them to the actual tag object.
+  meta.tags = await Promise.all(meta.tags.map((tag) => getTag(tag as string)));
+  return meta;
 }
 
 export async function getTutorialIndex(slug: string) {
@@ -49,4 +54,18 @@ export async function readFullTutorial(slug: string) {
     ...meta,
     ...index,
   } as IChessTutorial;
+}
+
+async function getTag(slug: string) {
+  const basePath = path.resolve(process.cwd(), DATA_PATH, TAGS_PATH);
+  if (!(await fs.pathExists(basePath))) {
+    throw new Error(`Tags folder doesn't exists: ${basePath}`);
+  }
+
+  const tagPath = path.resolve(basePath, `${slug}.json`);
+  if (!(await fs.exists(tagPath))) {
+    throw new Error(`Tag file doesn't exists: ${tagPath}`);
+  }
+
+  return (await fs.readJSON(tagPath)) as ITag;
 }

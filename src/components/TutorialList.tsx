@@ -17,8 +17,8 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
       )}
     >
       <div className="space-x-1 text-sm font-medium text-neutral-400">
-        {tutorial.tags.map((tag) => (
-          <Link key={tag} href={`/learn/tag/${tag}`}>
+        {(tutorial.tags as ITag[]).map((tag: ITag) => (
+          <Link key={tag.slug} href={`/learn/tag/${tag.slug}`}>
             <span
               className={cn(
                 "inline-block select-none rounded-full px-2 py-1",
@@ -26,7 +26,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
                 " hover:bg-green-700 hover:text-white hover:shadow-md hover:shadow-green-900/50"
               )}
             >
-              {tag}
+              {tag.name}
             </span>
           </Link>
         ))}

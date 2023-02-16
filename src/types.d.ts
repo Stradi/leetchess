@@ -54,7 +54,7 @@ interface IChessTutorialMeta {
   slug: string;
   subtitle: string;
   description: string;
-  tags: string[];
+  tags: ITag[] | string[];
 }
 
 interface IChessTutorialIndex {
@@ -62,3 +62,10 @@ interface IChessTutorialIndex {
 }
 
 type IChessTutorial = IChessTutorialMeta & IChessTutorialIndex;
+
+interface ITag {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+}
