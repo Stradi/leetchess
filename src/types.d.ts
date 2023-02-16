@@ -54,7 +54,6 @@ interface IChessTutorialMeta {
   slug: string;
   subtitle: string;
   description: string;
-  categories: string[];
   tags: string[];
 }
 
