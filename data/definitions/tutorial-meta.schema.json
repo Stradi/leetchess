@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Tutorial Meta",
+  "description": "Metadata for a tutorial",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for a tutorial",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Name of the tutorial",
+      "type": "string"
+    },
+    "slug": {
+      "description": "Slug of the tutorial",
+      "type": "string"
+    },
+    "subtitle": {
+      "description": "Subtitle of the tutorial",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the tutorial",
+      "type": "string"
+    },
+    "categories": {
+      "description": "Categories of the tutorial",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "description": "Tags of the tutorial",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "subtitle",
+    "description",
+    "categories",
+    "tags"
+  ]
+}
