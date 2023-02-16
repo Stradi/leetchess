@@ -183,18 +183,18 @@ export default function Tutorial({ data }: TutorialProps) {
         <hr className="border-neutral-800" />
         <div className="flex gap-2">
           <Button
-            className="w-full"
-            disabled={currentStep.move && !isCompleted}
-            onClick={() => !currentStep.move && safeIncrementStep()}
-          >
-            {isCompleted ? "Next Lesson" : "Next Step"}
-          </Button>
-          <Button
             variant="secondary"
             disabled={!isHintAvailable()}
             onClick={() => safeIncrementHint()}
           >
             Hint
+          </Button>
+          <Button
+            className="w-full"
+            disabled={currentStep.move && !isCompleted}
+            onClick={() => !currentStep.move && safeIncrementStep()}
+          >
+            {isCompleted ? "Next Lesson" : "Next Step"}
           </Button>
         </div>
         <hr className="border-neutral-800" />
