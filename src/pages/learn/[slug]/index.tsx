@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import Tutorial from "@/components/Tutorial";
 import { getAllTutorials, readFullTutorial } from "@/utils/tutorial";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
@@ -14,9 +15,9 @@ interface PageProps {
 
 export default function Page({ slug, tutorial }: PageProps) {
   return (
-    <div className="mx-auto max-w-6xl">
+    <Container className="mx-auto max-w-6xl">
       <Tutorial data={tutorial} />
-    </div>
+    </Container>
   );
 }
 
