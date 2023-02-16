@@ -13,7 +13,7 @@ export async function getAllTutorials() {
   return await fs.readdir(basePath);
 }
 
-export async function readFullTutorial(slug: string) {
+export async function getTutorialMeta(slug: string) {
   const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
   if (!(await fs.pathExists(basePath))) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
@@ -24,16 +24,29 @@ export async function readFullTutorial(slug: string) {
     throw new Error(`Meta file doesn't exists: ${metaPath}`);
   }
 
+  return (await fs.readJSON(metaPath)) as IChessTutorialMeta;
+}
+
+export async function getTutorialIndex(slug: string) {
+  const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
+  if (!(await fs.pathExists(basePath))) {
+    throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
+  }
+
   const indexPath = path.resolve(basePath, "index.json");
   if (!(await fs.pathExists(indexPath))) {
     throw new Error(`Index file doesn't exists: ${indexPath}`);
   }
 
-  const metaContents = (await fs.readJSON(metaPath)) as IChessTutorialMeta;
-  const indexContents = (await fs.readJSON(indexPath)) as IChessTutorialIndex;
+  return (await fs.readJSON(indexPath)) as IChessTutorialIndex;
+}
+
+export async function readFullTutorial(slug: string) {
+  const meta = await getTutorialMeta(slug);
+  const index = await getTutorialIndex(slug);
 
   return {
-    ...metaContents,
-    ...indexContents,
+    ...meta,
+    ...index,
   } as IChessTutorial;
 }
