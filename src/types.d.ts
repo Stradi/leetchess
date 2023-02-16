@@ -17,7 +17,6 @@ interface IChessHighlight {
 
 interface IChessHint {
   highlight: IChessHighlight;
-  text?: string;
 }
 
 interface IChessVariant {

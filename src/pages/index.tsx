@@ -22,6 +22,7 @@ export default function Home() {
           {
             type: "variant",
             value: {
+              displayName: "Test",
               fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
               moves: [
                 {
@@ -58,6 +59,19 @@ export default function Home() {
           from: "c4",
           to: "e6",
         },
+        hints: [
+          {
+            highlight: {
+              from: "c4",
+            },
+          },
+          {
+            highlight: {
+              from: "c4",
+              to: "e6",
+            },
+          },
+        ],
       },
       {
         fen: "r2q1rk1/bpp2ppp/p1npBn2/4p3/P3P3/2PP1N1P/1P1N1PP1/R1BQ1RK1 b Qq - 0 1",
@@ -66,6 +80,15 @@ export default function Home() {
             type: "text",
             value:
               "However, black's bishop is protected by the pawn on f7, so black can capture white's bishop in return.",
+          },
+        ],
+        highlights: [
+          {
+            from: "f7",
+          },
+          {
+            from: "f7",
+            to: "e6",
           },
         ],
         move: {
