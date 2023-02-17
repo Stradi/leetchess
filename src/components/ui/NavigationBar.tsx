@@ -1,6 +1,7 @@
 import { INavigationItem } from "@/config/config.types";
 import { cn } from "@/utils/tw";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { ChevronDownIcon } from "./Icons";
 
 interface NavigationBarProps {
   items: INavigationItem[];
@@ -24,13 +25,22 @@ export default function NavigationBar({ items }: NavigationBarProps) {
               <>
                 <NavigationMenu.Trigger
                   className={cn(
-                    "rounded-2xl px-4 py-1",
+                    "group flex items-center gap-1 rounded-2xl px-4 py-1",
                     "hover:bg-neutral-700/50 hover:text-neutral-50",
                     "transition-colors duration-100",
                     "data-[state=open]:bg-neutral-700/50 data-[state=open]:text-neutral-50"
                   )}
                 >
                   {item.label}
+                  {item.megaMenu && (
+                    <ChevronDownIcon
+                      size="xs"
+                      stroke="thicker"
+                      className={cn(
+                        "transition-transform duration-200 group-data-[state='open']:rotate-180"
+                      )}
+                    />
+                  )}
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content
                   className={cn(
