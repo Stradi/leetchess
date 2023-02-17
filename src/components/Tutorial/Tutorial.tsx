@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import { ChessgroundRef } from "../Chessground";
 import LegalChess, { LegalChessRef } from "../LegalChess";
-import ConversationVariant from "./ConversationVariant";
+import Variant from "./Variant";
 
 function convertHighlight(highlight: IChessHighlight) {
   return {
@@ -80,7 +80,7 @@ export default function Tutorial({ data }: TutorialProps) {
   const variantConverter = useCallback(
     (value: IChessVariant) => {
       return (
-        <ConversationVariant
+        <Variant
           defaultFen={currentStep.fen}
           chessRef={chessRef}
           variant={value}
