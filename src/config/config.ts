@@ -1,32 +1,39 @@
+import { getUrlFor, PermalinkResources } from "@/utils/permalinks";
 import { IConfig } from "./config.types";
 
 export default {
   navigation: [
     {
       label: "Learn",
-      href: "/learn",
+      href: getUrlFor(PermalinkResources.Tutorial),
       megaMenu: {
         title: "Chess Tutorials",
         description: "Learn chess from the beginning",
         items: [
           {
             label: "All Tutorials",
-            href: "/learn",
+            href: getUrlFor(PermalinkResources.Tutorial),
             description: "Learn chess from the beginning",
           },
           {
             label: "Openings",
-            href: "/learn/openings",
+            href: getUrlFor(PermalinkResources.Tutorial, [], {
+              filter: "openings",
+            }),
             description: "Learn chess openings and how to play them",
           },
           {
             label: "Tactics",
-            href: "/learn/tactics",
+            href: getUrlFor(PermalinkResources.Tutorial, [], {
+              filter: "tactics",
+            }),
             description: "Learn chess tactics and how to use them",
           },
           {
             label: "Puzzles",
-            href: "/learn/puzzles",
+            href: getUrlFor(PermalinkResources.Tutorial, [], {
+              filter: "puzzles",
+            }),
             description: "Improve your chess skills by solving chess puzzles",
           },
         ],
@@ -34,7 +41,7 @@ export default {
     },
     {
       label: "Community",
-      href: "/community",
+      href: getUrlFor(PermalinkResources.Community),
       megaMenu: {
         title: "LeetChess Community",
         description: "Join the LeetChess community",
@@ -64,7 +71,7 @@ export default {
     },
     {
       label: "Blog",
-      href: "/blog",
+      href: getUrlFor(PermalinkResources.Blog),
     },
   ],
 } as IConfig;

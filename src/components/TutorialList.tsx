@@ -1,3 +1,4 @@
+import { getUrlFor, PermalinkResources } from "@/utils/permalinks";
 import { cn } from "@/utils/tw";
 import Link from "next/link";
 import Button from "./Button";
@@ -18,7 +19,12 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
     >
       <div className="space-x-1 text-sm font-medium text-neutral-400">
         {(tutorial.tags as ITag[]).map((tag: ITag) => (
-          <Link key={tag.slug} href={`/learn/tag/${tag.slug}`}>
+          <Link
+            key={tag.slug}
+            href={getUrlFor(PermalinkResources.Tag, [], {
+              filter: tag.slug,
+            })}
+          >
             <span
               className={cn(
                 "inline-block select-none rounded-full px-2 py-1",
@@ -41,7 +47,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
         <Button
           variant="secondary"
           asLink
-          href={`/learn/${tutorial.slug}/read`}
+          href={getUrlFor(PermalinkResources.Tutorial, [tutorial.slug, "read"])}
           className="w-full"
         >
           Read
@@ -49,7 +55,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
         <Button
           variant="primary"
           asLink
-          href={`/learn/${tutorial.slug}`}
+          href={getUrlFor(PermalinkResources.Tutorial, [tutorial.slug])}
           className="w-full"
         >
           Learn
