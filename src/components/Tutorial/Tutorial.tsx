@@ -110,6 +110,7 @@ export default function Tutorial({ data }: TutorialProps) {
               )}
             >
               <span
+                key={idx}
                 className={cn(
                   "select-none font-bold text-neutral-700",
                   idx === currentStepIndex && "text-neutral-500"
