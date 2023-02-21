@@ -56,3 +56,15 @@ export function ChevronDownIcon({ ...props }: BaseIconProps) {
     </BaseIcon>
   );
 }
+
+export function ChevronRightIcon({ ...props }: BaseIconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </BaseIcon>
+  );
+}
