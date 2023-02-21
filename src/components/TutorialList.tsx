@@ -2,6 +2,7 @@ import { getUrlFor, PermalinkResources } from "@/utils/permalinks";
 import { cn } from "@/utils/tw";
 import Link from "next/link";
 import Button from "./Button";
+import Card from "./ui/Card";
 
 interface SingleTutorialProps {
   tutorial: IChessTutorialMeta;
@@ -9,15 +10,8 @@ interface SingleTutorialProps {
 
 function SingleTutorial({ tutorial }: SingleTutorialProps) {
   return (
-    <div
-      className={cn(
-        "flex aspect-square w-full flex-col justify-between",
-        "rounded-2xl bg-neutral-800 p-4 text-center",
-        "transition duration-100",
-        "hover:shadow-lg"
-      )}
-    >
-      <div className="space-x-1 text-sm font-medium text-neutral-400">
+    <Card>
+      <Card.Header className="space-x-1">
         {(tutorial.tags as ITag[]).map((tag: ITag) => (
           <Link
             key={tag.slug}
@@ -36,22 +30,14 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
             </span>
           </Link>
         ))}
-      </div>
-      <div className="">
+      </Card.Header>
+      <Card.Body>
         <h2 className="text-2xl font-bold text-neutral-50">{tutorial.name}</h2>
         <p className="text-sm font-medium text-neutral-400">
           {tutorial.subtitle}
         </p>
-      </div>
-      <div className="flex gap-2">
-        <Button
-          variant="secondary"
-          asLink
-          href={getUrlFor(PermalinkResources.Tutorial, [tutorial.slug, "read"])}
-          className="w-full"
-        >
-          Read
-        </Button>
+      </Card.Body>
+      <Card.Footer>
         <Button
           variant="primary"
           asLink
@@ -60,8 +46,8 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
         >
           Learn
         </Button>
-      </div>
-    </div>
+      </Card.Footer>
+    </Card>
   );
 }
 
