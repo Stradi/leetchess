@@ -16,25 +16,9 @@ export default {
             description: "Learn chess from the beginning",
           },
           {
-            label: "Openings",
-            href: getUrlFor(PermalinkResources.Tutorial, [], {
-              filter: "openings",
-            }),
-            description: "Learn chess openings and how to play them",
-          },
-          {
-            label: "Tactics",
-            href: getUrlFor(PermalinkResources.Tutorial, [], {
-              filter: "tactics",
-            }),
-            description: "Learn chess tactics and how to use them",
-          },
-          {
-            label: "Puzzles",
-            href: getUrlFor(PermalinkResources.Tutorial, [], {
-              filter: "puzzles",
-            }),
-            description: "Improve your chess skills by solving chess puzzles",
+            label: "Learning Paths",
+            href: getUrlFor(PermalinkResources.LearningPath, []),
+            description: "Learn chess with a structured learning plan",
           },
         ],
       },

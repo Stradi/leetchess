@@ -69,3 +69,12 @@ interface ITag {
   slug: string;
   description: string;
 }
+
+interface ILearningPath {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+  tags: ITag[] | string[];
+  tutorials: IChessTutorial[] | string[];
+}

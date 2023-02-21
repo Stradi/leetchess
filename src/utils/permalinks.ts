@@ -1,5 +1,6 @@
 export enum PermalinkResources {
   Tutorial = "tutorial",
+  LearningPath = "learning-path",
   Tag = "tag",
   Community = "community",
   Blog = "blog",
@@ -25,6 +26,8 @@ export function getUrlFor(
       return `/learn${pathString}${queryString}`;
     case PermalinkResources.Tag:
       return `/learn${queryString}`;
+    case PermalinkResources.LearningPath:
+      return `/paths${pathString}${queryString}`;
     case PermalinkResources.Community:
       return `/community${pathString}${queryString}`;
     case PermalinkResources.Blog:
