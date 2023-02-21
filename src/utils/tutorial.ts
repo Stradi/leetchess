@@ -63,7 +63,7 @@ export async function getAllLearningPaths() {
     throw new Error(`Learning paths folder doesn't exists: ${basePath}`);
   }
 
-  return await fs.readdir(basePath);
+  return (await fs.readdir(basePath)).map((file) => file.replace(".json", ""));
 }
 
 export async function getLearningPath(slug: string) {
@@ -72,7 +72,7 @@ export async function getLearningPath(slug: string) {
     throw new Error(`Learning paths folder doesn't exists: ${basePath}`);
   }
 
-  const learningPathPath = path.resolve(basePath, slug);
+  const learningPathPath = path.resolve(basePath, `${slug}.json`);
   if (!(await fs.pathExists(learningPathPath))) {
     throw new Error(`Learning path file doesn't exists: ${learningPathPath}`);
   }
@@ -84,7 +84,7 @@ export async function getLearningPath(slug: string) {
 
   const tutorials = await Promise.all(
     learningPath.tutorials.map((tutorial) =>
-      readFullTutorial(tutorial as string)
+      getTutorialMeta(tutorial as string)
     )
   );
 
