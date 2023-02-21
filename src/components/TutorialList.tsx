@@ -29,7 +29,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
               className={cn(
                 "inline-block select-none rounded-full px-2 py-1",
                 "transition duration-100",
-                " hover:bg-green-700 hover:text-white hover:shadow-md hover:shadow-green-900/50"
+                " hover:bg-neutral-700/50 hover:text-white"
               )}
             >
               {tag.name}

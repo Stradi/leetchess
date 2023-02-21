@@ -100,7 +100,7 @@ export default function NavigationBar({ items }: NavigationBarProps) {
                 className={cn(
                   "inline-block select-none",
                   "rounded-2xl px-4 py-1",
-                  "hover:bg-neutral-700/50 hover:text-neutral-50 hover:shadow-md",
+                  "hover:bg-neutral-700/50 hover:text-neutral-50",
                   "transition-colors duration-100"
                 )}
                 href={item.href}
