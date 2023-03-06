@@ -1,0 +1,12 @@
+[Site "LeetChess"]
+[Player "w"]
+
+1. e4 $2 {Best by test, right} 1... e5 {[%c_arrow
+g1f3;keyPressed;none;from;g1;opacity;0.8;to;f3;persistent;false] After this
+move, we can push our knight and threaten the pawn.} 2. Nf3 {[%c_highlight
+e5;keyPressed;none;opacity;0.8;square;e5;persistent;false] We want to take pawn.
+Black has two options. Either defend the pawn, or threaten white's pawn.} 2...
+Nc6 {In our case, black defends the pawn.} 3. Bb5 $1 {[%c_arrow
+b5c6;keyPressed;none;from;b5;opacity;0.8;to;c6;persistent;false][%c_effect
+b5;square;b5;type;GreatFind;persistent;true] This move is the start of the Ruy
+Lopez opening.} (3. d3 Nd4 $3 {Perfect move} 4. Nxd4 (4. Nc3 Nxf3+ 5. Qxf3)) *

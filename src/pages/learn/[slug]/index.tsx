@@ -1,8 +1,8 @@
-import Container from "@/components/Container";
-import Tutorial from "@/components/Tutorial";
-import { getAllTutorials, readFullTutorial } from "@/utils/tutorial";
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { ParsedUrlQuery } from "querystring";
+import Container from '@/components/Container';
+import Tutorial from '@/components/Tutorial';
+import { getAllTutorials, readFullTutorial } from '@/utils/tutorial';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 
 interface StaticPathsQuery extends ParsedUrlQuery {
   slug: string;
@@ -36,10 +36,7 @@ export const getStaticPaths: GetStaticPaths<StaticPathsQuery> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<
-  PageProps,
-  StaticPathsQuery
-> = async (context: GetStaticPropsContext<StaticPathsQuery>) => {
+export const getStaticProps: GetStaticProps<PageProps, StaticPathsQuery> = async (context: GetStaticPropsContext<StaticPathsQuery>) => {
   const tutorial = await readFullTutorial(context.params?.slug as string);
 
   return {

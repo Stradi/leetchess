@@ -1,7 +1,7 @@
 type TChessRank = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-type TChessFile = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h";
+type TChessFile = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h';
 type TChessSquare = `${TChessFile}${TChessRank}`;
-type TChessHighlightColor = "blue" | "green" | "red" | "yellow";
+type TChessHighlightColor = 'blue' | 'green' | 'red' | 'yellow';
 
 interface IChessMove {
   from: TChessSquare;
@@ -15,39 +15,6 @@ interface IChessHighlight {
   color?: TChessHighlightColor;
 }
 
-interface IChessHint {
-  highlight: IChessHighlight;
-}
-
-interface IChessVariant {
-  displayName?: string;
-  fen: string;
-  moves: IChessMove[];
-}
-
-type IChessTutorialComment =
-  | {
-      type: "text";
-      value: string;
-    }
-  | {
-      type: "variant";
-      value: IChessVariant;
-    };
-
-interface IChessTutorialStep {
-  fen: string;
-
-  move?: IChessMove;
-  autoPlay?: boolean = false;
-
-  comment?: IChessTutorialComment[];
-  afterMove?: IChessTutorialComment[];
-
-  hints?: IChessHint[];
-  highlights?: IChessHighlight[];
-}
-
 interface IChessTutorialMeta {
   id: number;
   name: string;
@@ -57,11 +24,9 @@ interface IChessTutorialMeta {
   tags: ITag[] | string[];
 }
 
-interface IChessTutorialIndex {
-  steps: IChessTutorialStep[];
-}
-
-type IChessTutorial = IChessTutorialMeta & IChessTutorialIndex;
+type IChessTutorial = IChessTutorialMeta & {
+  games: IPgn[];
+};
 
 interface ITag {
   id: number;
@@ -77,4 +42,30 @@ interface ILearningPath {
   description: string;
   tags: ITag[] | string[];
   tutorials: IChessTutorial[] | string[];
+}
+
+interface IPgnCommentCommand {
+  name: string;
+  args: string[];
+}
+
+interface IPgnComment {
+  text: string;
+  commands: IPgnCommentCommand[];
+}
+
+interface IPgnMove {
+  moveNumber: number;
+  move: string;
+  comments: IPgnComment[];
+}
+
+interface IPgn {
+  intro: IPgnComment[];
+  headers: {
+    [key: string]: string;
+  };
+  comments: IPgnComment[];
+  moves: IPgnMove[];
+  result: string;
 }

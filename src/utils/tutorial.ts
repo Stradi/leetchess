@@ -1,10 +1,11 @@
-import * as fs from "fs-extra";
-import path from "path";
+import * as fs from 'fs-extra';
+import path from 'path';
+import { parse } from './pgn/parser';
 
-const DATA_PATH = "data";
-const TUTORIALS_PATH = "tutorials";
-const TAGS_PATH = "tags";
-const LEARNING_PATHS_PATH = "learning-paths";
+const DATA_PATH = 'data';
+const TUTORIALS_PATH = 'tutorials';
+const TAGS_PATH = 'tags';
+const LEARNING_PATHS_PATH = 'learning-paths';
 
 export async function getAllTutorials() {
   const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH);
@@ -21,7 +22,7 @@ export async function getTutorialMeta(slug: string) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
   }
 
-  const metaPath = path.resolve(basePath, "meta.json");
+  const metaPath = path.resolve(basePath, 'meta.json');
   if (!(await fs.pathExists(metaPath))) {
     throw new Error(`Meta file doesn't exists: ${metaPath}`);
   }
@@ -33,27 +34,30 @@ export async function getTutorialMeta(slug: string) {
   return meta;
 }
 
-export async function getTutorialIndex(slug: string) {
+export async function getTutorialPgn(slug: string) {
   const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
   if (!(await fs.pathExists(basePath))) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
   }
 
-  const indexPath = path.resolve(basePath, "index.json");
-  if (!(await fs.pathExists(indexPath))) {
-    throw new Error(`Index file doesn't exists: ${indexPath}`);
+  const pgnPath = path.resolve(basePath, 'index.pgn');
+  if (!(await fs.pathExists(pgnPath))) {
+    throw new Error(`Pgn file doesn't exists: ${pgnPath}`);
   }
 
-  return (await fs.readJSON(indexPath)) as IChessTutorialIndex;
+  const contents = await fs.readFile(pgnPath, 'utf8');
+  const parsedPgn = await parse(contents);
+
+  return parsedPgn;
 }
 
 export async function readFullTutorial(slug: string) {
   const meta = await getTutorialMeta(slug);
-  const index = await getTutorialIndex(slug);
+  const games = await getTutorialPgn(slug);
 
   return {
     ...meta,
-    ...index,
+    games,
   } as IChessTutorial;
 }
 
@@ -63,7 +67,7 @@ export async function getAllLearningPaths() {
     throw new Error(`Learning paths folder doesn't exists: ${basePath}`);
   }
 
-  return (await fs.readdir(basePath)).map((file) => file.replace(".json", ""));
+  return (await fs.readdir(basePath)).map((file) => file.replace('.json', ''));
 }
 
 export async function getLearningPath(slug: string) {
@@ -78,15 +82,9 @@ export async function getLearningPath(slug: string) {
   }
 
   const learningPath = (await fs.readJSON(learningPathPath)) as ILearningPath;
-  const tags = await Promise.all(
-    learningPath.tags.map((tag) => getTag(tag as string))
-  );
+  const tags = await Promise.all(learningPath.tags.map((tag) => getTag(tag as string)));
 
-  const tutorials = await Promise.all(
-    learningPath.tutorials.map((tutorial) =>
-      getTutorialMeta(tutorial as string)
-    )
-  );
+  const tutorials = await Promise.all(learningPath.tutorials.map((tutorial) => getTutorialMeta(tutorial as string)));
 
   return {
     ...learningPath,
