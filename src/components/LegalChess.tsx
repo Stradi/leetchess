@@ -1,4 +1,5 @@
-import { Chess, SQUARES } from "chess.js";
+import { Move } from 'chess.js';
+import { Chess, SQUARES } from 'chess.js';
 
 import {
   ComponentPropsWithoutRef,
@@ -8,20 +9,20 @@ import {
   useImperativeHandle,
   useMemo,
   useState,
-} from "react";
-import Chessground, { ChessgroundRef } from "./Chessground";
+} from 'react';
+import Chessground, { ChessgroundRef } from './Chessground';
 
 export interface LegalChessRef extends Chess {}
-export interface LegalChessProps extends ComponentPropsWithoutRef<"div"> {
+export interface LegalChessProps extends ComponentPropsWithoutRef<'div'> {
   boardRef?: React.RefObject<ChessgroundRef>;
   startingFen: string;
-  onCheckmate?: (winner: "white" | "black") => void;
+  onCheckmate?: (winner: 'white' | 'black') => void;
   onDraw?: () => void;
   onStalemate?: () => void;
   onThreefoldRepetition?: () => void;
   onInsufficientMaterial?: () => void;
 
-  onMove?: (move: { from: string; to: string }) => void;
+  onMove?: (move: Move) => void;
 }
 
 const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
@@ -50,21 +51,19 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
       // This is a bit of a hack, but it works.
 
       const methodsToIntercept = [
-        "clear",
-        "reset",
-        "load",
-        "loadPgn",
-        "move",
-        "put",
-        "remove",
-        "reset",
-        "undo",
+        'clear',
+        'reset',
+        'load',
+        'loadPgn',
+        'move',
+        'put',
+        'remove',
+        'reset',
+        'undo',
       ] as const;
 
       methodsToIntercept.forEach((methodName) => {
-        const originalMethod = chessState[methodName] as (
-          ...args: any[]
-        ) => any;
+        const originalMethod = chessState[methodName] as (...args: any[]) => any;
         chessState[methodName] = (...args: any[]) => {
           const result = originalMethod.apply(chessState, args);
           setFen(chessState.fen());
@@ -96,7 +95,7 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
     const currentTurn = useMemo(
       () => {
         const abbr = chessState.turn();
-        const full = abbr === "w" ? "white" : "black";
+        const full = abbr === 'w' ? 'white' : 'black';
         return {
           abbr,
           full,
@@ -118,7 +117,7 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
     function handleMove(orig: string, dest: string) {
       // TODO: We should handle promotions better. Because some tutorials
       // could need a correct promotion move to be made.
-      const move = chessState.move({ from: orig, to: dest, promotion: "q" });
+      const move = chessState.move({ from: orig, to: dest, promotion: 'q' });
       if (move) {
         setFen(chessState.fen());
 
@@ -128,10 +127,7 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
         // called. Technically any timeout will work, but 0 is the fastest and
         // we don't want to restrict the user of this component.
         setTimeout(() => {
-          onMove?.({
-            from: move.from,
-            to: move.to,
-          });
+          onMove?.(move);
         }, 0);
       }
     }
@@ -158,5 +154,5 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
   }
 );
 
-LegalChess.displayName = "LegalChess";
+LegalChess.displayName = 'LegalChess';
 export default LegalChess;

@@ -24,8 +24,45 @@ interface IChessTutorialMeta {
   tags: ITag[] | string[];
 }
 
-type IChessTutorial = IChessTutorialMeta & {
-  games: IPgn[];
+interface ICommand {
+  function: string;
+  args: string[];
+}
+
+interface IStepComment {
+  type: 'COMMENT';
+  value: string;
+}
+
+interface TStepCommand {
+  type: 'COMMAND';
+  value: TCommand;
+}
+
+interface IChessTutorialCommentStep {
+  type: 'COMMENT';
+  value: {
+    text: string;
+    commands?: TCommand[];
+  };
+}
+
+interface IChessTutorialMoveStep {
+  type: 'MOVE';
+  value: {
+    autoplay: boolean;
+    moveNumber: number;
+    moveSan: string;
+    comments: (TStepComment | TStepCommand)[];
+  };
+}
+
+type TChessTutorial = IChessTutorialMeta & {
+  headers: {
+    key: string;
+    value: string;
+  }[];
+  steps: (TChessTutorialMoveStep | TChessTutorialCommentStep)[];
 };
 
 interface ITag {
@@ -42,30 +79,4 @@ interface ILearningPath {
   description: string;
   tags: ITag[] | string[];
   tutorials: IChessTutorial[] | string[];
-}
-
-interface IPgnCommentCommand {
-  name: string;
-  args: string[];
-}
-
-interface IPgnComment {
-  text: string;
-  commands: IPgnCommentCommand[];
-}
-
-interface IPgnMove {
-  moveNumber: number;
-  move: string;
-  comments: IPgnComment[];
-}
-
-interface IPgn {
-  intro: IPgnComment[];
-  headers: {
-    [key: string]: string;
-  };
-  comments: IPgnComment[];
-  moves: IPgnMove[];
-  result: string;
 }

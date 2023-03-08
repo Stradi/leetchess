@@ -1,27 +1,252 @@
-import { useEffect, useRef, useState } from 'react';
+import { cn } from '@/utils/tw';
+import { Move } from 'chess.js';
+import { DrawShape } from 'chessground/draw';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Button from '../Button';
 import { ChessgroundRef } from '../Chessground';
 import LegalChess, { LegalChessRef } from '../LegalChess';
 
 export interface TutorialProps {
-  data: IChessTutorial;
+  data: TChessTutorial;
 }
+
+const TEST_TUTORIAL = {
+  headers: [
+    {
+      key: 'Site',
+      value: 'LeetChess',
+    },
+    {
+      key: 'Player',
+      value: 'w',
+    },
+  ],
+  steps: [
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'Welcome to the Ruy Lopez tutorial.',
+      },
+    },
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'In this tutorial we will take a look at the famous Ruy Lopez opening.',
+      },
+    },
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'Before doing that, here are some shapes.',
+        commands: [
+          {
+            function: 'highlight',
+            args: ['e5'],
+          },
+          {
+            function: 'highlight',
+            args: ['a6'],
+          },
+        ],
+      },
+    },
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'Start by playing e4.',
+      },
+    },
+    {
+      type: 'MOVE',
+      value: {
+        autoplay: false,
+        moveNumber: 1,
+        moveSan: 'e4',
+        comments: [
+          {
+            type: 'COMMENT',
+            value: 'This move allows us to occupy some space in the center.',
+          },
+          {
+            type: 'COMMAND',
+            value: {
+              function: 'highlight',
+              args: ['e5'],
+            },
+          },
+          {
+            type: 'COMMAND',
+            value: {
+              function: 'highlight',
+              args: ['d5'],
+            },
+          },
+        ],
+      },
+    },
+    {
+      type: 'MOVE',
+      value: {
+        autoplay: true,
+        moveNumber: 1,
+        moveSan: 'e5',
+        comments: [
+          {
+            type: 'COMMENT',
+            value: 'Generally our opponent does the same by pushing their king pawn to the center.',
+          },
+        ],
+      },
+    },
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'Now we have to attack that pawn by playing Nf3.',
+      },
+    },
+    {
+      type: 'MOVE',
+      value: {
+        autoplay: false,
+        moveNumber: 2,
+        moveSan: 'Nf3',
+        comments: [
+          {
+            type: 'COMMENT',
+            value: 'Very well.',
+          },
+          {
+            type: 'COMMAND',
+            value: {
+              function: 'arrow',
+              args: ['g1', 'f3'],
+            },
+          },
+        ],
+      },
+    },
+    {
+      type: 'MOVE',
+      value: {
+        autoplay: true,
+        moveNumber: 2,
+        moveSan: 'Nc6',
+        comments: [
+          {
+            type: 'COMMENT',
+            value: 'Our opponent decided to do the same. Nothing is wrong in that.',
+          },
+        ],
+      },
+    },
+    {
+      type: 'COMMENT',
+      value: {
+        text: 'See you in the next tutorial.',
+      },
+    },
+  ],
+};
 
 const DEFAULT_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
+function commandsToShapes(commands: any) {
+  return commands.map((command: any) => {
+    const { function: fn, args } = command;
+    if (fn === 'highlight') {
+      return {
+        brush: 'green',
+        orig: args[0],
+      } as DrawShape;
+    } else if (fn === 'arrow') {
+      return {
+        brush: 'green',
+        orig: args[0],
+        dest: args[1],
+      } as DrawShape;
+    }
+  });
+}
+
 export default function Tutorial({ data }: TutorialProps) {
+  data.headers = TEST_TUTORIAL.headers as any;
+  data.steps = TEST_TUTORIAL.steps as any;
   const chessRef = useRef<LegalChessRef>(null);
   const boardRef = useRef<ChessgroundRef>(null);
 
-  const [currentMoveIndex, setCurrentMoveIndex] = useState(0);
-  const [currentGameIndex, setCurrentGameIndex] = useState(0);
+  const stepNumberPadding = data.steps.length.toString().length;
 
-  const currentGame = data.games[currentGameIndex];
-  const currentMove = currentGame.moves[currentMoveIndex];
+  const [currentStepIdx, setCurrentStepIdx] = useState(0);
+  const currentStep = data.steps[currentStepIdx];
+
+  const commentHistory = useRef<string[]>([]);
+
+  const currentMoveComments = useMemo(() => {
+    if (!currentStep) return [];
+    if (currentStep.type === 'MOVE') {
+      const allComments = currentStep.value.comments;
+      return allComments.filter((comment: any) => comment.type === 'COMMENT').map((comment: any) => comment.value);
+    }
+    return [];
+  }, [currentStep]);
+
+  const currentMoveHighlights = useMemo(() => {
+    if (!currentStep) return [];
+    if (currentStep.type === 'MOVE') {
+      const allComments = currentStep.value.comments;
+      return (
+        allComments.filter((comment: any) => comment.type === 'COMMAND').map((command: any) => command.value) ?? []
+      );
+    } else if (currentStep.type === 'COMMENT') {
+      const commands = currentStep.value.commands;
+      return commands ?? [];
+    }
+
+    return [];
+  }, [currentStep]);
+
+  const userHasToPlay = currentStep ? currentStep.type === 'MOVE' && !currentStep.value.autoplay : false;
+  const isLastStep = currentStepIdx === data.steps.length;
+  const isStart = currentStepIdx === 0;
+
+  function nextStep(playMove = true) {
+    if (isLastStep) return;
+
+    boardRef.current?.setAutoShapes(commandsToShapes(currentMoveHighlights));
+    if (currentStep.type === 'COMMENT') {
+      commentHistory.current.push(currentStep.value.text);
+    } else if (currentStep.type === 'MOVE') {
+      playMove && chessRef.current?.move(currentStep.value.moveSan);
+      commentHistory.current.push(...currentMoveComments);
+    }
+
+    setCurrentStepIdx(currentStepIdx + 1);
+  }
+
+  function onMove(move: Move) {
+    if (isLastStep) {
+      chessRef.current?.undo();
+      return;
+    }
+
+    if (!userHasToPlay || currentStep.type !== 'MOVE' || move.san !== currentStep.value.moveSan) {
+      chessRef.current?.undo();
+    }
+
+    if (currentStep.type === 'MOVE') {
+      move.san === currentStep.value.moveSan && nextStep(false);
+    }
+  }
 
   return (
     <div className="flex gap-4 rounded-3xl bg-neutral-800 p-6">
-      <LegalChess boardRef={boardRef} ref={chessRef} className="aspect-square w-3/5 shrink-0 grow-0" startingFen={currentGame.headers['FEN'] ?? DEFAULT_FEN} />
+      <LegalChess
+        boardRef={boardRef}
+        ref={chessRef}
+        className="aspect-square w-3/5 shrink-0 grow-0"
+        startingFen={DEFAULT_FEN}
+        onMove={onMove}
+      />
       <div className="flex w-2/5 flex-col gap-4 rounded-2xl bg-neutral-900 p-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-neutral-50">{data.name}</h1>
@@ -29,18 +254,46 @@ export default function Tutorial({ data }: TutorialProps) {
         </div>
         <hr className="border-neutral-800" />
         <div className="h-0 grow overflow-y-scroll" id="conversation">
-          ABC
+          {commentHistory.current.map((comment, idx) => (
+            <div
+              key={idx}
+              className={cn(
+                'flex gap-1 font-medium text-neutral-600',
+                'transition duration-100',
+                idx === currentStepIdx - 1 && 'text-neutral-400'
+              )}
+            >
+              <span
+                className={cn(
+                  'mt-0.5 select-none whitespace-pre font-mono text-sm',
+                  idx === currentStepIdx - 1 && 'font-bold text-green-700'
+                )}
+              >{`${(idx + 1).toString().padStart(stepNumberPadding)}.`}</span>
+              <span>{comment}</span>
+            </div>
+          ))}
         </div>
         <hr className="border-neutral-800" />
         <div className="flex gap-2">
-          <Button variant="secondary">Hint</Button>
-          <Button className="w-full">Next Step</Button>
+          <Button
+            disabled={userHasToPlay}
+            className="w-full"
+            onClick={() => {
+              if (userHasToPlay || isLastStep) return;
+              nextStep();
+            }}
+          >
+            {isStart ? 'Start' : isLastStep ? 'Finish' : 'Next'}
+          </Button>
         </div>
         <hr className="border-neutral-800" />
 
         <p className="select-none text-sm font-medium text-neutral-500">
           <span className="flex justify-between">
-            Step 0<span>No hints available</span>
+            <span>
+              {isStart ? `Not Started` : isLastStep ? `Finished` : `Step ${currentStepIdx}/${data.steps.length}`}
+            </span>
+            <span>No hints available</span>
           </span>
         </p>
       </div>
