@@ -31,6 +31,10 @@ export type PGTStep =
             }
         )[];
       };
+    }
+  | {
+      type: 'COMMAND';
+      value: PGTCommand;
     };
 
 export type PGT = {

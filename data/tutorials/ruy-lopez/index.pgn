@@ -6,12 +6,19 @@
 
 {Welcome to the tutorial on the Ruy Lopez opening in Chess.}
 {The Ruy Lopez is one of the oldest and most popular openings in chess. It starts with the moves 1.e4 e5 2.Nf3 Nc6 3.Bb5.}
-{Before doing that, here are some shapes.} {[%highlight e5]} {[%highlight a3]}
+{Before doing that, here are some shapes.} {[%highlight "e5"]} {[%highlight "a3"]}
 {Let's take a look at each move in more detail.}
-e4 {[%arrow e2;e4]} {[%highlight e5]} {[%highlight d5]} {This move opens the center and frees the bishop on f1. It is a very common opening move in chess.}
+e4 {[%arrow "e2";"e4"]} {[%highlight "e5"]} {[%highlight "d5"]} {This move opens the center and frees the bishop on f1. It is a very common opening move in chess.}
 e5 {This move mirrors White's move and also opens up the center for Black's pieces.}
 Nf3 {This move develops the knight towards the center, attacking Black's e5 pawn.}
 Nc6 {This move develops the knight towards the center and defends the e5 pawn.}
 Bb5 {This move is the hallmark of the Ruy Lopez opening. It pins Black's knight to the queen and prepares to castle kingside.}
 {And there you have it! The first five moves of the Ruy Lopez opening.}
 {Remember, opening theory is just one small part of chess. The most important thing is to play actively and have fun!}
+{Okay, let's go to another position.}
+{[%fen "rnbqkbnr/pppppppp/8/8/2P1P3/1P1P1P2/P5PP/RNBQKBNR w KQkq - 0 1"]}
+{As you can see, the board is changed.}
+{Now let's play Nh3}
+Nh3 {This move is test.}
+{Now that's it.}
+{Thank you for tuning in.}

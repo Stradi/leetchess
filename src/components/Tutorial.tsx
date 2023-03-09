@@ -72,6 +72,20 @@ export default function Tutorial({ data }: TutorialProps) {
   }, [currentStep]);
 
   useEffect(() => {
+    console.log(currentStepIdx, currentStep);
+    if (!currentStep) return;
+
+    if (currentStep.type === 'COMMAND') {
+      const { name: fn, args } = currentStep.value;
+      if (fn === 'fen') {
+        chessRef.current?.load(args[0]);
+        nextStep();
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStep]);
+
+  useEffect(() => {
     latestCommentRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [commentHistory]);
 
@@ -103,7 +117,7 @@ export default function Tutorial({ data }: TutorialProps) {
       chessRef.current?.undo();
     }
 
-    if (currentStep.type === 'MOVE') {
+    if (currentStep.type === 'MOVE' && userHasToPlay) {
       move.san === currentStep.value.moveSan && nextStep(false);
     }
   }
@@ -127,17 +141,17 @@ export default function Tutorial({ data }: TutorialProps) {
           {commentHistory.map((comment, idx) => (
             <div
               key={idx}
-              ref={idx === currentStepIdx - 1 ? latestCommentRef : null}
+              ref={idx === commentHistory.length - 1 ? latestCommentRef : null}
               className={cn(
                 'flex gap-1 font-medium text-neutral-600',
                 'transition duration-100',
-                idx === currentStepIdx - 1 && 'text-neutral-400'
+                idx === commentHistory.length - 1 && 'text-neutral-400'
               )}
             >
               <span
                 className={cn(
                   'mt-0.5 select-none whitespace-pre font-mono text-sm',
-                  idx === currentStepIdx - 1 && 'font-bold text-green-700'
+                  idx === commentHistory.length - 1 && 'font-bold text-green-700'
                 )}
               >{`${(idx + 1).toString().padStart(stepNumberPadding)}.`}</span>
               <span>{comment}</span>
