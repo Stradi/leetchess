@@ -20,12 +20,3 @@ interface ITutorial {
   tags: ITag[] | string[];
   pgt: PGT;
 }
-
-interface ILearningPath {
-  id: number;
-  name: string;
-  slug: string;
-  description: string;
-  tags: ITag[] | string[];
-  tutorials: Pgt[] | string[];
-}
