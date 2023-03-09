@@ -1,6 +1,7 @@
+import { ILearningPath, ITag } from '@/types';
 import * as fs from 'fs-extra';
 import path from 'path';
-import { parse } from './pgn/parser';
+import { readPgt } from './pgt/pgt';
 
 const DATA_PATH = 'data';
 const TUTORIALS_PATH = 'tutorials';
@@ -16,25 +17,7 @@ export async function getAllTutorials() {
   return await fs.readdir(basePath);
 }
 
-export async function getTutorialMeta(slug: string) {
-  const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
-  if (!(await fs.pathExists(basePath))) {
-    throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
-  }
-
-  const metaPath = path.resolve(basePath, 'meta.json');
-  if (!(await fs.pathExists(metaPath))) {
-    throw new Error(`Meta file doesn't exists: ${metaPath}`);
-  }
-
-  const meta = (await fs.readJSON(metaPath)) as IChessTutorialMeta;
-
-  // At this point, tags are just string. So we can safely map them to the actual tag object.
-  meta.tags = await Promise.all(meta.tags.map((tag) => getTag(tag as string)));
-  return meta;
-}
-
-export async function getTutorialPgn(slug: string) {
+export async function getTutorial(slug: string) {
   const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
   if (!(await fs.pathExists(basePath))) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
@@ -42,23 +25,10 @@ export async function getTutorialPgn(slug: string) {
 
   const pgnPath = path.resolve(basePath, 'index.pgn');
   if (!(await fs.pathExists(pgnPath))) {
-    throw new Error(`Pgn file doesn't exists: ${pgnPath}`);
+    throw new Error(`Pgt file doesn't exists: ${pgnPath}`);
   }
 
-  const contents = await fs.readFile(pgnPath, 'utf8');
-  const parsedPgn = await parse(contents);
-
-  return parsedPgn;
-}
-
-export async function readFullTutorial(slug: string) {
-  const meta = await getTutorialMeta(slug);
-  const games = await getTutorialPgn(slug);
-
-  return {
-    ...meta,
-    games,
-  } as IChessTutorial;
+  return await readPgt(pgnPath);
 }
 
 export async function getAllLearningPaths() {
@@ -84,7 +54,7 @@ export async function getLearningPath(slug: string) {
   const learningPath = (await fs.readJSON(learningPathPath)) as ILearningPath;
   const tags = await Promise.all(learningPath.tags.map((tag) => getTag(tag as string)));
 
-  const tutorials = await Promise.all(learningPath.tutorials.map((tutorial) => getTutorialMeta(tutorial as string)));
+  const tutorials = await Promise.all(learningPath.tutorials.map((tutorial) => getTutorial(tutorial as string)));
 
   return {
     ...learningPath,

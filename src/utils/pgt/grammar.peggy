@@ -28,10 +28,13 @@
                 }
             }
         } else {    
-    	return {
-        	type: 'COMMENT',
-            value: content.join('')
-        }
+    		return {
+        		type: 'COMMENT',
+            	value: {
+                	text: content.join(''),
+                    commands: []
+                }
+        	}
         }
     }
     
@@ -47,14 +50,14 @@
     	return {
         	type: 'COMMAND',
             value: {
-            	name: name.join(''),
+            	name,
                 args: filteredArgs
             }
 		}
     }
     
     function toMove(autoplay, halfMove, nags, contents) {
-    	const flatContents = contents.flat();
+        const flatContents = contents.flat().filter(content => content);
         let commands = [];
         let comments = [];
         if(flatContents[0] !== null) {
@@ -102,9 +105,9 @@ Disambiguation = (Rank File) / Rank / File
 Header = '[' OptionalSpace key:Symbol* OptionalSpace value:String OptionalSpace ']' OptionalSpace OptionalNewline { return toHeader(key, value) }
 MultiHeader = Header*
 
-CommandName = Symbol+
+CommandName = text:[A-Za-z0-9_-]+ { return text.join('') }
 CommandArgSymbol = text:[A-Za-z0-9._-]+ { return text.join('') }
-Command = '{[%' name:CommandName MultiSpace args:(';'? CommandArgSymbol)* ']}' OptionalSpace { return toCommand(name, args) }
+Command = '{[%' name:CommandName OptionalSpace args:(';'? CommandArgSymbol)* ']}' OptionalSpace { return toCommand(name, args) }
 MultiCommand = Command*
 
 CommentContent = [^\}]
@@ -115,7 +118,7 @@ PieceHalfMove = Piece Capture? Square
 PieceDisambiguationHalfMove = Piece Disambiguation Capture? Square
 CastleHalfMove = ('O-O-O' / 'O-O')
 HalfMove = move:((PawnHalfMove / PieceHalfMove / PieceDisambiguationHalfMove / CastleHalfMove) (Check / Mate)? Nag?) { return flatten(move).join('') }
-Move = autoplay:'!'? OptionalSpace? halfMove:HalfMove nags:(OptionalSpace n:Nag { return n })* OptionalSpace contents:(Comment? MultiCommand?)? { return toMove(autoplay, halfMove, nags, contents) }
+Move = autoplay:'!'? OptionalSpace? halfMove:HalfMove nags:(OptionalSpace n:Nag { return n })* OptionalSpace contents:(MultiCommand? Comment?)? { return toMove(autoplay, halfMove, nags, contents) }
 
 Step = data:(Command / Comment / Move) (Newline+ / EOF) { return data }
 MultiStep = steps:Step*
