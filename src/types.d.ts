@@ -1,4 +1,4 @@
-import { Pgt } from './utils/pgt/pgt.types';
+import { PGT } from './utils/pgt/pgt.types';
 
 type TChessRank = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 type TChessFile = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h';
@@ -10,6 +10,15 @@ interface ITag {
   name: string;
   slug: string;
   description: string;
+}
+
+interface ITutorial {
+  name: string;
+  slug: string;
+  subtitle: string;
+  description: string;
+  tags: ITag[] | string[];
+  pgt: PGT;
 }
 
 interface ILearningPath {

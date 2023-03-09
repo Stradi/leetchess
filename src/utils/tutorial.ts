@@ -1,4 +1,4 @@
-import { ILearningPath, ITag } from '@/types';
+import { ILearningPath, ITag, ITutorial } from '@/types';
 import * as fs from 'fs-extra';
 import path from 'path';
 import { readPgt } from './pgt/pgt';
@@ -23,12 +23,25 @@ export async function getTutorial(slug: string) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
   }
 
-  const pgnPath = path.resolve(basePath, 'index.pgn');
-  if (!(await fs.pathExists(pgnPath))) {
-    throw new Error(`Pgt file doesn't exists: ${pgnPath}`);
+  const pgtPath = path.resolve(basePath, 'index.pgn');
+  if (!(await fs.pathExists(pgtPath))) {
+    throw new Error(`Pgt file doesn't exists: ${pgtPath}`);
   }
 
-  return await readPgt(pgnPath);
+  const pgt = await readPgt(pgtPath);
+
+  return {
+    pgt,
+    slug,
+    name: pgt.headers.find((header) => header.key.toLowerCase() === 'name')?.value,
+    subtitle: pgt.headers.find((header) => header.key.toLowerCase() === 'subtitle')?.value,
+    description: pgt.headers.find((header) => header.key.toLowerCase() === 'description')?.value,
+    tags:
+      pgt.headers
+        .find((header) => header.key.toLowerCase() === 'tags')
+        ?.value.split(',')
+        .map((tag) => tag.trim()) || [],
+  } as ITutorial;
 }
 
 export async function getAllLearningPaths() {

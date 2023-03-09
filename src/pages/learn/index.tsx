@@ -1,10 +1,12 @@
-import Container from "@/components/Container";
-import TutorialList from "@/components/TutorialList";
-import { getAllTutorials, getTutorialMeta } from "@/utils/tutorial";
-import { GetStaticProps } from "next";
+import Container from '@/components/Container';
+import TutorialList from '@/components/TutorialList';
+import { ITutorial } from '@/types';
+import { PGT } from '@/utils/pgt/pgt.types';
+import { getAllTutorials, getTutorial } from '@/utils/tutorial';
+import { GetStaticProps } from 'next';
 
 interface PageProps {
-  tutorials: IChessTutorialMeta[];
+  tutorials: ITutorial[];
 }
 
 export default function Page({ tutorials }: PageProps) {
@@ -17,11 +19,11 @@ export default function Page({ tutorials }: PageProps) {
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const allTutorials = await getAllTutorials();
-  const metas = await Promise.all(allTutorials.map(getTutorialMeta));
+  const data = await Promise.all(allTutorials.map((slug) => getTutorial(slug)));
 
   return {
     props: {
-      tutorials: metas,
+      tutorials: data,
     },
   };
 };

@@ -1,6 +1,8 @@
 import Container from '@/components/Container';
 import Tutorial from '@/components/Tutorial';
-import { getAllTutorials, readFullTutorial } from '@/utils/tutorial';
+import { ITutorial } from '@/types';
+import { PGT } from '@/utils/pgt/pgt.types';
+import { getAllTutorials, getTutorial } from '@/utils/tutorial';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -9,11 +11,10 @@ interface StaticPathsQuery extends ParsedUrlQuery {
 }
 
 interface PageProps {
-  slug: string;
-  tutorial: IChessTutorial;
+  tutorial: ITutorial;
 }
 
-export default function Page({ slug, tutorial }: PageProps) {
+export default function Page({ tutorial }: PageProps) {
   return (
     <Container className="mx-auto max-w-6xl">
       <Tutorial data={tutorial} />
@@ -36,12 +37,13 @@ export const getStaticPaths: GetStaticPaths<StaticPathsQuery> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<PageProps, StaticPathsQuery> = async (context: GetStaticPropsContext<StaticPathsQuery>) => {
-  const tutorial = await readFullTutorial(context.params?.slug as string);
+export const getStaticProps: GetStaticProps<PageProps, StaticPathsQuery> = async (
+  context: GetStaticPropsContext<StaticPathsQuery>
+) => {
+  const tutorial = await getTutorial(context.params?.slug as string);
 
   return {
     props: {
-      slug: context.params?.slug as string,
       tutorial,
     },
   };

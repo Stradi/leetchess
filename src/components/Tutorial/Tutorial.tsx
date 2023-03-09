@@ -1,3 +1,5 @@
+import { ITutorial } from '@/types';
+import { PGT, PGTCommand } from '@/utils/pgt/pgt.types';
 import { cn } from '@/utils/tw';
 import { Move } from 'chess.js';
 import { DrawShape } from 'chessground/draw';
@@ -7,152 +9,14 @@ import { ChessgroundRef } from '../Chessground';
 import LegalChess, { LegalChessRef } from '../LegalChess';
 
 export interface TutorialProps {
-  data: TChessTutorial;
+  data: ITutorial;
 }
-
-const TEST_TUTORIAL = {
-  headers: [
-    {
-      key: 'Site',
-      value: 'LeetChess',
-    },
-    {
-      key: 'Player',
-      value: 'w',
-    },
-  ],
-  steps: [
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'Welcome to the Ruy Lopez tutorial.',
-      },
-    },
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'In this tutorial we will take a look at the famous Ruy Lopez opening.',
-      },
-    },
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'Before doing that, here are some shapes.',
-        commands: [
-          {
-            function: 'highlight',
-            args: ['e5'],
-          },
-          {
-            function: 'highlight',
-            args: ['a6'],
-          },
-        ],
-      },
-    },
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'Start by playing e4.',
-      },
-    },
-    {
-      type: 'MOVE',
-      value: {
-        autoplay: false,
-        moveNumber: 1,
-        moveSan: 'e4',
-        comments: [
-          {
-            type: 'COMMENT',
-            value: 'This move allows us to occupy some space in the center.',
-          },
-          {
-            type: 'COMMAND',
-            value: {
-              function: 'highlight',
-              args: ['e5'],
-            },
-          },
-          {
-            type: 'COMMAND',
-            value: {
-              function: 'highlight',
-              args: ['d5'],
-            },
-          },
-        ],
-      },
-    },
-    {
-      type: 'MOVE',
-      value: {
-        autoplay: true,
-        moveNumber: 1,
-        moveSan: 'e5',
-        comments: [
-          {
-            type: 'COMMENT',
-            value: 'Generally our opponent does the same by pushing their king pawn to the center.',
-          },
-        ],
-      },
-    },
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'Now we have to attack that pawn by playing Nf3.',
-      },
-    },
-    {
-      type: 'MOVE',
-      value: {
-        autoplay: false,
-        moveNumber: 2,
-        moveSan: 'Nf3',
-        comments: [
-          {
-            type: 'COMMENT',
-            value: 'Very well.',
-          },
-          {
-            type: 'COMMAND',
-            value: {
-              function: 'arrow',
-              args: ['g1', 'f3'],
-            },
-          },
-        ],
-      },
-    },
-    {
-      type: 'MOVE',
-      value: {
-        autoplay: true,
-        moveNumber: 2,
-        moveSan: 'Nc6',
-        comments: [
-          {
-            type: 'COMMENT',
-            value: 'Our opponent decided to do the same. Nothing is wrong in that.',
-          },
-        ],
-      },
-    },
-    {
-      type: 'COMMENT',
-      value: {
-        text: 'See you in the next tutorial.',
-      },
-    },
-  ],
-};
 
 const DEFAULT_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
-function commandsToShapes(commands: any) {
-  return commands.map((command: any) => {
-    const { function: fn, args } = command;
+function commandsToShapes(commands: PGTCommand[]) {
+  return commands.map((command) => {
+    const { name: fn, args } = command;
     if (fn === 'highlight') {
       return {
         brush: 'green',
@@ -165,19 +29,20 @@ function commandsToShapes(commands: any) {
         dest: args[1],
       } as DrawShape;
     }
+
+    return {} as DrawShape;
   });
 }
 
+// TODO: Please find a way to refactor this TRASH!!
 export default function Tutorial({ data }: TutorialProps) {
-  data.headers = TEST_TUTORIAL.headers as any;
-  data.steps = TEST_TUTORIAL.steps as any;
   const chessRef = useRef<LegalChessRef>(null);
   const boardRef = useRef<ChessgroundRef>(null);
 
-  const stepNumberPadding = data.steps.length.toString().length;
+  const stepNumberPadding = data.pgt.steps.length.toString().length;
 
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
-  const currentStep = data.steps[currentStepIdx];
+  const currentStep = data.pgt.steps[currentStepIdx];
 
   const commentHistory = useRef<string[]>([]);
 
@@ -185,7 +50,7 @@ export default function Tutorial({ data }: TutorialProps) {
     if (!currentStep) return [];
     if (currentStep.type === 'MOVE') {
       const allComments = currentStep.value.comments;
-      return allComments.filter((comment: any) => comment.type === 'COMMENT').map((comment: any) => comment.value);
+      return allComments.filter((comment) => comment.type === 'COMMENT').map((comment: any) => comment.value.text);
     }
     return [];
   }, [currentStep]);
@@ -195,7 +60,7 @@ export default function Tutorial({ data }: TutorialProps) {
     if (currentStep.type === 'MOVE') {
       const allComments = currentStep.value.comments;
       return (
-        allComments.filter((comment: any) => comment.type === 'COMMAND').map((command: any) => command.value) ?? []
+        allComments.filter((comment) => comment.type === 'COMMAND').map((command) => command.value as PGTCommand) ?? []
       );
     } else if (currentStep.type === 'COMMENT') {
       const commands = currentStep.value.commands;
@@ -206,7 +71,7 @@ export default function Tutorial({ data }: TutorialProps) {
   }, [currentStep]);
 
   const userHasToPlay = currentStep ? currentStep.type === 'MOVE' && !currentStep.value.autoplay : false;
-  const isLastStep = currentStepIdx === data.steps.length;
+  const isLastStep = currentStepIdx === data.pgt.steps.length;
   const isStart = currentStepIdx === 0;
 
   function nextStep(playMove = true) {
@@ -291,7 +156,7 @@ export default function Tutorial({ data }: TutorialProps) {
         <p className="select-none text-sm font-medium text-neutral-500">
           <span className="flex justify-between">
             <span>
-              {isStart ? `Not Started` : isLastStep ? `Finished` : `Step ${currentStepIdx}/${data.steps.length}`}
+              {isStart ? `Not Started` : isLastStep ? `Finished` : `Step ${currentStepIdx}/${data.pgt.steps.length}`}
             </span>
             <span>No hints available</span>
           </span>
