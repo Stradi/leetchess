@@ -44,7 +44,7 @@ export default function Tutorial({ data }: TutorialProps) {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const currentStep = data.pgt.steps[currentStepIdx];
 
-  const [commentHistory, setCommentHistory] = useState<string[]>([]);
+  const [commentHistory, setCommentHistory] = useState<string[]>([data.description]);
   const latestCommentRef = useRef<HTMLDivElement>(null);
 
   const currentMoveComments = useMemo(() => {
