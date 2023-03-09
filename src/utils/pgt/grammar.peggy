@@ -68,7 +68,7 @@
     	return {
         	type: 'MOVE',
             value: {
-        		autoplay: autoplay === null ? false : true,
+        		autoplay: autoplay === null ? true : false,
                 moveSan: halfMove,
                 nags,
             	comments: [...comments, ...commands]
