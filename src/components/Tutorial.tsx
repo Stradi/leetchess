@@ -4,9 +4,9 @@ import { cn } from '@/utils/tw';
 import { Move } from 'chess.js';
 import { DrawShape } from 'chessground/draw';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Button from '../Button';
-import { ChessgroundRef } from '../Chessground';
-import LegalChess, { LegalChessRef } from '../LegalChess';
+import Button from './Button';
+import { ChessgroundRef } from './Chessground';
+import LegalChess, { LegalChessRef } from './LegalChess';
 
 export interface TutorialProps {
   data: ITutorial;
