@@ -23,12 +23,14 @@ export async function getTutorial(slug: string) {
     throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
   }
 
-  const pgtPath = path.resolve(basePath, 'index.pgn');
+  const pgtPath = path.resolve(basePath, 'index.pgt');
   if (!(await fs.pathExists(pgtPath))) {
     throw new Error(`Pgt file doesn't exists: ${pgtPath}`);
   }
 
   const pgt = await readPgt(pgtPath);
+  const tagSlugs = pgt.headers.find((header) => header.key.toLowerCase() === 'tags')?.value.split(',') || [];
+  const tags = await Promise.all(tagSlugs.map((tagSlug) => getTag(tagSlug.trim())));
 
   return {
     pgt,
@@ -36,11 +38,7 @@ export async function getTutorial(slug: string) {
     name: pgt.headers.find((header) => header.key.toLowerCase() === 'name')?.value,
     subtitle: pgt.headers.find((header) => header.key.toLowerCase() === 'subtitle')?.value,
     description: pgt.headers.find((header) => header.key.toLowerCase() === 'description')?.value,
-    tags:
-      pgt.headers
-        .find((header) => header.key.toLowerCase() === 'tags')
-        ?.value.split(',')
-        .map((tag) => tag.trim()) || [],
+    tags,
   } as ITutorial;
 }
 

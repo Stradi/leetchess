@@ -31,6 +31,7 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/chess.js": "^0.13.4",
     "@types/fs-extra": "^11.0.1",
     "autoprefixer": "^10.4.13",
