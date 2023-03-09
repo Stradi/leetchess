@@ -131,13 +131,13 @@ export default function Tutorial({ data }: TutorialProps) {
         startingFen={DEFAULT_FEN}
         onMove={onMove}
       />
-      <div className="mx-auto flex max-h-[calc(97.5vh-100vw)] w-full grow flex-col gap-1 rounded-2xl bg-neutral-900 p-2 sm:max-h-full sm:w-2/3 md:w-2/5 md:gap-4 md:p-4">
+      <div className="mx-auto flex max-h-[calc(97.5vh-100vw)] w-full grow flex-col gap-1 rounded-2xl bg-neutral-900 p-2 sm:w-2/3 md:max-h-[unset] md:w-2/5 md:gap-4 md:p-4">
         <div className="text-center">
           <h1 className="text-lg font-bold text-neutral-50 md:text-2xl">{data.name}</h1>
           <h2 className="text-sm font-medium text-neutral-500">{data.subtitle}</h2>
         </div>
         <hr className="border-neutral-800" />
-        <div className="overflow-y-scroll md:grow" id="conversation">
+        <div className="overflow-y-scroll md:h-0 md:grow" id="conversation">
           {commentHistory.map((comment, idx) => (
             <div
               key={idx}
