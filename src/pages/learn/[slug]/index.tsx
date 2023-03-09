@@ -15,7 +15,7 @@ interface PageProps {
 
 export default function Page({ tutorial }: PageProps) {
   return (
-    <Container className="mx-auto max-w-6xl">
+    <Container>
       <Tutorial data={tutorial} />
     </Container>
   );

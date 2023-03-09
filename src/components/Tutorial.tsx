@@ -123,21 +123,21 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   return (
-    <div className="flex gap-4 rounded-3xl bg-neutral-800 p-6">
+    <div className="mx-auto flex h-screen max-h-screen w-full flex-col items-stretch gap-4 rounded-3xl bg-neutral-800 p-2 sm:p-2 md:h-full md:flex-row md:p-6">
       <LegalChess
         boardRef={boardRef}
         ref={chessRef}
-        className="aspect-square w-3/5 shrink-0 grow-0"
+        className="mx-auto aspect-square h-auto w-full shrink-0 grow-0 sm:w-2/3 md:w-3/5"
         startingFen={DEFAULT_FEN}
         onMove={onMove}
       />
-      <div className="flex w-2/5 flex-col gap-4 rounded-2xl bg-neutral-900 p-4">
+      <div className="mx-auto flex max-h-[calc(97.5vh-100vw)] w-full grow flex-col gap-1 rounded-2xl bg-neutral-900 p-2 sm:max-h-full sm:w-2/3 md:w-2/5 md:gap-4 md:p-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-neutral-50">{data.name}</h1>
+          <h1 className="text-lg font-bold text-neutral-50 md:text-2xl">{data.name}</h1>
           <h2 className="text-sm font-medium text-neutral-500">{data.subtitle}</h2>
         </div>
         <hr className="border-neutral-800" />
-        <div className="h-0 grow overflow-y-scroll" id="conversation">
+        <div className="overflow-y-scroll md:grow" id="conversation">
           {commentHistory.map((comment, idx) => (
             <div
               key={idx}
@@ -150,11 +150,11 @@ export default function Tutorial({ data }: TutorialProps) {
             >
               <span
                 className={cn(
-                  'mt-0.5 select-none whitespace-pre font-mono text-sm',
+                  'mt-0.5 select-none whitespace-pre font-mono text-xs md:text-sm',
                   idx === commentHistory.length - 1 && 'font-bold text-green-700'
                 )}
               >{`${(idx + 1).toString().padStart(stepNumberPadding)}.`}</span>
-              <span>{comment}</span>
+              <span className="text-sm md:text-base">{comment}</span>
             </div>
           ))}
         </div>
