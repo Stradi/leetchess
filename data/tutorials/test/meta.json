@@ -1,9 +1,0 @@
-{
-  "$schema": "../../definitions/tutorial-meta.schema.json",
-  "id": 0,
-  "name": "Test",
-  "slug": "test",
-  "description": "Awesome tutorial",
-  "subtitle": "Wowowwwww",
-  "tags": []
-}
