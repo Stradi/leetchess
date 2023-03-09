@@ -44,7 +44,8 @@ export default function Tutorial({ data }: TutorialProps) {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const currentStep = data.pgt.steps[currentStepIdx];
 
-  const commentHistory = useRef<string[]>([]);
+  const [commentHistory, setCommentHistory] = useState<string[]>([]);
+  const latestCommentRef = useRef<HTMLDivElement>(null);
 
   const currentMoveComments = useMemo(() => {
     if (!currentStep) return [];
@@ -70,6 +71,10 @@ export default function Tutorial({ data }: TutorialProps) {
     return [];
   }, [currentStep]);
 
+  useEffect(() => {
+    latestCommentRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [commentHistory]);
+
   const userHasToPlay = currentStep ? currentStep.type === 'MOVE' && !currentStep.value.autoplay : false;
   const isLastStep = currentStepIdx === data.pgt.steps.length;
   const isStart = currentStepIdx === 0;
@@ -79,10 +84,10 @@ export default function Tutorial({ data }: TutorialProps) {
 
     boardRef.current?.setAutoShapes(commandsToShapes(currentMoveHighlights));
     if (currentStep.type === 'COMMENT') {
-      commentHistory.current.push(currentStep.value.text);
+      setCommentHistory([...commentHistory, currentStep.value.text]);
     } else if (currentStep.type === 'MOVE') {
       playMove && chessRef.current?.move(currentStep.value.moveSan);
-      commentHistory.current.push(...currentMoveComments);
+      setCommentHistory([...commentHistory, ...currentMoveComments]);
     }
 
     setCurrentStepIdx(currentStepIdx + 1);
@@ -119,9 +124,10 @@ export default function Tutorial({ data }: TutorialProps) {
         </div>
         <hr className="border-neutral-800" />
         <div className="h-0 grow overflow-y-scroll" id="conversation">
-          {commentHistory.current.map((comment, idx) => (
+          {commentHistory.map((comment, idx) => (
             <div
               key={idx}
+              ref={idx === currentStepIdx - 1 ? latestCommentRef : null}
               className={cn(
                 'flex gap-1 font-medium text-neutral-600',
                 'transition duration-100',
