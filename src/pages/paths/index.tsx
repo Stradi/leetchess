@@ -1,7 +1,8 @@
-import Container from "@/components/Container";
-import LearningPathList from "@/components/LearningPathList";
-import { getAllLearningPaths, getLearningPath } from "@/utils/tutorial";
-import { GetStaticProps } from "next";
+import Container from '@/components/Container';
+import LearningPathList from '@/components/LearningPathList';
+import { ILearningPath } from '@/types';
+import { getAllLearningPaths, getLearningPath } from '@/utils/tutorial';
+import { GetStaticProps } from 'next';
 
 interface PageProps {
   learningPaths: ILearningPath[];

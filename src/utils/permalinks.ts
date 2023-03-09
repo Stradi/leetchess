@@ -1,25 +1,21 @@
 export enum PermalinkResources {
-  Tutorial = "tutorial",
-  LearningPath = "learning-path",
-  Tag = "tag",
-  Community = "community",
-  Blog = "blog",
+  Tutorial = 'tutorial',
+  LearningPath = 'learning-path',
+  Tag = 'tag',
+  Community = 'community',
+  Blog = 'blog',
 }
 
-export function getUrlFor(
-  resource: PermalinkResources,
-  path: string[] = [],
-  query: Record<string, string> = {}
-) {
+export function getUrlFor(resource: PermalinkResources, path: string[] = [], query: Record<string, string> = {}) {
   function getQueryString(query: Record<string, string>) {
     const queryString = Object.entries(query)
       .map(([key, value]) => `${key}=${value}`)
-      .join("&");
-    return queryString ? `?${queryString}` : "";
+      .join('&');
+    return queryString ? `?${queryString}` : '';
   }
 
   const queryString = getQueryString(query);
-  const pathString = path.length ? "/" + path.join("/") : "";
+  const pathString = path.length ? '/' + path.join('/') : '';
 
   switch (resource) {
     case PermalinkResources.Tutorial:

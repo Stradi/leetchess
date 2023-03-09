@@ -1,60 +1,60 @@
-import { getUrlFor, PermalinkResources } from "@/utils/permalinks";
-import { IConfig } from "./config.types";
+import { getUrlFor, PermalinkResources } from '@/utils/permalinks';
+import { IConfig } from './config.types';
 
 export default {
   navigation: [
     {
-      label: "Learn",
+      label: 'Learn',
       href: getUrlFor(PermalinkResources.Tutorial),
       megaMenu: {
-        title: "Chess Tutorials",
-        description: "Learn chess from the beginning",
+        title: 'Chess Tutorials',
+        description: 'Learn chess from the beginning',
         items: [
           {
-            label: "All Tutorials",
+            label: 'All Tutorials',
             href: getUrlFor(PermalinkResources.Tutorial),
-            description: "Learn chess from the beginning",
+            description: 'Learn chess from the beginning',
           },
           {
-            label: "Learning Paths",
+            label: 'Learning Paths',
             href: getUrlFor(PermalinkResources.LearningPath, []),
-            description: "Learn chess with a structured learning plan",
+            description: 'Learn chess with a structured learning plan',
           },
         ],
       },
     },
     {
-      label: "Community",
+      label: 'Community',
       href: getUrlFor(PermalinkResources.Community),
       megaMenu: {
-        title: "LeetChess Community",
-        description: "Join the LeetChess community",
+        title: 'LeetChess Community',
+        description: 'Join the LeetChess community',
         items: [
           {
-            label: "Discord",
-            href: "https://discord.gg/LeetChess",
-            description: "Join the LeetChess Discord server",
+            label: 'Discord',
+            href: 'https://discord.gg/LeetChess',
+            description: 'Join the LeetChess Discord server',
           },
           {
-            label: "Twitter",
-            href: "https://twitter.com/LeetChess",
-            description: "Latest updates and news about LeetChess",
+            label: 'Twitter',
+            href: 'https://twitter.com/LeetChess',
+            description: 'Latest updates and news about LeetChess',
           },
           {
-            label: "Reddit",
-            href: "https://www.reddit.com/r/LeetChess/",
-            description: "Join the LeetChess subreddit",
+            label: 'Reddit',
+            href: 'https://www.reddit.com/r/LeetChess/',
+            description: 'Join the LeetChess subreddit',
           },
           {
-            label: "YouTube",
-            href: "https://www.youtube.com",
-            description: "Special chess videos from LeetChess",
+            label: 'YouTube',
+            href: 'https://www.youtube.com',
+            description: 'Special chess videos from LeetChess',
           },
         ],
       },
     },
     {
-      label: "Blog",
+      label: 'Blog',
       href: getUrlFor(PermalinkResources.Blog),
     },
   ],

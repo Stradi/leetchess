@@ -4,11 +4,7 @@ interface ConditionalWrapperProps {
   wrapper: (children: JSX.Element) => JSX.Element;
 }
 
-const ConditionalWrapper = ({
-  condition,
-  wrapper,
-  children,
-}: ConditionalWrapperProps) => {
+const ConditionalWrapper = ({ condition, wrapper, children }: ConditionalWrapperProps) => {
   return condition ? wrapper(children) : children;
 };
 

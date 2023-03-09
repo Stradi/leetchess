@@ -1,7 +1,6 @@
 import Container from '@/components/Container';
 import Tutorial from '@/components/Tutorial';
 import { ITutorial } from '@/types';
-import { PGT } from '@/utils/pgt/pgt.types';
 import { getAllTutorials, getTutorial } from '@/utils/tutorial';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';

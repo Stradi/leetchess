@@ -1,5 +1,5 @@
 import { ITutorial } from '@/types';
-import { PGT, PGTCommand } from '@/utils/pgt/pgt.types';
+import { PGTCommand } from '@/utils/pgt/pgt.types';
 import { cn } from '@/utils/tw';
 import { Move } from 'chess.js';
 import { DrawShape } from 'chessground/draw';

@@ -1,31 +1,22 @@
-import { findByType } from "@/utils/react";
-import { cn } from "@/utils/tw";
+import { findByType } from '@/utils/react';
+import { cn } from '@/utils/tw';
 
-interface CardProps extends React.ComponentPropsWithoutRef<"div"> {}
+interface CardProps extends React.ComponentPropsWithoutRef<'div'> {}
 
-interface HeaderProps extends React.ComponentPropsWithoutRef<"header"> {}
-interface BodyProps extends React.ComponentPropsWithoutRef<"main"> {}
-interface FooterProps extends React.ComponentPropsWithoutRef<"footer"> {}
+interface HeaderProps extends React.ComponentPropsWithoutRef<'header'> {}
+interface BodyProps extends React.ComponentPropsWithoutRef<'main'> {}
+interface FooterProps extends React.ComponentPropsWithoutRef<'footer'> {}
 
 const Header = ({ className, ...props }: HeaderProps) => (
-  <header
-    className={cn("text-sm font-medium text-neutral-400", className)}
-    {...props}
-  />
+  <header className={cn('text-sm font-medium text-neutral-400', className)} {...props} />
 );
 
 const Body = ({ className, ...props }: BodyProps) => (
-  <main
-    className={cn("flex flex-1 flex-col justify-center", className)}
-    {...props}
-  />
+  <main className={cn('flex flex-1 flex-col justify-center', className)} {...props} />
 );
 
 const Footer = ({ className, ...props }: FooterProps) => (
-  <footer
-    className={cn("text-sm font-medium text-neutral-400", className)}
-    {...props}
-  />
+  <footer className={cn('text-sm font-medium text-neutral-400', className)} {...props} />
 );
 
 function Card({ ...props }: CardProps) {
@@ -54,10 +45,10 @@ function Card({ ...props }: CardProps) {
     <div
       {...props}
       className={cn(
-        "flex aspect-square w-full flex-col justify-between",
-        "rounded-2xl bg-neutral-800 p-4 text-center",
-        "transition duration-100",
-        "hover:shadow-lg"
+        'flex aspect-square w-full flex-col justify-between',
+        'rounded-2xl bg-neutral-800 p-4 text-center',
+        'transition duration-100',
+        'hover:shadow-lg'
       )}
     >
       {renderHeader()}

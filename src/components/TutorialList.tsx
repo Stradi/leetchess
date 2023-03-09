@@ -1,11 +1,12 @@
-import { getUrlFor, PermalinkResources } from "@/utils/permalinks";
-import { cn } from "@/utils/tw";
-import Link from "next/link";
-import Button from "./Button";
-import Card from "./ui/Card";
+import { ITag, ITutorial } from '@/types';
+import { getUrlFor, PermalinkResources } from '@/utils/permalinks';
+import { cn } from '@/utils/tw';
+import Link from 'next/link';
+import Button from './Button';
+import Card from './ui/Card';
 
 interface SingleTutorialProps {
-  tutorial: IChessTutorialMeta;
+  tutorial: ITutorial;
 }
 
 function SingleTutorial({ tutorial }: SingleTutorialProps) {
@@ -21,9 +22,9 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
           >
             <span
               className={cn(
-                "inline-block select-none rounded-full px-2 py-1",
-                "transition duration-100",
-                " hover:bg-neutral-700/50 hover:text-white"
+                'inline-block select-none rounded-full px-2 py-1',
+                'transition duration-100',
+                ' hover:bg-neutral-700/50 hover:text-white'
               )}
             >
               {tag.name}
@@ -33,9 +34,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
       </Card.Header>
       <Card.Body>
         <h2 className="text-2xl font-bold text-neutral-50">{tutorial.name}</h2>
-        <p className="text-sm font-medium text-neutral-400">
-          {tutorial.subtitle}
-        </p>
+        <p className="text-sm font-medium text-neutral-400">{tutorial.subtitle}</p>
       </Card.Body>
       <Card.Footer>
         <Button
@@ -52,7 +51,7 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
 }
 
 interface TutorialListProps {
-  tutorials: IChessTutorialMeta[];
+  tutorials: ITutorial[];
 }
 
 export default function TutorialList({ tutorials }: TutorialListProps) {

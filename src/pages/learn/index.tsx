@@ -1,7 +1,6 @@
 import Container from '@/components/Container';
 import TutorialList from '@/components/TutorialList';
 import { ITutorial } from '@/types';
-import { PGT } from '@/utils/pgt/pgt.types';
 import { getAllTutorials, getTutorial } from '@/utils/tutorial';
 import { GetStaticProps } from 'next';
 
