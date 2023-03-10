@@ -29,7 +29,8 @@ export async function getTutorial(slug: string) {
 
   const pgt = await readPgt(pgtPath);
   const tagSlugs = pgt.headers.find((header) => header.key.toLowerCase() === 'tags')?.value.split(',') || [];
-  const tags = await Promise.all(tagSlugs.map((tagSlug) => getTag(tagSlug.trim())));
+  const slugifiedTags = tagSlugs.map((tagSlug) => tagSlug.trim().toLowerCase().replace(/ /g, '-'));
+  const tags = await Promise.all(slugifiedTags.map((tagSlug) => getTag(tagSlug.trim())));
 
   return {
     pgt,
