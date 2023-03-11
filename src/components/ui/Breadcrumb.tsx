@@ -66,7 +66,7 @@ export default function Breadcrumb({ whitelistedQueryParams = [] }: BreadcrumbPr
   }, [router.asPath, router.query]);
 
   return (
-    <nav aria-label="Breadcrumb">
+    <nav aria-label="Breadcrumb" className="ml-3">
       <ol className="flex items-center space-x-2 text-sm font-medium text-neutral-400">
         {breadcrumbItems &&
           breadcrumbItems.length > 0 &&
