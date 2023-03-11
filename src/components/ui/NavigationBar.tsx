@@ -9,8 +9,22 @@ interface NavigationBarProps {
 
 export default function NavigationBar({ items }: NavigationBarProps) {
   return (
-    <NavigationMenu.Root className={cn('relative flex justify-center p-2', 'rounded-2xl bg-neutral-800')}>
+    <NavigationMenu.Root className={cn('relative flex justify-center p-2', 'mt-2 rounded-2xl bg-neutral-800')}>
       <NavigationMenu.List className="flex items-center gap-2">
+        <NavigationMenu.Item className="group">
+          <NavigationMenu.Link
+            className={cn(
+              'text-sm font-medium text-neutral-400',
+              'inline-block select-none',
+              'rounded-2xl px-4 py-1',
+              'hover:bg-neutral-700/50 hover:text-neutral-50',
+              'transition-colors duration-100'
+            )}
+            href="/"
+          >
+            <span className="pr-0.5 italic text-green-600 group-hover:text-green-500">Leet</span>Chess
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
         {items.map((item, idx) => (
           <NavigationMenu.Item key={item.href} className={cn('text-sm font-medium text-neutral-400')}>
             {item.megaMenu ? (
