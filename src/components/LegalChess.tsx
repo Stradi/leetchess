@@ -43,36 +43,40 @@ const LegalChess = forwardRef<LegalChessRef, LegalChessProps>(
     const [chessState] = useState<Chess>(new Chess(startingFen));
     const [fen, setFen] = useState(startingFen);
 
-    useImperativeHandle(ref, () => {
-      // We should intercept all methods that mutate the chessboard state
-      // and update the fen state. If we don't do this, the fen state will
-      // be out of sync with the chessboard state. Also we wouldn't be
-      // able to update chess state outside of this component.
-      // This is a bit of a hack, but it works.
+    useImperativeHandle(
+      ref,
+      () => {
+        // We should intercept all methods that mutate the chessboard state
+        // and update the fen state. If we don't do this, the fen state will
+        // be out of sync with the chessboard state. Also we wouldn't be
+        // able to update chess state outside of this component.
+        // This is a bit of a hack, but it works.
 
-      const methodsToIntercept = [
-        'clear',
-        'reset',
-        'load',
-        'loadPgn',
-        'move',
-        'put',
-        'remove',
-        'reset',
-        'undo',
-      ] as const;
+        const methodsToIntercept = [
+          'clear',
+          'reset',
+          'load',
+          'loadPgn',
+          'move',
+          'put',
+          'remove',
+          'reset',
+          'undo',
+        ] as const;
 
-      methodsToIntercept.forEach((methodName) => {
-        const originalMethod = chessState[methodName] as (...args: any[]) => any;
-        chessState[methodName] = (...args: any[]) => {
-          const result = originalMethod.apply(chessState, args);
-          setFen(chessState.fen());
-          return result;
-        };
-      });
+        methodsToIntercept.forEach((methodName) => {
+          const originalMethod = chessState[methodName] as (...args: any[]) => any;
+          chessState[methodName] = (...args: any[]) => {
+            const result = originalMethod.apply(chessState, args);
+            setFen(chessState.fen());
+            return result;
+          };
+        });
 
-      return chessState;
-    });
+        return chessState;
+      },
+      [chessState]
+    );
 
     // Doing this calculation in a callback allows us to memoize the
     // function and only recompute the destinations when the fen changes.
