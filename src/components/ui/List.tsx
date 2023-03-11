@@ -44,7 +44,7 @@ interface ListProps {
 
 export default function List({ items }: ListProps) {
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
       {items.map((item, idx) => (
         <Item key={idx} {...item} />
       ))}
