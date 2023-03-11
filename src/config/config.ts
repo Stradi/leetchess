@@ -15,6 +15,11 @@ export default {
             href: getUrlFor(PermalinkResources.Tutorial),
             description: 'Learn chess from the beginning',
           },
+          {
+            label: 'Learning Paths',
+            href: 'learning-paths',
+            description: 'We grouped all tutorials into learning paths',
+          },
         ],
       },
     },
