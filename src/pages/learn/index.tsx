@@ -1,5 +1,5 @@
 import Container from '@/components/Container';
-import TutorialList from '@/components/TutorialList';
+import List from '@/components/ui/List';
 import { ITutorial } from '@/types';
 import { PGT } from '@/utils/pgt/pgt.types';
 import { getAllTutorials, getTutorial } from '@/utils/tutorial';
@@ -10,9 +10,15 @@ interface PageProps {
 }
 
 export default function Page({ tutorials }: PageProps) {
+  const listItems = tutorials.map((tutorial) => ({
+    title: tutorial.name,
+    description: tutorial.description,
+    href: `/learn/${tutorial.slug}`,
+  }));
+
   return (
     <Container>
-      <TutorialList tutorials={tutorials} />
+      <List items={listItems} />
     </Container>
   );
 }

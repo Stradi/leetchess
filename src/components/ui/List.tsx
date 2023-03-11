@@ -1,15 +1,15 @@
-import { ITag, ITutorial } from '@/types';
-import { getUrlFor, PermalinkResources } from '@/utils/permalinks';
 import { cn } from '@/utils/tw';
 import Link from 'next/link';
 
-interface SingleTutorialProps {
-  tutorial: ITutorial;
+interface IItem {
+  title: string;
+  description: string;
+  href: string;
 }
 
-function SingleTutorial({ tutorial }: SingleTutorialProps) {
+function Item({ title, description, href }: IItem) {
   return (
-    <Link href={getUrlFor(PermalinkResources.Tutorial, [tutorial.slug])} className="group focus:outline-none">
+    <Link href={href} className="group focus:outline-none">
       <div
         className={cn(
           'relative flex h-full flex-col gap-2 rounded-lg bg-neutral-800 p-4',
@@ -20,15 +20,8 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
           'group-focus:ring-green-700 group-focus:ring-offset-2 group-focus:ring-offset-neutral-900'
         )}
       >
-        <h1 className="text-xl font-bold text-neutral-50">{tutorial.name}</h1>
-        <p className="text-sm text-neutral-500 line-clamp-3">{tutorial.description}</p>
-        <div className="flex gap-2">
-          {(tutorial.tags as ITag[]).map((tag: ITag) => (
-            <p className="text-sm text-neutral-500" key={tag.id}>
-              {tag.name}
-            </p>
-          ))}
-        </div>
+        <h1 className="text-xl font-bold text-neutral-50">{title}</h1>
+        <p className="text-sm text-neutral-500 line-clamp-3">{description}</p>
         <div
           className={cn(
             'absolute inset-0 h-full w-full rounded-lg p-4',
@@ -45,15 +38,15 @@ function SingleTutorial({ tutorial }: SingleTutorialProps) {
   );
 }
 
-interface TutorialListProps {
-  tutorials: ITutorial[];
+interface ListProps {
+  items: IItem[];
 }
 
-export default function TutorialList({ tutorials }: TutorialListProps) {
+export default function List({ items }: ListProps) {
   return (
     <div className="grid grid-cols-4 gap-4">
-      {tutorials.map((tutorial) => (
-        <SingleTutorial key={tutorial.slug} tutorial={tutorial} />
+      {items.map((item, idx) => (
+        <Item key={idx} {...item} />
       ))}
     </div>
   );
