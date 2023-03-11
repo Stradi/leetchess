@@ -1,0 +1,15 @@
+[Name "The Knight "]
+[Subtitle "Is's a HORSE!"]
+[Description "The knight is a tricky piece. The quicker you can tame the wild horse, the more dangerous you will be as a chess player! "]
+
+{Both players start the game with two knights, placed between the rooks and the bishops.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "g1"]} {[%highlight "b1"]} {[%highlight "g8"]} {[%highlight "b8"]}
+{The knight can move in any direction in an L-shape: two steps in one direction, then one step to either side.} {[%fen "k7/8/8/8/4N3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"e6"]} {[%arrow "e6";"d6"]} {[%arrow "e6";"f6"]} {[%arrow "e4";"g4"]} {[%arrow "g4";"g5"]} {[%arrow "g4";"g3"]} {[%arrow "e4";"e2"]} {[%arrow "e2";"f2"]} {[%arrow "e2";"d2"]} {[%arrow "e4";"c4"]} {[%arrow "c4";"c3"]} {[%arrow "c4";"c5"]} {[%highlight "d6"]} {[%highlight "f6"]} {[%highlight "g5"]} {[%highlight "g3"]} {[%highlight "d2"]} {[%highlight "f2"]} {[%highlight "c5"]} {[%highlight "c3"]}
+{A knight loves being in the center of the board, where it covers eight squares. By jumping around, it can reach all the squares of the board.} {[%fen "k7/8/8/8/4N3/8/8/K7 w - - 0 1"]} {[%highlight "d2"]} {[%highlight "f2"]} {[%highlight "g5"]} {[%highlight "g3"]} {[%highlight "f6"]} {[%highlight "d6"]} {[%highlight "c5"]} {[%highlight "c3"]}
+!Nxf6 {[%fen "k7/8/5p2/8/4N3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"f6"]} {The knight captures the same way as it jumps. You just remove the piece on the landing square. Try it!}
+{After the knight captures the black pawn, the position will look like this.} {[%fen "k7/8/5N2/8/8/8/8/K7 b - - 0 1"]}
+{The knight is the only piece that can jump over other pieces, both your own and your opponent's. It can only capture an enemy piece on the square where it lands, not the ones it is jumping over. } {[%fen "k7/8/8/8/8/8/5Ppp/K5N1 w - - 0 1"]} {[%arrow "g1";"e2"]} {[%arrow "g1";"f3"]} {[%arrow "g1";"h3"]} {[%highlight "h3"]} {[%highlight "f3"]} {[%highlight "e2"]}
+!Nxc5 {[%fen "k7/8/2p5/2ppp3/3pNp2/3p4/8/K7 w - - 0 1"]} {Here the knight can capture only one black pawn. Which one?}
+{Two steps to the left, one step up. Say goodbye to the black pawn!} {[%fen "k7/8/2p5/2Npp3/3p1p2/3p4/8/K7 b - - 0 1"]} {[%arrow "e4";"c4"]} {[%arrow "c4";"c5"]}
+{Welcome to the Knight Club! It looks like everyone is having fun! All but one knight, actually. Can you find the knight that doesn't have any legal moves? Take your time before flipping the page and discovering the answer!} {[%fen "nk5N/2n2n2/4nnN1/1n1n3n/N1N2n1N/n1nNn3/1NN3n1/N2N1n1K w - - 0 1"]}
+{Here is the poor fellow. There are knights of the same color on all his landing squares. } {[%fen "nk5N/2n2n2/4nnN1/1n1n3n/N1N2n1N/n1nNn3/1NN3n1/N2N1n1K w - - 0 1"]} {[%highlight "b2"]}
+{The way the knight moves may seem a bit confusing, but you'll soon get the hang of it!} {[%fen "1n2k1n1/8/8/8/8/8/8/1N2K1N1 w - - 0 1"]}

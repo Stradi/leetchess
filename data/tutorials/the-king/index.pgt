@@ -1,0 +1,19 @@
+[Name "The King "]
+[Subtitle "Ruler of our land"]
+[Description "The king is the most important chess piece. It can put up a fight on its own, but always remember to keep it safe. Long live the king!"]
+
+{The king is the most valuable piece in chess. We can even call him invaluable. The object of the game is to trap the enemy king. Once you do it, you win. } {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "e1"]} {[%highlight "e8"]} {[%highlight "e8"]}
+{The king can move one step at a time in any direction. It can capture enemy pieces in the same way.Who is more powerful: the king or the queen? } {[%choice "The queen";"The king";"They have the same power level"]} {[%fen "4k3/8/8/8/4K3/8/8/8 w - - 0 1"]} {[%arrow "e4";"f3"]} {[%arrow "e4";"f4"]} {[%arrow "e4";"f5"]} {[%arrow "e4";"e5"]} {[%arrow "e4";"d5"]} {[%arrow "e4";"d4"]} {[%arrow "e4";"d3"]} {[%arrow "e4";"e3"]}
+{In fact, they are not even close! The king can move only one square at a time in any direction, whereas the queen can travel any number of squares she likes. } {[%fen "4k3/8/8/8/8/8/8/3QK3 w - - 0 1"]} {[%arrow "d1";"d8"]} {[%arrow "e1";"e2"]} {[%arrow "e1";"f1"]} {[%arrow "e1";"f2"]} {[%arrow "e1";"d2"]} {[%arrow "d1";"a4"]} {[%arrow "d1";"h5"]} {[%arrow "d1";"a1"]}
+{When the king is threatened, it's in check. In casual games, players often say "check" to ensure their opponent is aware of the threat. In tournaments, the players keep quiet.} {[%fen "4k3/8/8/8/8/8/8/r3K3 w - - 0 1"]} {[%arrow "a1";"e1"]}
+{Moving or leaving the king on a threatened square is not allowed. It is considered an illegal move. If your opponent makes an illegal move, that move must be redone.} {[%fen "4k3/8/8/8/8/8/8/r3K3 w - - 0 1"]} {[%arrow "a1";"e1"]}
+!Ke2 {[%fen "3qkq2/8/8/8/8/8/8/r3K3 w - - 0 1"]} {[%arrow "a1";"e1"]} {Let's practice keeping your king safe. If you are put in check, there are three ways to escape the threat:  1. Move away from the threatened square. Go on!}
+{Any move upwards escapes the check since the rook targets only the first rank. } {[%fen "3qkq2/8/8/8/8/8/4K3/r7 b - - 1 1"]} {[%arrow "a1";"h1"]}
+!Bxa1 {[%fen "4k3/8/8/8/8/8/1B6/r3K3 w - - 0 1"]} {[%arrow "a1";"e1"]} {2. Capture the piece threatening the king. Do you see how to do it?}
+{Hooray! We got rid of the piece that was threatening our king. } {[%fen "4k3/8/8/8/8/8/8/B3K3 b - - 0 1"]}
+!Bd1 {[%fen "4k3/8/8/8/8/8/4B3/r3K3 w - - 0 1"]} {[%arrow "a1";"e1"]} {3. Block the piece threatening the king. Which move shields the king from the enemy rook?}
+{The check has been blocked, and the white king is safe once again.} {[%fen "4k3/8/8/8/8/8/8/r2BK3 b - - 1 1"]}
+{If there is no way to save your king, it is checkmate, and you lose the game. Here the white king is trapped. Black wins.} {[%fen "8/8/8/3k4/8/8/1q6/r3K3 b - -"]} {[%arrow "b2";"h2"]} {[%arrow "a1";"h1"]}
+{Time for one more exercise. How many moves does the king need to capture the black pawn?} {[%choice "Four moves";"Three moves";"Seven moves "]} {[%fen "4k3/8/8/1p6/8/1P6/8/4K3 w - - 0 1"]} {[%highlight "b5"]}
+{The king can take a shortcut by moving diagonally and capturing the black pawn in four moves. } {[%fen "4k3/8/8/1p6/8/1P6/8/4K3 w - - 0 1"]} {[%arrow "e1";"d2"]} {[%arrow "d2";"c3"]} {[%arrow "c3";"b4"]} {[%arrow "b4";"b5"]} {[%highlight "c4"]}
+{At the beginning of the game, it is not the king's priority to chase the pawns, though. Too many preying enemy pieces lurk around. Remember to keep your king safe at all costs!} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"]}

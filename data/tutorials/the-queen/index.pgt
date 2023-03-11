@@ -1,0 +1,19 @@
+[Name "The Queen"]
+[Subtitle "Mamaaa!"]
+[Description "The queen is the fastest and most furious piece on the chessboard. In experienced hands, she becomes a weapon of mass destruction, disposing of one enemy piece after another. "]
+
+{At the beginning of a game, the queen stands tall next to the king.If in doubt on which central square to place her, light or dark, remember the rule: "Queen gets her color."} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "d1"]} {[%highlight "d8"]}
+{The queen combines the powers of a rook and a bishop. This makes her the strongest piece on the board.} {[%fen "k7/8/8/8/4Q3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"a4"]} {[%arrow "e4";"e1"]} {[%arrow "e4";"h4"]} {[%arrow "e4";"e8"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h7"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"b1"]}
+!Qxb2 {[%fen "k7/7b/5Q2/2b5/8/6r1/1p6/K7 w - - 0 1"]} {The queen captures the same way she moves. Which black piece is in danger in this position? Take it!}
+{Backward diagonal moves are the hardest to notice in chess. Well done if you have made it!} {[%fen "k7/7b/8/2b5/8/6r1/1Q6/K7 b - - 0 1"]} {[%arrow "f6";"b2"]}
+{Like the bishop and the rook, the queen cannot jump over pieces. } {[%fen "k7/8/8/1P6/8/P7/PQP5/K7 w - - 0 1"]} {[%arrow "b2";"b4"]} {[%arrow "b2";"h8"]} {[%arrow "b2";"a1"]} {[%arrow "b2";"b1"]} {[%arrow "b2";"c1"]}
+!Qxh8+ {[%fen "k6r/1p6/8/1P6/8/P7/PQP5/K7 w - - 0 1"]} {Which black piece can the queen capture in this position?}
+{The queen can travel all the way up in one move and capture the rook.The black pawn was untouchable, thanks to the white pawn blocking the way.} {[%fen "k6Q/1p6/8/1P6/8/P7/P1P5/K7 b - - 0 1"]} {[%highlight "b5"]}
+!Qe5 {[%fen "k7/1p6/8/1P6/5r2/P7/PQPP4/K7 w - - 0 1"]} {[%highlight "e4"]} {[%highlight "d4"]} {[%highlight "c4"]} {[%highlight "b4"]} {[%highlight "a4"]} {[%highlight "g4"]} {[%highlight "h4"]} {[%highlight "f6"]} {[%highlight "f5"]} {[%highlight "f7"]} {[%highlight "f8"]} {[%highlight "f3"]} {[%highlight "f2"]} {[%highlight "f1"]} {Your next task is to capture the black rook in two moves. This time, the rook can also fight back and capture your queen. Attack the rook, but remember to avoid squares in its shooting range. }
+!Qxf4 {[%fen "k7/1p6/8/1P2Q3/5r2/P7/P1PP4/K7 w - - 0 1"]} {[%arrow "e5";"f4"]} {[%highlight "b4"]} {[%highlight "d4"]} {[%highlight "f6"]} {There were several ways to aim at the rook. The diagonal attack was the safe one.Time to take the rook!}
+{Mission accomplished.} {[%fen "k7/1p6/8/1P6/5Q2/P7/P1PP4/K7 b - - 0 1"]}
+{Even though you start with only one queen, you can acquire more by promoting pawns.} {[%fen "k7/6P1/8/8/8/8/6Q1/K7 w - - 0 1"]} {[%arrow "g7";"g8"]}
+{A pawn can become a new queen when it reaches the other side of the board.  How many queens of the same color could you have on the board simultaneously? Make a guess!} {[%choice "9";"2";"4";"18"]} {[%fen "k5Q1/8/8/8/8/8/6Q1/K7 b - - 0 1"]}
+{If all your pawns manage to sneak to the last rank, you could have nine queens. That would be quite a party!} {[%fen "k7/8/8/8/8/8/PPPPPPPP/K2Q4 w - - 0 1"]} {[%highlight "a8"]} {[%highlight "b8"]} {[%highlight "c8"]} {[%highlight "d8"]} {[%highlight "e8"]} {[%highlight "f8"]} {[%highlight "g8"]} {[%highlight "h8"]}
+!Qh2+ {[%fen "qk2q3/6q1/8/3q4/1K5Q/5q2/8/2q2q2 w - - 0 1"]} {That party could be pretty dangerous for you, though, if your opponent were the lucky owner of nine queens!Find the only safe square where you can move the white queen.}
+{Phew! She has made it.Remember to use the queen actively but with caution to avoid losing her. She often plays an instrumental role in winning games!} {[%fen "qk2q3/6q1/8/3q4/1K6/5q2/7Q/2q2q2 w - - 0 1"]}

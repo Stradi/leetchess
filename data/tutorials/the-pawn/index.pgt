@@ -1,0 +1,20 @@
+[Name "The Pawn"]
+[Subtitle "Useless? Not at all!"]
+[Description "Pawns are said to be the soul of chess. Let me introduce you to them so that you can judge if the statement is true! "]
+
+{Both players start with eight pawns, placed on the second and seventh rows. To become a strong player, you should learn how to use them properly.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "h2"]} {[%highlight "g2"]} {[%highlight "f2"]} {[%highlight "e2"]} {[%highlight "d2"]} {[%highlight "c2"]} {[%highlight "b2"]} {[%highlight "a2"]} {[%highlight "a7"]} {[%highlight "b7"]} {[%highlight "c7"]} {[%highlight "d7"]} {[%highlight "e7"]} {[%highlight "f7"]} {[%highlight "g7"]} {[%highlight "h7"]}
+!e4 {[%fen "k7/8/5p2/8/8/8/4P3/K7 w - - 0 1"]} {[%arrow "e2";"e4"]} {[%arrow "e2";"e3"]} {The pawn moves straight ahead. It can choose between moving one or two steps from the starting position. Make the longest move with the white pawn!}
+{After making the first move, the pawn can only advance one step at a time. The pawn cannot move backward or sideways.} {[%fen "k7/8/5p2/8/4P3/8/8/K7 b - - 0 1"]} {[%arrow "e4";"e5"]}
+{When you play Black, your pawns will be moving in the opposite direction.} {[%fen "k7/8/5p2/8/4P3/8/8/K7 b - - 0 1"]} {[%arrow "f6";"f5"]}
+!f5 {[%fen "k7/8/5p2/8/4P3/8/8/K7 b - - 0 1"]} {Now make the longest move with the black pawn, please.}
+{Why only one square this time? Because the black pawn was no longer in the starting position and lost the right to advance two steps. } {[%fen "k7/8/8/5p2/4P3/8/8/K7 w - - 0 1"]}
+!exf5 {[%fen "k7/8/8/3p1p2/4P3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"f5"]} {[%arrow "e4";"d5"]} {A pawn is unique because it captures enemy pieces differently than it normally moves. Pawns capture only one square diagonally and never an enemy piece directly in front of it. Please capture the pawn to the right! }
+{If you were right about capturing the right pawn, the left black pawn should be left on the board!} {[%fen "k7/8/8/3p1P2/8/8/8/K7 b - - 0 1"]}
+{The pawn cannot capture straight ahead or jump over other pieces. In positions like this, neither pawn can move.} {[%fen "k7/8/5p2/5P2/8/8/8/K7 w - - 0 1"]}
+f8=Q+ {[%fen "k7/5P2/8/8/8/8/8/K7 w - - 0 1"]} {[%arrow "f7";"f8"]} {The dream of every pawn is to reach the other side of the board. This is when the pawn can be promoted into another piece.Make the dream come true and choose the queen!}
+{Promoting your pawn to a queen is by far the most popular choice. Promoting a pawn into a rook, bishop, or knight is also possible.} {[%fen "k4Q2/8/8/8/8/8/8/K7 b - - 0 1"]}
+!cxd1=Q {[%fen "k7/8/8/8/8/8/2p5/K1NR4 b - - 0 1"]} {Black pawns promote when they reach the first rank, i.e., the other side of the board. Help the black pawn become a queen as well!}
+{Capturing a piece on the first rank is also a legal way of promotion. What can be better than eliminating an enemy piece and getting a new queen in one move? } {[%fen "k7/8/8/8/8/8/8/K1Nq4 w - - 0 1"]}
+{Time for the final exercise! How many moves do you need to promote the pawn to a queen as quickly as possible?} {[%choice "Five moves";"Three moves";"Six moves"]} {[%fen "k7/8/8/8/8/8/4P3/K7 w - - 0 1"]} {[%highlight "e8"]}
+{The answer is five moves. By advancing two steps at the beginning, the pawn saves one move.} {[%fen "k7/8/8/8/8/8/4P3/K7 w - - 0 1"]} {[%arrow "e2";"e4"]} {[%arrow "e4";"e5"]} {[%arrow "e5";"e6"]} {[%arrow "e6";"e7"]} {[%arrow "e7";"e8"]}
+{Well done! You now know how to use the pawns to your advantage.Pawns are the weakest pieces in the chess army, but their strength often increases towards the end of the game when there are fewer obstacles on the way to becoming a queen. } {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}

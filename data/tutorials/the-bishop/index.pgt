@@ -1,0 +1,13 @@
+[Name "The Bishop "]
+[Subtitle "Big Show"]
+[Description "You begin each game with two bishops. One moves on light squares, while the other roams on dark squares. Together they are a powerful combo!"]
+
+{Both players start with two bishops placed next to the king and queen.One bishop always stays on light squares, while the other always remains on dark squares. } {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "f1"]} {[%highlight "c1"]} {[%highlight "c8"]} {[%highlight "f8"]}
+{ The bishops move diagonally as far as they want to travel. } {[%fen "k7/8/8/8/4B3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"b1"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h7"]}
+!Bxg6 {[%fen "k7/8/6p1/8/8/8/8/KB6 w - - 0 1"]} {[%arrow "b1";"g6"]} {The bishop can cover great distances in a single move. Try to capture the black pawn! Bishops capture the same way they move, replacing the enemy piece on its square. }
+{The bishop can do the job from afar.} {[%fen "k7/8/6B1/8/8/8/8/K7 b - - 0 1"]}
+{The bishop can't jump over other pieces, neither your own nor your opponent's.  In this position, the bishop doesn't have much space to go. } {[%fen "k7/8/6p1/8/4P3/8/8/KB6 w - - 0 1"]} {[%highlight "c2"]} {[%highlight "d3"]} {[%highlight "a2"]}
+!Ba3 {[%fen "k7/4p3/8/8/4P3/8/2PP1P2/K1B2B2 w - - 0 1"]} {How many bishop moves will it take to capture the black pawn as soon as possible?Make them!}
+!Bxe7 {[%fen "k7/4p3/8/8/4P3/B7/2PP1P2/K4B2 w - - 0 1"]} {Two moves. With the first move, we aim at the enemy pawn. Show me the second one, please!}
+{As you have figured out, there is no way the other bishop could do the job. Its chess life is limited to light squares. } {[%fen "k7/4B3/8/8/4P3/8/2PP1P2/K4B2 b - - 0 1"]} {[%highlight "f1"]}
+{For this reason, the two bishops you start with are called light-squared and dark-squared bishops.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"]} {[%highlight "c1"]} {[%highlight "f1"]}
