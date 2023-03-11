@@ -17,7 +17,10 @@ export default function Page({ tutorials }: PageProps) {
   }));
 
   return (
-    <Container>
+    <Container className="space-y-4">
+      <h1 className="text-center text-4xl font-medium">Latest Lessons</h1>
+      <p className="text-center text-2xl">Learn how to play chess with these free chess lessons.</p>
+      <h2 className="text-2xl font-medium">Lessons</h2>
       <List items={listItems} />
     </Container>
   );

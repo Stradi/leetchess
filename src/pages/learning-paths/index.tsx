@@ -16,7 +16,12 @@ export default function Page({ learningPaths }: PageProps) {
   }));
 
   return (
-    <Container>
+    <Container className="space-y-4">
+      <h1 className="text-center text-4xl font-medium">Learning Paths</h1>
+      <p className="text-center text-2xl">
+        We grouped the lessons into learning paths to help you learn chess in a structured way.
+      </p>
+      <h2 className="text-2xl font-medium">Learning Paths</h2>
       <List items={listItems} />
     </Container>
   );
