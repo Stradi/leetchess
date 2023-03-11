@@ -10,7 +10,7 @@
 !Rxe7 {[%fen "k7/4p3/8/8/4R3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"e7"]} {Rooks capture the same way they move. You remove the opponent's piece, then place the rook on the square where the capture happened.Try it!}
 {After capturing the black pawn, the position looks like this. } {[%fen "k7/4R3/8/8/8/8/8/K7 b - - 0 1"]}
 {The rook is not allowed to jump over other pieces, neither your own nor your opponent's. Here the white pawn stops the rook from capturing the black pawn.} {[%fen "k7/4p3/4P3/8/4R3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"e6"]}
-{Yes, rooks can be black! So, how many white pawns can you kill with one rook move here?} {[%fen "k7/8/8/3r2PP/8/8/8/K7 w - - 0 1"]}
+{Yes, rooks can be black! So, how many white pawns can you kill with one rook move here?} {[%choice "Only the one nearest to the rook. ";"None. The white pawns are untouchable.";"Both, as they are next to each other.";"Only the one farthest from the rook."]} {[%fen "k7/8/8/3r2PP/8/8/8/K7 w - - 0 1"]}
 {Did I manage to trick you? The rook can only capture the first opponent's piece on its way. } {[%fen "k7/8/8/3r2PP/8/8/8/K7 w - - 0 1"]} {[%arrow "d5";"g5"]} {[%highlight "g5"]}
 !Rxa3+ {[%fen "k7/5Pp1/8/8/4p3/p4RPp/8/K7 w - - 0 1"]} {One final exercise. Which pawn can you capture with the rook?}
 {This was the only opponent's pawn in the shooting range of the rook!} {[%fen "k7/5Pp1/8/8/4p3/R5Pp/8/K7 b - - 0 1"]}

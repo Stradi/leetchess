@@ -1,11 +1,18 @@
 import { ITutorial } from '@/types';
-import { DEFAULT_FEN, getCommentsFromStep, getFenCommandFromStep, getShapesFromStep } from './utils';
+import {
+  DEFAULT_FEN,
+  getChoiceCommandFromStep,
+  getCommentsFromStep,
+  getFenCommandFromStep,
+  getShapesFromStep,
+} from './utils';
 import { cn } from '@/utils/tw';
 import { Move } from 'chess.js';
 import { useEffect, useRef, useState } from 'react';
 import Button from '../Button';
 import { ChessgroundRef } from '../Chessground';
 import LegalChess, { LegalChessRef } from '../LegalChess';
+import ChoiceButtons from './ChoiceButtons';
 
 export interface TutorialProps {
   data: ITutorial;
@@ -26,8 +33,13 @@ export default function Tutorial({ data }: TutorialProps) {
   const isUserTurn = currentStep ? currentStep.type === 'MOVE' && !currentStep.value.autoplay : false;
   const hasStarted = currentStepIdx !== -1;
 
+  const choiceStep = getChoiceCommandFromStep(currentStep);
+
   useEffect(() => {
-    setCommentHistory([...commentHistory, ...getCommentsFromStep(currentStep)]);
+    if (!choiceStep) {
+      setCommentHistory([...commentHistory, ...getCommentsFromStep(currentStep)]);
+    }
+
     const fen = getFenCommandFromStep(currentStep);
     if (fen) {
       chessRef.current?.load(fen);
@@ -37,6 +49,11 @@ export default function Tutorial({ data }: TutorialProps) {
     if (shapes) {
       boardRef.current?.setAutoShapes(shapes);
     }
+
+    if (choiceStep) {
+      console.log(choiceStep.question, choiceStep.choices);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStepIdx, currentStep]);
 
@@ -64,7 +81,7 @@ export default function Tutorial({ data }: TutorialProps) {
   }
 
   return (
-    <div className="mx-auto flex h-screen max-h-screen w-full flex-col items-stretch gap-4 rounded-3xl bg-neutral-800 p-2 sm:p-2 md:h-full md:flex-row md:p-6">
+    <div className="relative mx-auto flex h-screen max-h-screen w-full flex-col items-stretch gap-4 rounded-3xl bg-neutral-800 p-2 sm:p-2 md:h-full md:flex-row md:p-6">
       <LegalChess
         boardRef={boardRef}
         ref={chessRef}
@@ -72,7 +89,7 @@ export default function Tutorial({ data }: TutorialProps) {
         startingFen={DEFAULT_FEN}
         onMove={onMove}
       />
-      <div className="mx-auto flex max-h-[calc(97.5vh-100vw)] w-full grow flex-col gap-1 rounded-2xl bg-neutral-900 p-2 sm:w-2/3 md:max-h-[unset] md:w-2/5 md:gap-4 md:p-4">
+      <div className="relative mx-auto flex max-h-[calc(97.5vh-100vw)] w-full grow flex-col gap-1 rounded-2xl bg-neutral-900 p-2 sm:w-2/3 md:max-h-[unset] md:w-2/5 md:gap-4 md:p-4">
         <div className="text-center">
           <h1 className="text-lg font-bold text-neutral-50 md:text-2xl">{data.name}</h1>
           <h2 className="text-sm font-medium text-neutral-500">{data.subtitle}</h2>
@@ -98,14 +115,27 @@ export default function Tutorial({ data }: TutorialProps) {
               <span className="text-sm md:text-base">{comment}</span>
             </div>
           ))}
+          {choiceStep && (
+            <div className="absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-center gap-2 rounded-lg bg-neutral-900 px-2 md:gap-4 md:bg-neutral-900/75 md:px-4">
+              <h1 className="text-center text-lg font-bold md:text-xl">Pop Quiz</h1>
+              <p className="text-sm md:text-base">{choiceStep.question}</p>
+              <ChoiceButtons
+                choices={choiceStep.choices}
+                onCorrectButtonClicked={(data) => {
+                  setCommentHistory([...commentHistory, data.text]);
+                  nextStep();
+                }}
+              />
+            </div>
+          )}
         </div>
         <hr className="border-neutral-800" />
         <div className="flex gap-2">
           <Button
-            disabled={isUserTurn}
+            disabled={isUserTurn || choiceStep !== null}
             className="w-full"
             onClick={() => {
-              if (isUserTurn || isLastStep) return;
+              if (isUserTurn || isLastStep || choiceStep !== null) return;
               nextStep();
             }}
           >

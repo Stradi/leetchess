@@ -118,3 +118,23 @@ export function getCommentsFromStep(step: ITutorial['pgt']['steps'][number]) {
 
   return [];
 }
+
+export function getChoiceCommandFromStep(step: ITutorial['pgt']['steps'][number]) {
+  if (!step || step.type === 'MOVE' || step.type === 'COMMAND') return null;
+
+  const choiceCommand = step.value.commands.find((command) => command.name === 'choice');
+  if (!choiceCommand) return null;
+
+  const choiceObject = {
+    question: step.value.text,
+    choices: [] as { text: string; correct: boolean }[],
+  };
+  choiceCommand.args.forEach((arg, index) => {
+    choiceObject.choices.push({
+      text: arg,
+      correct: index === 0,
+    });
+  });
+
+  return choiceObject;
+}
