@@ -13,16 +13,16 @@ export async function getAllTutorials() {
     throw new Error(`Tutorials folder doesn't exists: ${basePath}`);
   }
 
-  return await fs.readdir(basePath);
+  return (await fs.readdir(basePath)).map((file) => path.basename(file, '.pgt'));
 }
 
 export async function getTutorial(slug: string) {
-  const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH, slug);
+  const basePath = path.resolve(process.cwd(), DATA_PATH, TUTORIALS_PATH);
   if (!(await fs.pathExists(basePath))) {
-    throw new Error(`Tutorial folder doesn't exists: ${basePath}`);
+    throw new Error(`Tutorials folder doesn't exists: ${basePath}`);
   }
 
-  const pgtPath = path.resolve(basePath, 'index.pgt');
+  const pgtPath = path.resolve(basePath, `${slug}.pgt`);
   if (!(await fs.pathExists(pgtPath))) {
     throw new Error(`Pgt file doesn't exists: ${pgtPath}`);
   }
