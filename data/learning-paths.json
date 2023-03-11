@@ -1,0 +1,12 @@
+{
+  "$schema": "definitions/learning-paths.schema.json",
+  "items": [
+    {
+      "id": 0,
+      "name": "Pieces",
+      "slug": "pieces",
+      "description": "Get to know your chess army and learn how to combat enemy pieces.",
+      "lessons": ["the-pawn", "the-rook", "the-knight", "the-bishop", "the-queen", "the-king"]
+    }
+  ]
+}
