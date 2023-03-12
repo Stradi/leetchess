@@ -3,6 +3,7 @@ import List from '@/components/ui/List';
 import { ILearningPath } from '@/types';
 import { getAllLearningPaths } from '@/utils/tutorial';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 interface PageProps {
   learningPaths: ILearningPath[];
@@ -16,14 +17,24 @@ export default function Page({ learningPaths }: PageProps) {
   }));
 
   return (
-    <Container className="space-y-4">
-      <h1 className="text-center text-4xl font-medium">Learning Paths</h1>
-      <p className="text-center text-2xl">
-        We grouped the lessons into learning paths to help you learn chess in a structured way.
-      </p>
-      <h2 className="text-2xl font-medium">Learning Paths</h2>
-      <List items={listItems} />
-    </Container>
+    <>
+      <Head>
+        <title>Learning Paths | LeetChess</title>
+        <meta
+          name="description"
+          content="Follow LeetChess's expertly crafted learning paths to become a chess master. Our learning paths will take you from beginner to advanced levels."
+        />
+      </Head>
+      <Container className="space-y-4">
+        <h1 className="text-center text-4xl font-medium">Learning Paths</h1>
+        <p className="text-center text-2xl">
+          Follow LeetChess&apos;s expertly crafted learning paths to become a chess master. Our learning paths will take
+          you from beginner to advanced levels.
+        </p>
+        <h2 className="text-2xl font-medium">Learning Paths</h2>
+        <List items={listItems} />
+      </Container>
+    </>
   );
 }
 

@@ -3,6 +3,7 @@ import List from '@/components/ui/List';
 import { ILearningPath, ITutorial } from '@/types';
 import { getAllLearningPaths, getLearningPath } from '@/utils/tutorial';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 
 interface StaticPathsQuery extends ParsedUrlQuery {
@@ -21,12 +22,18 @@ export default function Page({ learningPath }: PageProps) {
   }));
 
   return (
-    <Container className="space-y-4">
-      <h1 className="text-center text-4xl font-medium">{learningPath.name}</h1>
-      <p className="text-center text-2xl">{learningPath.description}</p>
-      <h2 className="text-2xl font-medium">Lessons</h2>
-      <List items={listItems} />
-    </Container>
+    <>
+      <Head>
+        <title>{learningPath.name} | LeetChess</title>
+        <meta name="description" content={learningPath.description} />
+      </Head>
+      <Container className="space-y-4">
+        <h1 className="text-center text-4xl font-medium">{learningPath.name}</h1>
+        <p className="text-center text-2xl">{learningPath.description}</p>
+        <h2 className="text-2xl font-medium">Lessons</h2>
+        <List items={listItems} />
+      </Container>
+    </>
   );
 }
 

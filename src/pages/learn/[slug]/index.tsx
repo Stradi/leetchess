@@ -3,6 +3,7 @@ import Tutorial from '@/components/Tutorial/';
 import { ITutorial } from '@/types';
 import { getAllTutorials, getTutorial } from '@/utils/tutorial';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 
 interface StaticPathsQuery extends ParsedUrlQuery {
@@ -15,9 +16,15 @@ interface PageProps {
 
 export default function Page({ tutorial }: PageProps) {
   return (
-    <Container>
-      <Tutorial data={tutorial} />
-    </Container>
+    <>
+      <Head>
+        <title>{tutorial.name} | LeetChess</title>
+        <meta name="description" content={tutorial.description} />
+      </Head>
+      <Container>
+        <Tutorial data={tutorial} />
+      </Container>
+    </>
   );
 }
 
