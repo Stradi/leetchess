@@ -1,6 +1,7 @@
 [Name "The Knight "]
 [Subtitle "Is's a HORSE!"]
 [Description "The knight is a tricky piece. The quicker you can tame the wild horse, the more dangerous you will be as a chess player! "]
+[Next "the-bishop"]
 
 {Both players start the game with two knights, placed between the rooks and the bishops.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "g1"]} {[%highlight "b1"]} {[%highlight "g8"]} {[%highlight "b8"]}
 {The knight can move in any direction in an L-shape: two steps in one direction, then one step to either side.} {[%fen "k7/8/8/8/4N3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"e6"]} {[%arrow "e6";"d6"]} {[%arrow "e6";"f6"]} {[%arrow "e4";"g4"]} {[%arrow "g4";"g5"]} {[%arrow "g4";"g3"]} {[%arrow "e4";"e2"]} {[%arrow "e2";"f2"]} {[%arrow "e2";"d2"]} {[%arrow "e4";"c4"]} {[%arrow "c4";"c3"]} {[%arrow "c4";"c5"]} {[%highlight "d6"]} {[%highlight "f6"]} {[%highlight "g5"]} {[%highlight "g3"]} {[%highlight "d2"]} {[%highlight "f2"]} {[%highlight "c5"]} {[%highlight "c3"]}

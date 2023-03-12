@@ -1,6 +1,7 @@
 [Name "The Bishop "]
 [Subtitle "Big Show"]
 [Description "You begin each game with two bishops. One moves on light squares, while the other roams on dark squares. Together they are a powerful combo!"]
+[Next "the-queen"]
 
 {Both players start with two bishops placed next to the king and queen.One bishop always stays on light squares, while the other always remains on dark squares. } {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "f1"]} {[%highlight "c1"]} {[%highlight "c8"]} {[%highlight "f8"]}
 { The bishops move diagonally as far as they want to travel. } {[%fen "k7/8/8/8/4B3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"b1"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h7"]}

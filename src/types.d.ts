@@ -19,6 +19,7 @@ interface ITutorial {
   description: string;
   tags: ITag[] | string[];
   pgt: PGT;
+  next?: string;
 }
 
 interface ILearningPath {

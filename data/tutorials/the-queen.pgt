@@ -1,6 +1,7 @@
 [Name "The Queen"]
 [Subtitle "Mamaaa!"]
 [Description "The queen is the fastest and most furious piece on the chessboard. In experienced hands, she becomes a weapon of mass destruction, disposing of one enemy piece after another. "]
+[Next "the-king"]
 
 {At the beginning of a game, the queen stands tall next to the king.If in doubt on which central square to place her, light or dark, remember the rule: "Queen gets her color."} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "d1"]} {[%highlight "d8"]}
 {The queen combines the powers of a rook and a bishop. This makes her the strongest piece on the board.} {[%fen "k7/8/8/8/4Q3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"a4"]} {[%arrow "e4";"e1"]} {[%arrow "e4";"h4"]} {[%arrow "e4";"e8"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h7"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"b1"]}

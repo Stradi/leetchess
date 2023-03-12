@@ -1,6 +1,7 @@
 [Name "The Pawn"]
 [Subtitle "Useless? Not at all!"]
 [Description "Pawns are said to be the soul of chess. Let me introduce you to them so that you can judge if the statement is true! "]
+[Next "the-rook"]
 
 {Both players start with eight pawns, placed on the second and seventh rows. To become a strong player, you should learn how to use them properly.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "h2"]} {[%highlight "g2"]} {[%highlight "f2"]} {[%highlight "e2"]} {[%highlight "d2"]} {[%highlight "c2"]} {[%highlight "b2"]} {[%highlight "a2"]} {[%highlight "a7"]} {[%highlight "b7"]} {[%highlight "c7"]} {[%highlight "d7"]} {[%highlight "e7"]} {[%highlight "f7"]} {[%highlight "g7"]} {[%highlight "h7"]}
 !e4 {[%fen "k7/8/5p2/8/8/8/4P3/K7 w - - 0 1"]} {[%arrow "e2";"e4"]} {[%arrow "e2";"e3"]} {The pawn moves straight ahead. It can choose between moving one or two steps from the starting position. Make the longest move with the white pawn!}

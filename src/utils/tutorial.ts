@@ -41,6 +41,7 @@ export async function getTutorial(slug: string) {
     subtitle: pgt.headers.find((header) => header.key.toLowerCase() === 'subtitle')?.value,
     description: pgt.headers.find((header) => header.key.toLowerCase() === 'description')?.value,
     tags,
+    next: pgt.headers.find((header) => header.key.toLowerCase() === 'next')?.value || null,
   } as ITutorial;
 }
 

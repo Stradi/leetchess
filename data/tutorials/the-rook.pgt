@@ -1,6 +1,7 @@
 [Name "The Rook"]
 [Subtitle "Rook & Roll"]
 [Description "The rook is one of the easiest pieces to learn. It enjoys open space and normally gets stronger the longer the game lasts. "]
+[Next "the-knight"]
 
 {A game of chess is played by two players, one with the white pieces and the other with black. Each player starts with 16 pieces: eight pawns, two rooks, two knights, two bishops, a queen, and a king. } {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
 {I will introduce you to all the pieces one by one. In this lesson, we start with rooks. } {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]} {[%highlight "a8"]} {[%highlight "h8"]} {[%highlight "a1"]} {[%highlight "h1"]}

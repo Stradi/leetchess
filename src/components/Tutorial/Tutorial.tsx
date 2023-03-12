@@ -29,7 +29,7 @@ export default function Tutorial({ data }: TutorialProps) {
 
   const [commentHistory, setCommentHistory] = useState<string[]>([data.description]);
   const latestCommentRef = useRef<HTMLDivElement>(null);
-  const isLastStep = currentStepIdx === data.pgt.steps.length;
+  const isLastStep = currentStepIdx === data.pgt.steps.length - 1;
   const isUserTurn = currentStep ? currentStep.type === 'MOVE' && !currentStep.value.autoplay : false;
   const hasStarted = currentStepIdx !== -1;
 
@@ -48,10 +48,6 @@ export default function Tutorial({ data }: TutorialProps) {
     const shapes = getShapesFromStep(currentStep);
     if (shapes) {
       boardRef.current?.setAutoShapes(shapes);
-    }
-
-    if (choiceStep) {
-      console.log(choiceStep.question, choiceStep.choices);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -140,12 +136,14 @@ export default function Tutorial({ data }: TutorialProps) {
           <Button
             disabled={isUserTurn || choiceStep !== null}
             className="w-full"
-            onClick={() => {
-              if (isUserTurn || isLastStep || choiceStep !== null) return;
+            asLink={isLastStep}
+            href={data.next ? `/learn/${data.next}` : '/learn'}
+            onClick={(e) => {
+              if (isUserTurn || choiceStep !== null || isLastStep) return;
               nextStep();
             }}
           >
-            {!hasStarted ? 'Start' : isLastStep ? 'Finish' : 'Next'}
+            {!hasStarted ? 'Start' : isLastStep ? (data.next ? 'Next Lesson' : 'Go to All Lessons') : 'Next'}
           </Button>
         </div>
         <hr className="border-neutral-800" />

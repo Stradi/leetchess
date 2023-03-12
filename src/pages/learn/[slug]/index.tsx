@@ -43,6 +43,7 @@ export const getStaticProps: GetStaticProps<PageProps, StaticPathsQuery> = async
 
   return {
     props: {
+      key: tutorial.slug,
       tutorial,
     },
   };
