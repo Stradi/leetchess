@@ -1,23 +1,22 @@
-import { getUrlFor, PermalinkResources } from '@/utils/permalinks';
 import { IConfig } from './config.types';
 
 export default {
   navigation: [
     {
       label: 'Learn',
-      href: getUrlFor(PermalinkResources.Tutorial),
+      href: '/learn',
       megaMenu: {
         title: 'Chess Tutorials',
         description: 'Learn chess from the beginning',
         items: [
           {
             label: 'All Tutorials',
-            href: getUrlFor(PermalinkResources.Tutorial),
+            href: '/learn',
             description: 'Learn chess from the beginning',
           },
           {
             label: 'Learning Paths',
-            href: 'learning-paths',
+            href: '/learning-paths',
             description: 'We grouped all tutorials into learning paths',
           },
         ],
@@ -25,7 +24,7 @@ export default {
     },
     {
       label: 'Community',
-      href: getUrlFor(PermalinkResources.Community),
+      href: '/',
       megaMenu: {
         title: 'LeetChess Community',
         description: 'Join the LeetChess community',
@@ -55,7 +54,7 @@ export default {
     },
     {
       label: 'Blog',
-      href: getUrlFor(PermalinkResources.Blog),
+      href: '/blog',
     },
   ],
 } as IConfig;
