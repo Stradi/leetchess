@@ -118,7 +118,7 @@ export default function Tutorial({ data }: TutorialProps) {
           {choiceStep && (
             <div className="absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-center gap-2 rounded-lg bg-neutral-900 px-2 md:gap-4 md:bg-neutral-900/75 md:px-4">
               <h1 className="text-center text-lg font-bold md:text-xl">Pop Quiz</h1>
-              <p className="text-sm md:text-base">{choiceStep.question}</p>
+              <p className="text-center text-sm md:text-base">{choiceStep.question}</p>
               <ChoiceButtons
                 choices={choiceStep.choices}
                 onCorrectButtonClicked={(data) => {
@@ -126,6 +126,12 @@ export default function Tutorial({ data }: TutorialProps) {
                   nextStep();
                 }}
               />
+            </div>
+          )}
+          {isUserTurn && (
+            <div className="absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-center gap-2 rounded-lg bg-neutral-900 px-2 md:gap-4 md:bg-neutral-900/75 md:px-4">
+              <h1 className="text-center text-lg font-bold md:text-xl">Your Turn!</h1>
+              <p className="text-center text-sm md:text-base">{getCommentsFromStep(currentStep)}</p>
             </div>
           )}
         </div>
@@ -153,7 +159,6 @@ export default function Tutorial({ data }: TutorialProps) {
                 ? `Finished`
                 : `Step ${currentStepIdx + 1}/${data.pgt.steps.length}`}
             </span>
-            <span>No hints available</span>
           </span>
         </p>
       </div>
