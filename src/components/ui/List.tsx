@@ -9,7 +9,7 @@ interface IItem {
 
 function Item({ title, description, href }: IItem) {
   return (
-    <Link href={href} className="group focus:outline-none">
+    <Link href={href} title={title} className="group focus:outline-none">
       <div
         className={cn(
           'relative flex h-full flex-col gap-2 rounded-lg bg-neutral-800 p-4',
@@ -20,7 +20,7 @@ function Item({ title, description, href }: IItem) {
           'group-focus:ring-green-700 group-focus:ring-offset-2 group-focus:ring-offset-neutral-900'
         )}
       >
-        <h1 className="text-xl font-bold text-neutral-50">{title}</h1>
+        <h1 className="text-xl font-bold text-neutral-50 line-clamp-1">{title}</h1>
         <p className="text-sm text-neutral-500 line-clamp-3">{description}</p>
         <div
           className={cn(
