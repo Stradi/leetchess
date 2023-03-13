@@ -1,0 +1,15 @@
+[Name "Expert Use of the Rooks"]
+[Subtitle ""]
+[Description "It's quite easy to learn how the rook moves, but to use it correctly is much more complicated. In a minute you will be a master of rooks!"]
+[Tags "basics,open-file,seventh-rank"]
+[Next "dominating-a-knight"]
+
+{Rooks are the easiest pieces to learn. A long distance can be covered in one single move.   You can say they move like cars, except they can't make any turns. You don't want to meet me in the traffic...!} {[%fen "4k3/8/8/8/7R/8/8/R3K3 w - - 0 1"]} {[%arrow "h4";"a4"]} {[%arrow "a1";"a8"]}
+{Rooks like open files and ranks. Do you think they are strong at the beginning or at the end of the game?} {[%choice "In the endgame!";"At the beginning!"]} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"]} {[%highlight "a1"]} {[%highlight "h1"]}
+{In beginners' games, you often see the players activate their rooks as quickly as possible. I can't recommend this strategy because there are too many pieces on the board. It's better to wait until the game opens up.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"]} {[%arrow "a2";"a4"]} {[%arrow "a1";"a3"]} {[%arrow "h2";"h4"]} {[%arrow "h1";"h3"]}
+{The reason why rooks enjoy open files is because of the possibility to enter enemy territory.   I'll show you something that's twice as good as a rook on an open file...} {[%fen "5rk1/pp3pp1/4p2p/3p4/3P4/4P2P/PP3PP1/2R3K1 w - - 0 1"]} {[%arrow "c1";"c8"]}
+{...that's two rooks on an open file!   This is why you often see me double rooks, but only if I think the open file is important.} {[%fen "5rk1/pp3pp1/4p2p/3p4/3P4/4P2P/PPR2PP1/2R3K1 w - - 0 1"]} {[%arrow "c1";"c8"]}
+!Rc7 {[%fen "5rk1/pp3pp1/4p2p/3p4/3P4/4P2P/PPR2PP1/6K1 w - - 0 1"]} {What do you think is White's best move in this position?}
+{Reaching the 7th rank is one of the reasons why occupying an open file is important. Here it puts a lot of pressure on Black's position. Compared to Black's rook, it's a monster!} {[%fen "5rk1/ppR2pp1/4p2p/3p4/3P4/4P2P/PP3PP1/6K1 b - - 1 1"]} {[%arrow "c7";"f7"]} {[%arrow "c7";"b7"]}
+{It's time to wrap it up, but I will give you one more piece of advice.  Is the white rook worse than Black's?} {[%choice "No, it's just as strong!";"Yes, much worse!"]} {[%fen "4r1k1/5pp1/p6p/1p1p4/PPpP4/2P3P1/5P1P/R4K2 w - - 0 1"]}
+{Rooks can be strong on closed files, as long as it's likely to open up in the near future. White can take the pawn, and the rook will enjoy the open file. Make rooks happy!} {[%fen "4r1k1/5pp1/p6p/1p1p4/PPpP4/2P3P1/5P1P/R4K2 w - - 0 1"]} {[%arrow "a4";"b5"]} {[%arrow "a1";"a8"]}

@@ -1,0 +1,42 @@
+[Name "Flank Pawns"]
+[Subtitle ""]
+[Description "Let's talk about king and pawn versus king endgames, namely, those featuring a rook pawn!"]
+[Next "opposition-basics"]
+
+{This lesson is dedicated to endgames where one side has a king and a rook pawn, while the other has only the king left. They occur quite often and hence knowing them is of utmost importance to any chess player.} {[%fen "8/8/8/8/P2k4/8/8/4K3 w - -"]}
+{In the diagram, you can see the white a-pawn survive.} {[%fen "8/8/8/8/P2k4/8/8/4K3 w - -"]}
+{In the case of the h-pawn, the conclusions we will reach are going to be essentially the same. Hence we will use the pawns interchangeably.} {[%fen "8/8/8/3k4/7P/8/8/4K3 w - -"]}
+{First of all, let's discuss how simple it is to promote rook pawns. Do you think it is generally easier to queen them than central pawns?} {[%choice "Central pawns are easier to promote";"Rook pawns are easier to promote";"There is no difference"]} {[%fen "4k3/8/8/8/8/8/P2PP2P/4K3 w - -"]}
+{In fact, rook pawns are the hardest to promote! A picture is worth a thousand words, so let me show you a telling example with Black to move. In the diagram, you can see that White failed to promote the a-pawn, stalemating Black. It's a draw.} {[%fen "k7/P7/1K6/8/8/8/8/8 w - -"]}
+{Here, however, if it's Black to move, he has an available square and is forced to go there. White will be able to promote the pawn easily.} {[%fen "3k4/3P4/4K3/8/8/8/8/8 w - -"]} {[%arrow "d8";"c7"]} {[%arrow "e6";"e7"]}
+{If the king of the side that has the extra pawn is far away from the pawn and can't protect it in time, all you need to know to evaluate the position is the rule of the square. For example, can Black save this position if it is his move?} {[%choice "Yes";"No"]} {[%fen "8/8/8/8/P7/5k2/8/7K w - -"]}
+{The black king can enter the promotion square of the white pawn. This means that he will be in time to catch it. The position is a draw.} {[%fen "8/8/8/8/P7/5k2/8/7K w - -"]}
+{Let's proceed to more complicated situations. Here the black king is within the white h-pawn's square. However, the white king is nearby. Let's say it's White to move.} {[%fen "8/8/8/3k2K1/7P/8/8/8 w - -"]}
+{Let me introduce the term key square. In pawn endgames, a key square is a square such that if White's king occupies it, White can force the pawn to promotion, regardless of where the black king is and regardless of which side is to move and against any defense. That is, as long as the black king can't capture the pawn.} {[%fen "8/8/8/3k2K1/7P/8/8/8 w - -"]}
+{The key squares of an h-pawn are g8 and g7. Correspondingly, for the a-pawn, they are b8 and b7. If the white king reaches that square and the black king can't capture the white pawn, it is an automatic win for White.} {[%fen "8/8/8/3k2K1/7P/8/8/8 w - -"]} {[%highlight "g7"]} {[%highlight "g8"]}
+{Knowing this simple rule is beneficial for correctly handling such endgames. You should be aware that the king ushers the pawn to the promotion square. Don't be in a rush to push the passer, leaving the king far behind! Grandmaster Yuri Averbakh used the "parent and kid" metaphor for this, implying that one does not ask a small child to lead the way. Instead, you take them by the hand and show them where to go.} {[%fen "8/8/8/3k2K1/7P/8/8/8 w - -"]} {[%highlight "g7"]} {[%highlight "g8"]}
+{In the diagram, you can see the key squares that the black king should stick to if he wants to stop the white a-pawn. As a rule of thumb, the king should try to be in front of the passed pawn. As you can see, most of the squares are on the a-file.} {[%fen "8/8/2k5/8/P1K5/8/8/8 w - -"]} {[%highlight "a7"]} {[%highlight "b7"]} {[%highlight "b8"]} {[%highlight "a8"]} {[%highlight "a5"]} {[%highlight "a6"]}
+{The f8 and f7 squares are usually good enough as well. However, I didn't mention them since there are certain exceptions. For instance, let's take a look at the diagram position. It is White to move. How do you proceed?} {[%choice "Push the pawn";"Move the king to h7";"Make another tricky move"]} {[%fen "5k2/8/6KP/8/8/8/8/8 w - -"]} {[%arrow "g6";"h7"]} {[%arrow "h6";"h7"]} {[%highlight "f7"]} {[%highlight "f8"]}
+{Pushing the pawn wins! Black can't stop the h-pawn from queening.} {[%fen "5k2/7P/6K1/8/8/8/8/8 b - - 0 1"]}
+{Why is trying to usher the pawn with the king a poor idea?} {[%fen "5k2/7K/7P/8/8/8/8/8 b - -"]}
+{Black traps the white king in the corner.} {[%fen "8/5k1K/7P/8/8/8/8/8 w - - 1 1"]}
+Kf8 {[%fen "7K/5k2/7P/8/8/8/8/8 b - - 2 1"]} {The only legal move.How do you keep the white king locked up?}
+{There you go!} {[%fen "5k1K/8/7P/8/8/8/8/8 w - - 3 2"]}
+Kf7# {[%fen "5k1K/7P/8/8/8/8/8/8 b - - 0 2"]} {White either repeats moves or pushes the pawn forward.What's next?}
+{It's a stalemate. Black draws.} {[%fen "7K/5k1P/8/8/8/8/8/8 w - - 1 3"]}
+Kb4 {[%fen "8/8/8/p7/k2K4/8/8/8 b - - 0 59"]} {[%arrow "e5";"d4"]} {Let's practice a bit. This is a position from the game between Paul Morphy (White) and Johann Jacob Loewenthal, London, 1858. White has just moved the king to d4, hoping to stop the a-pawn from queening. The king is in the square. How does Black play here?}
+{I have to grudgingly accept the move Kb4 as well since opposing the white king is good enough for a win. However, the move I expected you to make was Kb3, heading for the key squares of the a-pawn.} {[%fen "8/8/8/p7/3K4/1k6/8/8 w - - 1 60"]} {[%arrow "a4";"b4"]} {[%arrow "a4";"b3"]} {[%highlight "b2"]} {[%highlight "b1"]}
+{In the game, Morphy resigned. Let's continue the line for a bit and see how Black converts.} {[%fen "8/8/8/p7/8/1k1K4/8/8 b - - 2 60"]}
+{The black king lands on one of the key squares.} {[%fen "8/8/8/p7/8/3K4/1k6/8 w - - 3 61"]} {[%highlight "b2"]}
+a4 {[%fen "8/8/8/p7/2K5/8/1k6/8 b - - 4 61"]} {The white king rushes to the pawn. Make your move, please!}
+{Just in time.} {[%fen "8/8/8/8/p1K5/8/1k6/8 w - - 0 62"]}
+{White tries his last chance.} {[%fen "8/8/8/8/pK6/8/1k6/8 b - - 1 62"]}
+{The black king stretches out a hand and grabs the pawn in the nick of time. Now it's crystal clear that Black is winning.} {[%fen "8/8/8/8/1K6/p7/1k6/8 w - - 0 63"]}
+{Returning to the starting position, Black should be careful when trying to reach the key squares.} {[%fen "8/8/8/p7/k2K4/8/8/8 b - - 0 59"]}
+Kc4 {[%fen "8/8/8/p7/3K4/k7/8/8 w - - 1 60"]} {[%highlight "b2"]} {Let's say Black tries to go for b2 this way.How does White defend?}
+{Actually, there are two ways. One of them, probably the simplest, is cutting the king off with Kc3.} {[%fen "8/8/8/p7/8/k1K5/8/8 b - - 2 60"]}
+{If Black advances the king...} {[%fen "8/8/8/p7/8/2K5/k7/8 w - - 3 61"]}
+{...White may keep defending in a similar style. Either the black king ends up in a cage, loses the a-pawn altogether, or gives up the key squares of the pawn. In all three cases, White escapes. We have seen a similar situation earlier in the lesson.} {[%fen "8/8/8/p7/8/8/k1K5/8 b - - 4 61"]} {[%highlight "b1"]} {[%highlight "b2"]}
+{Alternatively, for objectivity's sake, I have to mention that this strange-looking move also holds.} {[%fen "8/8/8/p7/2K5/k7/8/8 b - -"]} {[%arrow "c3";"c4"]}
+{The idea is that if Black naively happily seizes the key square...} {[%fen "8/8/8/p7/2K5/8/1k6/8 w - - 1 1"]} {[%highlight "b2"]}
+{...White is actually in time to capture the pawn. I showed you this example because even if you know the rules, I still recommend doing a quick check instead of simply heading for the key square on auto-pilot, not bothering to calculate anything. This way, you will ensure that no misfortunes will happen to your pawn on its journey to success!} {[%fen "8/8/8/pK6/8/8/1k6/8 b - - 2 1"]}

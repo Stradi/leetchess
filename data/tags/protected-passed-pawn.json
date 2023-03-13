@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Protected Passed Pawn",
+  "slug": "protected-passed-pawn",
+  "description": "Protected passed pawn"
+}

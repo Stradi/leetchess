@@ -1,0 +1,14 @@
+[Name "Sit on Your Hands"]
+[Subtitle "You don't have to"]
+[Description "In Norway, chess teachers tell the kids to sit on their hands while playing. I know - it sounds a bit strange!"]
+[Tags "basics"]
+[Next "avoiding-blunders"]
+
+{I know what you are thinking:  Why on earth should children sit on their hands?} {[%choice "To make them slow down";"It's cold in Norway";"They move with their hands in Norway"]} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{The main reason for making mistakes is playing too quickly. By sitting on their hands, kids are forced to spend more time on their moves. A couple of seconds can be enough to avoid doing something silly.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{What people, no matter their age, often forget, is that there is a downside to every move. Let me show you a typical blunder!} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{Nothing is attacked and everything is quiet. In peace times like this, it's easy to think that you are free to do whatever you want. Well, things are not that simple!} {[%fen "rn3rk1/ppp1npbp/3p2p1/8/8/3P1N2/PPP2PPP/RNB2RK1 w - - 0 1"]}
+{Instead of moving instantly, you should spend a few seconds to think about how your opponent will respond to your move. Someone in a hurry might decide to move the bishop...} {[%fen "rn3rk1/ppp1npbp/3p2p1/8/8/3P1N2/PPP2PPP/RNB2RK1 w - - 0 1"]} {[%highlight "c1"]}
+Bxb2 {[%fen "rn3rk1/ppp1npbp/3p2p1/8/8/3PBN2/PPP2PPP/RN3RK1 b - - 1 1"]} {What's the problem with this move?}
+{Not only did White drop a pawn, but now the rook is lost as well. Such a mistake is enough to destroy a good night's sleep. Let's rewind to the position before White's blunder.} {[%fen "rn3rk1/ppp1np1p/3p2p1/8/8/3PBN2/PbP2PPP/RN3RK1 w - - 0 1"]} {[%arrow "b2";"a1"]}
+{It's important to make sure your move doesn't leave anything hanging, like the pawn in this case. You can avoid accidents like this by trying to guess your opponent's reply before you make a decision. Or you can just sit on your hands.} {[%fen "rn3rk1/ppp1npbp/3p2p1/8/8/3P1N2/PPP2PPP/RNB2RK1 w - - 0 1"]} {[%arrow "c1";"b2"]} {[%arrow "g7";"b2"]}

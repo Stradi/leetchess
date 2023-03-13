@@ -1,0 +1,13 @@
+[Name "Avoiding Blunders"]
+[Subtitle "Just don't"]
+[Description "Most games are lost due to silly blunders. If you don't do any mistakes, you won't lose any games - it's as simple as that! By asking yourself a specific question you will avoid  most obvious oversights."]
+[Tags "basics,trap"]
+
+{Nothing is cozier than laying traps for your opponent. But guess what - you are not the only one with cruel intentions. Fortunately, it's all happening on the board, but your opponent is actually there to harm you. It's time to stay awake and fight! Yes, I know - multitasking is hard...} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{Maybe I am exaggerating a bit - it's not that brutal.  What it means is that you should be aware of your opponent's ideas and make sure nothing bad happens to you.  Congratulations! I have made up a situation where you are the main character.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{Imagine you are playing Black in this position. You have just moved a pawn to attack the queen. Let's admit it - it's so obvious, but you are still hoping your threat will go unnoticed.  Your opponent lifts a hand to make a move...} {[%fen "rn1qkbnr/pp2pp1b/2p3pp/4N2Q/7P/6N1/PPPP1PP1/R1B1KB1R w KQkq - 0 1"]} {[%arrow "g7";"g6"]} {[%arrow "g6";"h5"]}
+{YES! - White didn't move the queen. The best piece is for free! You capture the queen within a fraction of a second. Why waste any time?} {[%fen "rn1qkbnr/pp2pp1b/2p3pp/4N2Q/2B4P/6N1/PPPP1PP1/R1B1K2R b KQkq - 1 1"]} {[%arrow "f1";"c4"]} {[%arrow "g6";"h5"]}
+{Your eyes meet your opponent's eyes. While you are trying to look as empathically as possible, your opponent is beaming with joy. What's going on?} {[%choice "Black is busted!";"White is busted!"]} {[%fen "rn1qkbnr/pp2pp1b/2p4p/4N2p/2B4P/6N1/PPPP1PP1/R1B1K2R w KQkq - 0 2"]}
+!Bxf7 {[%fen "rn1qkbnr/pp2pp1b/2p4p/4N2p/2B4P/6N1/PPPP1PP1/R1B1K2R w KQkq - 0 2"]} {The queen is strong, but mate is better. Black is the one in trouble here! What do you think White played?}
+{Checkmate! There is a moral to this story. A simple question will stop you from making blunders like this...} {[%fen "rn1qkbnr/pp2pB1b/2p4p/4N2p/7P/6N1/PPPP1PP1/R1B1K2R b KQkq - 0 2"]}
+{...ask yourself this question: Why did my opponent make that move?  I'm sorry if I put you in an unpleasant situation.} {[%fen "rn1qkbnr/pp2pB1b/2p4p/4N2p/7P/6N1/PPPP1PP1/R1B1K2R b KQkq - 0 2"]}

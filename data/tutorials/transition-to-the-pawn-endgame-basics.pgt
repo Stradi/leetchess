@@ -1,0 +1,87 @@
+[Name "Transition to the Pawn Endgame Basics"]
+[Subtitle ""]
+[Description "It's often a tricky challenge to decide when you should force a transition to a pawn endgame and when to pass on such an opportunity. Let's go through a few examples together!"]
+
+{Liquidating into a pawn endgame is an important tool in the arsenal of a chess player. It can be used to simplify the position and to convert your advantage. Also, sometimes it serves the purpose of bailing out into a drawn endgame when you are worse.} {[%fen "8/8/5pk1/5r2/R7/5K2/8/8 w - - 0 99"]}
+{That being said, it's often far from easy to decide whether a transfer to the pawn endgame benefits you or your opponent. It requires both precise calculation and excellent knowledge of the arising theoretical endgames. For example, it may be tough for you to tackle the tasks in this lesson without a sound grasp of some positions mentioned in the King and Pawn vs. King lesson.} {[%fen "8/8/5pk1/5r2/R7/5K2/8/8 w - - 0 99"]}
+{Anyway, the diagram shows a position from the game between Rudolf Spielmann (White) and Oldrich Duras, Karlsbad International Masters, Karlovy Vary, 1907.} {[%fen "8/8/5pk1/5r2/R7/5K2/8/8 w - - 0 99"]}
+{According to Chessmetrics, Spielmann was ranked #6 in the world at his peak, while Duras was #4. Therefore, we are talking about competitors of a very high caliber.It is move 99, and both opponents must be pretty tired. White is in check and by no means forced to block with the rook.} {[%fen "8/8/5pk1/5r2/R7/5K2/8/8 w - - 0 99"]} {[%arrow "a4";"f4"]}
+{Is Spielmann trying to trick Duras into transferring into a drawn pawn endgame? Or is the pawn endgame actually lost for White? Also, what exact pawn endgame are we talking about? Please use your intuition and calculation to decide how Black should react!} {[%choice "Attack the white rook with the king";"Move the rook away";"Trade rooks"]} {[%fen "8/8/5pk1/5r2/5R2/5K2/8/8 b - - 1 99"]} {[%arrow "f5";"f4"]} {[%arrow "g6";"g5"]} {[%arrow "f5";"a5"]}
+{Duras made the simple king move, attacking Spielmann's rook. The Austrian maestro resigned on move 100. Why did it happen?} {[%fen "8/8/5p2/5rk1/5R2/5K2/8/8 w - - 2 100"]}
+{White is forced to trade rooks because of the pin.} {[%fen "8/8/5p2/5Rk1/8/5K2/8/8 b - - 0 100"]}
+{Black recaptures.As you probably know from the lesson Opposition or elsewhere, White loses the opposition here and the game since it is his move, and he is obliged to move the king somewhere.} {[%fen "8/8/5p2/5k2/8/5K2/8/8 w - - 0 101"]} {[%highlight "f5"]} {[%highlight "f3"]}
+{Let's say a couple of words about moving the rook away.I do not expect you to be familiar with such rook endgames yet. In the meantime, let me say that it would be a serious error for Black since White can now save the game as long as he knows how to handle the Philidor position. Still, if you are Black in such a situation, especially against an inexperienced opponent, you should forget what happened and do your best to try to convert your extra pawn. Miracles do happen, especially after move 100!} {[%fen "8/8/5pk1/r7/5R2/5K2/8/8 w - - 0 1"]}
+{When offering the trade, I guess Spielmann hoped for a straightforward exchange of rooks.} {[%fen "8/8/5pk1/8/5r2/5K2/8/8 w - - 0 100"]}
+{White recaptures. Trying to sneak with the king to h5 would result in losing the pawn right away.} {[%fen "8/8/5pk1/8/5K2/8/8/8 b - - 0 100"]} {[%arrow "g6";"h5"]} {[%arrow "f4";"f5"]}
+Kg3 {[%fen "8/8/6k1/5p2/5K2/8/8/8 w - - 0 101"]} {Do you know how to defend for White here?}
+{Any of the three moves presented in the diagram draw. The easiest thing to remember is to put the king before the pawn.} {[%fen "8/8/6k1/5p2/8/5K2/8/8 b - - 1 101"]} {[%arrow "f4";"g3"]} {[%arrow "f4";"f3"]} {[%arrow "f4";"e3"]}
+Kg3 {[%fen "8/8/8/5pk1/8/5K2/8/8 w - - 2 102"]} {Black marches on. This is a clutch moment. How do you react?}
+{It is important to seize the opposition here.In contrast to the previous example, it is Black who is forced to break the opposition, stepping aside with the king. Alternatively, he can try to push the pawn further, but White would deal with it the same way as before. It is a draw!} {[%fen "8/8/8/5pk1/8/6K1/8/8 b - - 3 102"]}
+{Let's move on to an example from a more modern game. Here we have International Master Elena Zaiatz (White) vs. International Master Svetlana Matveeva, Russian Women's Championship, 2005. It is White to move. She is down a pawn, similar to the previous example. Is transposing to a pawn endgame a good idea?} {[%choice "Yes";"No"]} {[%fen "8/6p1/5k2/8/4K1R1/8/8/5r2 w - - 0 56"]}
+{Trading rooks would have led to an easy draw.} {[%fen "8/6p1/5k2/8/4KR2/8/8/5r2 b - - 1 56"]}
+{Black would be forced to capture.} {[%fen "8/6p1/5k2/8/4Kr2/8/8/8 w - - 0 57"]}
+{White seizes the opposition. This is an elementary pawn endgame, so it's hard to say why the International Master playing White avoided it.} {[%fen "8/6p1/5k2/8/5K2/8/8/8 b - - 0 57"]}
+{In the game, Zaiatz made a waiting move with the rook. That being said, this move does not lose, so to a computer, it is as good as the trade. However, for humans, it makes White's defensive task harder.} {[%fen "8/6p1/5k2/8/4K3/6R1/8/5r2 b - - 1 56"]} {[%arrow "g4";"g3"]}
+{Black is in no rush to advance the pawn. Should White trade rooks here?} {[%choice "No";"Yes"]} {[%fen "8/8/5kp1/8/4K3/6R1/8/5r2 w - - 0 57"]} {[%arrow "g3";"f3"]}
+{This time, exchanging rooks would have been a blunder!} {[%fen "8/8/5kp1/8/4K3/5R2/8/5r2 b - - 1 57"]}
+{Black happily trades.} {[%fen "8/8/5kp1/8/4K3/5r2/8/8 w - - 0 58"]}
+Kf5 {[%fen "8/8/5kp1/8/8/5K2/8/8 b - - 0 58"]} {Forced.How does Black convert her advantage?}
+{Black seizes the opposition, cruising to victory.} {[%fen "8/8/6p1/5k2/8/5K2/8/8 w - - 1 59"]}
+{In the game, Zaiatz pushed the king to e3 instead.} {[%fen "8/8/5kp1/8/8/4K1R1/8/5r2 b - - 1 57"]} {[%arrow "e4";"e3"]}
+{Black keeps doing her best. Rook trade?} {[%choice "Yes";"No"]} {[%fen "8/8/6p1/5k2/8/4K1R1/8/5r2 w - - 2 58"]} {[%arrow "g3";"f3"]}
+{I won't even bother showing the line. White could have mopped rooks off the board, seizing the opposition. It was an easy draw.Instead, she attacked the rook with her king.} {[%fen "8/8/6p1/5k2/8/6R1/4K3/5r2 b - - 3 58"]} {[%arrow "e3";"e2"]}
+{Black protects the rook.What about Rf3 now?} {[%choice "Bad idea";"It draws"]} {[%fen "8/8/6p1/5k2/5r2/6R1/4K3/8 w - - 4 59"]} {[%arrow "g3";"f3"]}
+Kg4 {[%fen "8/8/6p1/5k2/5r2/5R2/4K3/8 b - - 5 59"]} {This would have been fatal for White. Why?}
+{This time, Black wins easily if White trades rooks.The most resistful option for White is to retreat the rook, but then this endgame would also be lost. However, rook endgames are a different story, so let's not analyze it here.} {[%fen "8/8/6p1/8/5rk1/5R2/4K3/8 w - - 6 60"]}
+{Let me show you just in case what happens after trading rooks!} {[%fen "8/8/6p1/8/5Rk1/8/4K3/8 b - - 0 60"]}
+{Black recaptures.} {[%fen "8/8/6p1/8/5k2/8/4K3/8 w - - 0 61"]}
+{Didn't White just seize the opposition?} {[%fen "8/8/6p1/8/5k2/8/5K2/8 b - - 1 61"]}
+{Nope, Black had a reserve move in store! Now White will have to step aside, leading to a loss.} {[%fen "8/8/8/6p1/5k2/8/5K2/8 w - - 0 62"]}
+{White moved the king in the game.} {[%fen "8/8/6p1/5k2/5r2/4K1R1/8/8 b - - 5 59"]} {[%arrow "e2";"e3"]}
+Rf3 {[%fen "8/8/8/5kp1/5r2/4K1R1/8/8 w - - 0 60"]} {Black keeps pushing. Quite literally. How should White play here?}
+{White could have drawn by trading rooks but missed the third opportunity to do so! Rg2 would also hold, with the idea to offer a rook trade on the next move, but this continuation is less thematic.} {[%fen "8/8/8/5kp1/5r2/4KR2/8/8 b - - 1 60"]} {[%arrow "g3";"g2"]} {[%arrow "g3";"f3"]}
+{This move, however, does not quite cut it!} {[%fen "8/8/8/5kp1/5r2/4K3/8/6R1 b - - 1 60"]} {[%arrow "g3";"g1"]}
+{The g-pawn is becoming an unstoppable force now!} {[%fen "8/8/8/5k2/5rp1/4K3/8/6R1 w - - 0 61"]}
+{White's waiting game is not good enough.} {[%fen "8/8/8/5k2/5rp1/8/4K3/6R1 b - - 1 61"]}
+{Black maneuvers the king to where he is most needed.} {[%fen "8/8/8/6k1/5rp1/8/4K3/6R1 w - - 2 62"]}
+{Too late! Does Black trade rooks?} {[%choice "No";"Yes"]} {[%fen "8/8/8/6k1/5rp1/8/4K3/5R2 b - - 3 62"]}
+{No! A rook trade would have allowed White to escape.Instead, pushing the g-pawn wins.} {[%fen "8/8/8/6k1/5r2/6p1/4K3/5R2 w - - 0 63"]}
+{Let's check out a sideline where White finally trades rooks.} {[%fen "8/8/8/6k1/5R2/6p1/4K3/8 b - - 0 63"]}
+{Black recaptures.} {[%fen "8/8/8/8/5k2/6p1/4K3/8 w - - 0 64"]}
+{White tries to trick Black into conceding the opposition with Kf3.} {[%fen "8/8/8/8/5k2/6p1/8/4K3 b - - 1 64"]} {[%arrow "f4";"f3"]} {[%arrow "e1";"f1"]}
+{Black remains vigilant.} {[%fen "8/8/8/8/8/4k1p1/8/4K3 w - - 2 65"]}
+{What else?} {[%fen "8/8/8/8/8/4k1p1/8/5K2 b - - 3 65"]}
+{Opposition above everything!} {[%fen "8/8/8/8/8/5kp1/8/5K2 w - - 4 66"]}
+g2 {[%fen "8/8/8/8/8/5kp1/8/6K1 b - - 5 66"]} {A sad necessity. Finish her!}
+{After this move, the g-pawn will become a queen soon!} {[%fen "8/8/8/8/8/5k2/6p1/6K1 w - - 0 67"]}
+{Returning to the game, White shuffled the rook across the board.} {[%fen "8/8/8/6k1/5r2/6p1/4K3/R7 b - - 1 63"]} {[%arrow "f1";"a1"]}
+{Black advanced the king.} {[%fen "8/8/8/8/5rk1/6p1/4K3/R7 w - - 2 64"]}
+{White blocked the h-file, not allowing the black king to enter.} {[%fen "8/8/8/8/5rk1/6p1/4K3/7R b - - 3 64"]}
+{After this check, White resigned.} {[%fen "8/8/8/8/4r1k1/6p1/4K3/7R w - - 4 65"]}
+Kf3 {[%fen "8/8/8/8/4r1k1/6p1/8/5K1R b - - 5 65"]} {What happens if White moves the king to f1?}
+{Black threatens a pawn fork.} {[%fen "8/8/8/8/4r3/5kp1/8/5K1R w - - 6 66"]} {[%arrow "g3";"g2"]}
+{White stops the g-pawn crudely.} {[%fen "8/8/8/8/4r3/5kpR/8/5K2 b - - 7 66"]}
+{Black makes a waiting move. If White moves the king, she gets mated. If her rook leaves, Black can probably push the g-pawn.} {[%fen "8/8/4r3/8/8/5kpR/8/5K2 w - - 8 67"]} {[%arrow "g3";"g2"]}
+{What is this madness?Free rook?} {[%choice "Leave it";"Take it!"]} {[%fen "8/8/4r3/8/8/5kp1/7R/5K2 b - - 9 67"]}
+{Taking the rook leads to a stalemate. Not a good idea!} {[%fen "8/8/4r3/8/8/5k2/7p/5K2 w - - 0 68"]}
+{Black wins by forcing a transition to a pawn endgame!} {[%fen "8/8/8/8/8/5kp1/7R/4rK2 w - - 0 1"]}
+{White has to take.} {[%fen "8/8/8/8/8/5kp1/7R/4K3 b - - 0 1"]}
+{The black h-pawn will become a queen next turn. Wow, that was a long analysis!} {[%fen "8/8/8/8/8/5k2/7p/4K3 w - - 0 2"]} {[%arrow "h2";"h1"]}
+{The final position of the lesson originates from a famous game between Fred Yates (White) and (future Grandmaster) Savielly Tartakower, Bad Homburg, 1927. It is Black to move. What do you think about giving up a queen for a rook, transposing into a pawn endgame?} {[%choice "It tosses the win away";"It is the fastest way to win";"It wins, but there is no need for this"]} {[%fen "8/8/8/1p1k4/pR6/PP6/3q4/1K6 b - - 0 56"]} {[%arrow "d2";"b4"]}
+{Having a queen against a rook and also extra pawns to work with, Black could have won in many ways. Tartakower, the author of so many chess witticisms, decided to speed things up by disposing of the importunate white rook.} {[%fen "8/8/8/1p1k4/pq6/PP6/8/1K6 w - - 0 57"]}
+{White duly recaptures.} {[%fen "8/8/8/1p1k4/pP6/1P6/8/1K6 b - - 0 57"]}
+Kb2 {[%fen "8/8/8/1p1k4/1P6/1p6/8/1K6 w - - 0 58"]} {Black wins a pawn. Apparently, Tartakower assumed he was winning here. How does White proceed?}
+{Nothing fancy so far. White attacks the black b3-pawn.} {[%fen "8/8/8/1p1k4/1P6/1p6/1K6/8 b - - 1 58"]} {[%highlight "b3"]}
+Ka3 {[%fen "8/8/8/1p6/1Pk5/1p6/1K6/8 w - - 2 59"]} {[%highlight "b4"]} {Black shrugs and defends it. What does Yates do about his vulnerable b-pawn?}
+{White hangs on for now. An attempt to squeeze the white king away from the white b-pawn by moving the king to c3 results in a stalemate. You have to be careful!} {[%fen "8/8/8/1p6/1Pk5/Kp6/8/8 b - - 3 59"]} {[%arrow "c4";"c3"]}
+{Apparently, Tartakower was banking on this clever deflection. What does White do?} {[%choice "Move the king";"Grab the pawn"]} {[%fen "8/8/8/1p6/1Pk5/K7/1p6/8 w - - 0 60"]} {[%arrow "a3";"b2"]} {[%arrow "a3";"a2"]}
+{This quiet response must have come as a shock to the future Grandmaster!} {[%fen "8/8/8/1p6/1Pk5/8/Kp6/8 b - - 1 60"]}
+{If Black was to take the b-pawn...} {[%fen "8/8/8/1p6/1k6/8/Kp6/8 w - - 0 61"]}
+{...White would capture the b2-pawn in return. Once again, Black has to concede the opposition. The position is a draw.} {[%fen "8/8/8/1p6/1k6/8/1K6/8 b - - 0 61"]}
+{Consequently, Tartakower decided to try to confuse the opponent by promoting the b2-pawn instead.} {[%fen "8/8/8/1p6/1Pk5/8/K7/1q6 w - - 0 61"]}
+{White took.} {[%fen "8/8/8/1p6/1Pk5/8/8/1K6 b - - 0 61"]}
+Kb2 {[%fen "8/8/8/1p6/1k6/8/8/1K6 w - - 0 62"]} {Tartakower won a pawn. Go ahead, please!}
+{Yates duly seized the opposition.} {[%fen "8/8/8/1p6/1k6/8/1K6/8 b - - 1 62"]}
+Ka2 {[%fen "8/8/8/1p6/k7/8/1K6/8 w - - 2 63"]} {Tartakower kept testing.Your reply, please?}
+{White kept the opposition. The game lasted for another 11 moves! I assume Tartakower was disgusted with his own play and tried to squeeze water from stone. Unfortunately for him, his opponent knew the opposition rule and held quite easily. This is one of the most well-known examples of a transition to a pawn endgame gone wrong.} {[%fen "8/8/8/1p6/k7/8/K7/8 b - - 3 63"]}
+{Let's sum up what we have learned today:* Transitioning to a pawn endgame leads to a dramatic change in the course of the game and thus should be considered carefully.* Sometimes, it is the best way to save the game or convert an advantage.* There are situations when the decision is correct on paper but impractical in over-the-board play. * People often seek undesired simplifications, especially when they are tired and want to end the game as soon as possible. In such cases, forcing a transition to a pawn endgame can be a costly, losing mistake.} {[%fen "8/8/8/1p6/k7/8/K7/8 b - - 3 63"]}

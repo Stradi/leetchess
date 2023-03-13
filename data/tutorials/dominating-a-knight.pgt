@@ -1,0 +1,13 @@
+[Name "Dominating a Knight"]
+[Subtitle "No escape brother."]
+[Description "Knights are wild. Those who are new to chess often struggle with the knights, but I'll show you a couple of ways to tame them."]
+[Tags "basics,domination"]
+[Next "the-soul-of-chess"]
+
+!Be5 {[%fen "4k3/8/8/7n/8/8/7B/4K3 w - - 0 1"]} {How do you stop the black knight from doing any jumps?}
+{The knight can't move, and it's completely dominated by the bishop. This situation is pretty extreme because the knight is stuck on the edge of the board.} {[%fen "4k3/8/8/4B2n/8/8/8/4K3 b - - 1 1"]} {[%arrow "h5";"f6"]} {[%arrow "h5";"g7"]} {[%arrow "h5";"f4"]} {[%arrow "h5";"g3"]} {[%arrow "e5";"h8"]} {[%arrow "e5";"h2"]} {[%highlight "g3"]} {[%highlight "f4"]} {[%highlight "f6"]} {[%highlight "g7"]}
+!Bf4 {[%fen "4k3/5n2/8/8/8/8/8/2B1K3 w - - 0 1"]} {Sometimes it's all about preventing them from moving forward. How do you prevent the knight from jumping towards you?}
+{The black knight can't make any moves ahead. Okay, it can still go backward, but you can't expect me to prevent absolutely everything.} {[%fen "4k3/5n2/8/8/5B2/8/8/4K3 b - - 1 1"]} {[%arrow "f4";"h6"]} {[%arrow "f4";"d6"]}
+!c3 {[%fen "6k1/ppp2ppp/2n5/4p3/4P3/5N2/PPP2PPP/6K1 w - - 0 1"]} {The pawns can also fight against the knights. You are White in this position. How do you take away a couple of squares from the black knight?}
+{The black knight is suddenly much worse. It's useful to notice that there are two squares between the pawn and the knight.} {[%fen "6k1/ppp2ppp/2n5/4p3/4P3/2P2N2/PP3PPP/6K1 b - - 0 1"]} {[%arrow "c3";"d4"]} {[%arrow "c3";"b4"]} {[%arrow "c6";"d4"]} {[%arrow "c6";"b4"]} {[%highlight "c4"]} {[%highlight "c5"]}
+{If you have trouble playing against knights, don't forget that they can be tamed. Both bishops and pawns are good at stopping the knights from moving forwards.} {[%fen "6k1/ppp2ppp/2n5/4p3/4P3/2P2N2/PP3PPP/6K1 b - - 0 1"]}

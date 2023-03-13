@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Fork",
+  "slug": "fork",
+  "description": "Forking is a chess term for a move basically threates two pieces at once. It is a very powerful tactic and can be used to win games."
+}

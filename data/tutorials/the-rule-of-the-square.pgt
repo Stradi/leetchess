@@ -1,0 +1,20 @@
+[Name "The Rule of the Square"]
+[Subtitle ""]
+[Description "Pawn endgames often turn into a race between a king and a passed pawn. How do you know who will prevail in this competition? The rule of the square will help you!"]
+[Tags "passed-pawn,pawn-endgame"]
+[Next "king-and-pawn-vs-king"]
+
+{Here the white king is too far from his pawn to come to its rescue. Therefore, the outcome of the game will be decided in a duel between the black king and the white f-pawn.} {[%fen "8/8/8/5P2/1k6/8/8/1K6 w - -"]}
+{Let's say it is Black to move. Will the king be able to catch the pawn? Of course, you can calculate the moves one by one. However, it is easier and faster to find out the answer right away using the rule of the square.} {[%fen "8/8/8/5P2/1k6/8/8/1K6 w - -"]}
+{Draw a diagonal from the pawn to the eighth rank and imagine a square that encloses the pawn, the promotion square and the diagonal like this.} {[%fen "8/8/8/5P2/1k6/8/8/1K6 w - -"]} {[%arrow "f5";"c8"]}
+{Here comes the rule of the square: if the king can enter the square of the passed pawn, then he will be able to catch up with the pawn and to eliminate it. With Black to move, the king is right in time here. You can check it for yourself if you want to!} {[%fen "8/8/8/5P2/1k6/8/8/1K6 w - -"]} {[%arrow "f5";"c8"]} {[%arrow "b4";"c5"]}
+{However, with White to move, the pawn is going to come out on top. Now we first make a move with the pawn and only then draw the new square. This time the black king is too far away.} {[%fen "8/8/8/5P2/1k6/8/8/1K6 w - -"]} {[%arrow "f5";"f6"]} {[%arrow "f6";"d8"]}
+{Let's consider a few important exceptions to the rule of the square. It is Black to move. Can the king stop the pawn now?} {[%choice "No";"Yes"]} {[%fen "8/8/8/8/8/k7/7P/K7 b - -"]}
+{The black king is actually too late to the party here. The white pawn can go forward two squares on its first move. Hence, you need to draw the square as if the pawn was already one step further.} {[%fen "8/8/8/8/8/k7/7P/K7 b - -"]} {[%arrow "h2";"h4"]} {[%arrow "h3";"c8"]} {[%highlight "h3"]}
+{Another important exception is an obstacle in the king's way. With Black to move, the king is technically able to enter the square. However, his own pawn betrays him and blocks the optimal path. Therefore, he will not be able to catch the trespasser.} {[%fen "8/8/4p3/6P1/2k5/8/1K6/8 b - -"]} {[%arrow "g5";"d8"]} {[%arrow "d5";"g8"]} {[%highlight "e6"]}
+{In this example White is trying to create a passed pawn on the queenside and to obtain a new queen.} {[%fen "8/1p6/5k2/1PP5/8/6K1/8/8 w - -"]} {[%highlight "c5"]} {[%highlight "b5"]} {[%highlight "b7"]}
+{Is the black king able to stop the white passed pawn?} {[%choice "No";"Yes"]} {[%fen "8/1p6/2P2k2/1P6/8/6K1/8/8 b - - 0 1"]} {[%highlight "c6"]}
+{The king can enter the square of the c-pawn, but the rule of the square can't be applied here since White can just take the b-pawn instead of running forward with the c-pawn.} {[%fen "8/1p6/2P2k2/1P6/8/6K1/8/8 b - - 0 1"]} {[%arrow "c6";"b7"]}
+b6 {[%fen "8/8/2p2k2/1P6/8/6K1/8/8 w - - 0 2"]} {Black takes the pawn. How should White react?}
+{Now the black king can't enter the square of the white b-pawn. White is winning. Let's see what happens if White gets greedy and takes the black c-pawn instead.} {[%fen "8/8/1Pp2k2/8/8/6K1/8/8 b - - 0 2"]}
+{In this case the black king is just in time to stop the passer. The game is a draw.Remember that sometimes you have to give up one or more pawns to get a new queen.} {[%fen "8/8/2P2k2/8/8/6K1/8/8 w - -"]}

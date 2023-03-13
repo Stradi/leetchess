@@ -1,0 +1,73 @@
+[Name "King and Pawn vs. King"]
+[Subtitle ""]
+[Description "An important question is whether it's possible to promote a single pawn by the help of the king. Some positions are drawn while others are winning. I'll show you what to aim for!"]
+[Tags "opposition,pawn-endgame,stalemate"]
+[Next "flank-pawns"]
+
+{As pieces get exchanged, it often boils down to a pure pawn endgame. If so, victory usually depends on whether you are able to get a new queen or not.} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]}
+{What do you think about this position?} {[%choice "White is winning no matter what";"It's a draw if it's White's move";"It's a draw if it's Black's move"]} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]}
+{This is perhaps the most important of all pawn endgame positions. White is winning no matter who is to move. Let me show you why!} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]}
+{I'll start by showing you what happens if it's Black's move. The king has to move to one of the sides, and it makes no difference which one he chooses.} {[%fen "4k3/8/4K3/4P3/8/8/8/8 b - - 0 1"]} {[%arrow "e8";"f8"]} {[%arrow "e8";"d8"]}
+{Now an important square is available for the white king.} {[%fen "5k2/8/4K3/4P3/8/8/8/8 w - - 1 1"]} {[%arrow "e6";"d7"]}
+{There's nothing Black can do to stop the white pawn from promoting to a queen. The white king protects it all the way to the finishing line.} {[%fen "5k2/3K4/8/4P3/8/8/8/8 b - - 1 1"]} {[%arrow "e5";"e8"]}
+{All you have to do is march straight ahead.} {[%fen "8/3K1k2/8/4P3/8/8/8/8 w - - 1 1"]}
+{Here we go!   Let's go back a few moves and see how the position is winning with White to move.} {[%fen "8/3K1k2/4P3/8/8/8/8/8 b - - 0 1"]} {[%arrow "e6";"e7"]} {[%arrow "e7";"e8"]}
+{White is winning by moving the king to one of these squares. It works both ways perfectly.} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]} {[%arrow "e6";"f6"]} {[%arrow "e6";"d6"]}
+{Black's most stubborn defense is preventing the white king from making further progress.} {[%fen "4k3/8/3K4/4P3/8/8/8/8 b - - 1 1"]}
+Kd7 {[%fen "8/5k2/3K4/4P3/8/8/8/8 w - - 1 1"]} {By making this move, Black allows White to win in the same fashion as we saw a few screens ago.}
+{Once again, the white pawn can promote on its own.} {[%fen "8/3K1k2/8/4P3/8/8/8/8 b - - 1 1"]} {[%arrow "e5";"e6"]} {[%arrow "e6";"e7"]} {[%arrow "e7";"e8"]}
+{It's clear that White wins easily if the king can support the pawn from the 7th rank. But what if Black stops the white king from getting that far?} {[%fen "4k3/8/3K4/4P3/8/8/8/8 b - - 1 1"]} {[%arrow "d6";"d7"]} {[%arrow "e5";"e8"]}
+{The method is quite straightforward - you simply go with the pawn!} {[%fen "3k4/8/3K4/4P3/8/8/8/8 w - - 1 1"]} {[%arrow "e5";"e6"]}
+{To put up any resistance, the black king has to block it.} {[%fen "3k4/8/3KP3/8/8/8/8/8 b - - 0 1"]}
+{Now comes the point! You continue with the pawn, which forces Black to let go of the blockade.} {[%fen "4k3/8/3KP3/8/8/8/8/8 w - - 1 1"]}
+{Black has only one legal move.} {[%fen "4k3/4P3/3K4/8/8/8/8/8 b - - 0 1"]} {[%arrow "e8";"f7"]}
+Kd7 {[%fen "8/4Pk2/3K4/8/8/8/8/8 w - - 1 1"]} {How do you continue?}
+{White gets a new queen the next move.} {[%fen "8/3KPk2/8/8/8/8/8/8 b - - 1 1"]} {[%arrow "e7";"e8"]}
+{I cannot stress it enough - this position should be your goal when you have only one pawn left. The position is winning for White, no matter who is to move.} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]}
+{By keeping this in mind, you should try to get your king as far up the board as possible.} {[%fen "4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"]}
+{By advancing the pawn up the board, you will reach the position we have just been looking at.} {[%fen "4k3/8/4K3/8/8/8/4P3/8 w - - 0 1"]} {[%arrow "e2";"e5"]}
+{This means that positions are normally easily winning with a far advanced king. However, in most cases you are not allowed to reach this far.} {[%fen "4k3/8/4K3/8/8/8/4P3/8 w - - 0 1"]}
+{The opposite is the case if you go with the pawn in front of the king.     Although it's drawn with either player to move, Black needs to show some skill.} {[%fen "8/4k3/4P3/4K3/8/8/8/8 b - - 0 1"]}
+{Only one move can save Black.  Do you know which one?} {[%choice "It's Ke8";"It's Kf8";"It's Kd8"]} {[%fen "8/4k3/4P3/4K3/8/8/8/8 b - - 0 1"]}
+{All you have to do is to move straight backwards. This is the only way to make a draw.} {[%fen "4k3/8/4P3/4K3/8/8/8/8 w - - 1 1"]}
+Kd8 {[%fen "4k3/8/3KP3/8/8/8/8/8 b - - 1 1"]} {It wouldn't have made any difference if White tried the other way.  How do you defend with Black?}
+{Black had to prevent the white king from reaching the d7-square.   White has nothing better than advancing the pawn.} {[%fen "3k4/8/3KP3/8/8/8/8/8 w - - 1 1"]} {[%highlight "d7"]}
+{Black is close to a draw. To achieve it, you have to make one more precise move.} {[%fen "3k4/4P3/3K4/8/8/8/8/8 b - - 0 1"]}
+{White has only one move that keeps the pawn defended.} {[%fen "4k3/4P3/3K4/8/8/8/8/8 w - - 1 1"]}
+{Exactly this position is why you cannot win such endgames by going with the pawn in front.   Let's see what happens if Black fails to defend properly.} {[%fen "4k3/4P3/4K3/8/8/8/8/8 b - - 1 1"]}
+{As we have seen, moving straight backwards is the right way to play. However, you never know if your opponent ever learned this.} {[%fen "8/4k3/4P3/4K3/8/8/8/8 b - - 0 1"]} {[%arrow "e7";"e8"]}
+{This is a crucial mistake, as the white king will be able to support the pawn all the way in.} {[%fen "3k4/8/4P3/4K3/8/8/8/8 w - - 1 1"]}
+{White continues in the same fashion as in the previous variation.} {[%fen "3k4/8/3KP3/8/8/8/8/8 b - - 1 1"]}
+e7 {[%fen "4k3/8/3KP3/8/8/8/8/8 w - - 1 1"]} {What do you play with White?}
+{It's the same position as earlier, but with one big difference - it's Black to move!} {[%fen "4k3/4P3/3K4/8/8/8/8/8 b - - 0 1"]}
+{Now the white king reaches d7.} {[%fen "8/4Pk2/3K4/8/8/8/8/8 w - - 1 1"]} {[%arrow "d6";"d7"]}
+{Once again the white pawn promotes.} {[%fen "8/3KPk2/8/8/8/8/8/8 b - - 1 1"]} {[%arrow "e7";"e8"]}
+{So far we know that the position is winning if the white king reaches the 6th rank, being in front of the pawn. Advancing with the pawn in front leads to a draw.} {[%fen "8/3KPk2/8/8/8/8/8/8 b - - 1 1"]}
+{This leads us to the big question: can Black force White to advance with the pawn in front? The position is a draw if it is White to move, while White wins if it is Black's turn. I'll start with Black.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 0 1"]}
+{Now the white king reaches the 6th rank.} {[%fen "8/5k2/8/4K3/4P3/8/8/8 w - - 1 1"]} {[%arrow "e5";"d6"]}
+{Black has to prevent the white king from advancing further.} {[%fen "8/5k2/3K4/8/4P3/8/8/8 b - - 1 1"]} {[%arrow "d6";"d7"]}
+{Now we get our ideal position.} {[%fen "4k3/8/3K4/8/4P3/8/8/8 w - - 1 1"]}
+{The white king has reached the 6th rank in front of the pawn, which means White is winning no matter what.  Let us go back a few moves.} {[%fen "4k3/8/4K3/8/4P3/8/8/8 b - - 1 1"]}
+{White would like to advance the king as I just showed you, but with White to move it's impossible to achieve.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 w - - 0 1"]}
+Kd7 {[%fen "8/4k3/8/3K4/4P3/8/8/8 b - - 1 1"]} {How do you play as Black?}
+{The white king is obstructed and cannot make any further progress.} {[%fen "8/3k4/8/3K4/4P3/8/8/8 w - - 1 1"]} {[%highlight "c6"]} {[%highlight "d6"]} {[%highlight "e6"]}
+{If White tries to move over to the other side, Black will do the same. It's an annoying dance for the white player, who sooner or later will have to advance the pawn.} {[%fen "8/3k4/8/3K4/4P3/8/8/8 w - - 1 1"]} {[%arrow "d7";"e7"]} {[%arrow "e7";"f7"]} {[%arrow "d5";"e5"]} {[%arrow "e5";"f5"]}
+Ke7 {[%fen "8/3k4/8/3KP3/8/8/8/8 b - - 0 1"]} {How do you play with Black?}
+{White has nothing better than advancing the pawn.} {[%fen "8/4k3/8/3KP3/8/8/8/8 w - - 1 1"]}
+Ke8 {[%fen "8/4k3/4P3/3K4/8/8/8/8 b - - 0 1"]} {Now comes the crucial moment!  The final result depends on you remembering what to do.}
+{As we have already seen, this is the way to make a draw. The game will eventually end in a stalemate.} {[%fen "4k3/8/4P3/3K4/8/8/8/8 w - - 1 1"]}
+{We have seen that it's not beneficial for any player to move in this position.   In chess books,​ this is called *the opposition*, and it concerns positions where the kings are facing each other.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 0 1"]}
+{Let us take this position as an example. Black to move would force a draw by preventing the white king from advancing.   However, it's more interesting with White to move.} {[%fen "8/3k4/8/8/3KP3/8/8/8 w - - 0 1"]} {[%arrow "d7";"d6"]} {[%arrow "d7";"e6"]}
+Kd5 {[%fen "8/3k4/8/8/3KP3/8/8/8 w - - 0 1"]} {Here White has a good move. Do you see it?}
+{White has the opposition - the kings are facing each other, and the black one has to shy away. With White to move it would have been a draw, but now it wins.} {[%fen "8/3k4/8/3K4/4P3/8/8/8 b - - 1 1"]}
+Ke5 {[%fen "8/4k3/8/3K4/4P3/8/8/8 w - - 1 1"]} {How do you play with White?}
+{Only this way does White win the game. Once again White has the opposition, as the black king is forced to move away.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 1 1"]}
+Kf6 {[%fen "8/3k4/8/4K3/4P3/8/8/8 w - - 1 1"]} {How do you play?}
+{The white king has reached the 6th rank.} {[%fen "8/3k4/5K2/8/4P3/8/8/8 b - - 1 1"]}
+Ke6 {[%fen "4k3/8/5K2/8/4P3/8/8/8 w - - 1 1"]} {How do you play with White?}
+{We have reached our goal, and we know for sure that White is winning.} {[%fen "4k3/8/4K3/8/4P3/8/8/8 b - - 1 1"]}
+{All of this makes it clear how important it is to use the king actively in the endgame.   I will ask you one last question. Ready?} {[%fen "4k3/8/4K3/8/4P3/8/8/8 b - - 1 1"]}
+e4 {[%fen "8/4k3/8/4K3/8/4P3/8/8 w - - 0 1"]} {How does White win the opposition?}
+{By moving the pawn, White politely handed the move over to Black. Now White has the opposition and a winning position.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 0 1"]}
+{Even though this is something chess players normally learn at an early stage, it is also something that a lot of people struggle to remember and understand.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 0 1"]}
+{When people reach this endgame, they are often exhausted because of all the thinking. Taking time pressure into account, it's probably a good idea to go over this session once in a while to make sure you got it.} {[%fen "8/4k3/8/4K3/4P3/8/8/8 b - - 0 1"]}

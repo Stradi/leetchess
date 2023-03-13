@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Weak Back Rank",
+  "slug": "weak-back-rank",
+  "description": "A back rank is weak if it is not defended by a piece."
+}

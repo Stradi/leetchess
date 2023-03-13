@@ -1,0 +1,10 @@
+[Name "A Sad Story about Bishops"]
+[Subtitle "*cries*"]
+[Description "A bishop only moves on one color. Travelling on light squares means it will never experience the great feeling of running around on dark squares."]
+[Tags "basics"]
+[Next "running-diagonally"]
+
+{Imagine the black pawn being stuck on this square. Which of the white pieces will be first to take it?} {[%choice "The knight";"The bishop"]} {[%fen "k7/4p3/8/8/8/8/8/KN3B2 w - - 0 1"]} {[%highlight "e7"]}
+{Knights move on both light and dark squares. The color they stand on changes for every move. Here the knight can reach the black pawn in three steps, while the poor bishop can never do the same.} {[%fen "k7/4p3/8/8/8/8/8/KN3B2 w - - 0 1"]} {[%arrow "b1";"c3"]} {[%arrow "c3";"d5"]} {[%arrow "d5";"e7"]} {[%highlight "e7"]}
+{White has two bishops. One bishop travels on white squares while the other on black. They work perfectly together, which is why strong players really like the pair of bishops.} {[%fen "k7/8/8/8/8/8/8/K3BB2 w - - 0 1"]} {[%arrow "e1";"a5"]} {[%arrow "f1";"a6"]} {[%arrow "e1";"h4"]} {[%arrow "f1";"h3"]}
+{The two bishops are moving on opposite colors. This means they can never reach the same square, no matter how much they fancy each other. That's the sad thing about opposite-colored bishops - what if the grass really is greener on the other side?} {[%fen "k7/8/8/8/8/8/8/K3BB2 w - - 0 1"]} {[%arrow "e1";"a5"]} {[%arrow "e1";"h4"]} {[%arrow "f1";"a6"]} {[%arrow "f1";"h3"]}

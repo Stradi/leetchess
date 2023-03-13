@@ -1,0 +1,19 @@
+[Name "The Value of Pieces"]
+[Subtitle "1 + 1 = 3"]
+[Description "Each piece has its strengths and weaknesses. To know which pieces to capture, it helps to have an understanding of the different piece values."]
+[Tags "basics"]
+[Next "sit-on-your-hands"]
+
+{You don't win the game by collecting points, but by having more and better pieces you are likelier to claim victory. Let's go piece by piece.} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}
+{We'll start with a tiny pawn. As it can move only one step at a time and in one direction, it is the weakest piece on the board. It is worth 1 point.} {[%fen "k7/8/8/8/4P3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"e5"]}
+{If a pawn is worth 1 point, how much do you think a knight is worth?} {[%choice "3 points";"2 points";"5 points"]} {[%fen "k7/8/8/8/4N3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"g5"]} {[%arrow "e4";"f6"]} {[%arrow "e4";"d6"]} {[%arrow "e4";"c5"]} {[%arrow "e4";"c3"]} {[%arrow "e4";"d2"]} {[%arrow "e4";"f2"]} {[%arrow "e4";"g3"]}
+{The knight is quite a good piece as it can reach a lot of squares and jump above other pieces. It is worth 3 points!} {[%fen "k7/8/8/8/4N3/8/8/K7 w - - 0 1"]}
+{A knight is worth 3 points, while a pawn is worth 1 point. What  about the bishop?} {[%choice "3 points";"5 points";"8 points"]} {[%fen "k7/8/8/8/4B3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h7"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"b1"]}
+{A bishop is worth 3 points. As two bishops work splendidly together, most experts normally hesitate a bit before exchanging a bishop for a knight.} {[%fen "k7/8/8/8/4B3/8/8/K7 w - - 0 1"]}
+{The bishop is  worth 3 points. How much is the rook worth?} {[%choice "5 points";"3 points";"8 points"]} {[%fen "k7/8/8/8/4R3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"h4"]} {[%arrow "e4";"e8"]} {[%arrow "e4";"a4"]} {[%arrow "e4";"e1"]}
+{The rook is worth 5 points. Remember that it enjoys open files!} {[%fen "k7/8/8/8/4R3/8/8/K7 w - - 0 1"]}
+{If the rook is worth 5 points, what do you think the value of the queen is?} {[%choice "9 points";"5 points";"15 points"]} {[%fen "k7/8/8/8/4Q3/8/8/K7 w - - 0 1"]} {[%arrow "e4";"h7"]} {[%arrow "e4";"e8"]} {[%arrow "e4";"a8"]} {[%arrow "e4";"a4"]} {[%arrow "e4";"b1"]} {[%arrow "e4";"e1"]} {[%arrow "e4";"h1"]} {[%arrow "e4";"h4"]}
+{The queen is the strongest piece on the board. She is worth 9 points, almost two times the value of a rook.} {[%fen "k7/8/8/8/4Q3/8/8/K7 w - - 0 1"]}
+{The queen is the strongest, but the king is the most important. How much do you think this paramount piece is worth?} {[%choice "Infinite value";"15 points";"101 points"]} {[%fen "k7/8/8/8/4K3/8/8/8 w - - 0 1"]} {[%arrow "e4";"f5"]} {[%arrow "e4";"e5"]} {[%arrow "e4";"d5"]} {[%arrow "e4";"d4"]} {[%arrow "e4";"d3"]} {[%arrow "e4";"e3"]} {[%arrow "e4";"f3"]} {[%arrow "e4";"f4"]}
+{The king has an infinite value. It wouldn't make sense to exchange it for any other piece as the game ends when the king is lost.} {[%fen "k7/8/8/8/4K3/8/8/8 w - - 0 1"]}
+{When you are about to exchange pieces, these numbers can work as a guideline for what to do.   Go out there and take some pieces!} {[%fen "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"]}

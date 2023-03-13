@@ -1,0 +1,12 @@
+[Name "The Clumsy Knight"]
+[Subtitle ""]
+[Description "Beginners often struggle with the knights. They are slow and clumsy, but if you get the hang of them you will probably get the upper hand. Now I will share a few secrets with you!"]
+[Tags "basics"]
+[Next "expert-use-of-the-rooks"]
+
+{The knights move differently from all the other pieces. Imagine someone walking like this on the sidewalk... That would have made my way to work very difficult. We are simply not used to such movements.} {[%fen "4k3/8/8/8/8/8/8/1N2K1N1 w - - 0 1"]} {[%arrow "g1";"f3"]} {[%arrow "f3";"g5"]} {[%arrow "g5";"f7"]} {[%arrow "b1";"d2"]} {[%arrow "d2";"b3"]} {[%arrow "b3";"d4"]} {[%arrow "d4";"b5"]} {[%arrow "b5";"d6"]}
+{While the rook reaches the other side of the board in just one move, the knight will spend ages to get there.   Imagine a race over to the other side! I know where I would have placed my bets.} {[%fen "4k3/8/8/8/8/8/8/R3K1N1 w - - 0 1"]} {[%arrow "g1";"f3"]} {[%arrow "f3";"g5"]} {[%arrow "g5";"f7"]} {[%arrow "f7";"h8"]} {[%arrow "a1";"a8"]}
+{Now comes a strange part - even short distances can be difficult for the knight. How many moves do you think it needs to get to this square?} {[%choice "4";"2";"3"]} {[%fen "4k3/8/8/8/8/8/8/4K1N1 w - - 0 1"]} {[%arrow "g1";"e3"]} {[%highlight "e3"]}
+{The answer is four! That's the same number of moves it needed to get to the other side of the board.} {[%fen "4k3/8/8/8/8/8/8/4K1N1 w - - 0 1"]} {[%arrow "g1";"h3"]} {[%arrow "h3";"f2"]} {[%arrow "f2";"g4"]} {[%arrow "g4";"e3"]} {[%highlight "e3"]}
+{Nothing is closer than the square next to the knight. Guess how many moves the knight needs to get there?} {[%choice "3";"1";"2"]} {[%fen "4k3/8/8/8/8/8/8/4K1N1 w - - 0 1"]} {[%highlight "f1"]}
+{The answer is three moves!It's easy to get dizzy when watching a knight jump around.  It takes a lot of practice to use them properly, but I am sure you can do it!} {[%fen "4k3/8/8/8/8/8/8/4K1N1 w - - 0 1"]} {[%arrow "g1";"f3"]} {[%arrow "f3";"h2"]} {[%arrow "h2";"f1"]} {[%highlight "f1"]}

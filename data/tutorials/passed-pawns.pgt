@@ -1,0 +1,34 @@
+[Name "Passed Pawns"]
+[Subtitle ""]
+[Description "Towards the end of a game, it's a normal strategy to try to get a new queen. Since a lot of pieces have been exchanged off, you will often need more material to give mate. In such situations,​ you will appreciate having a passed pawn."]
+[Tags "passed-pawn,pawn-endgame,protected-passed-pawn,weak-back-rank"]
+[Next "counting-moves"]
+
+{To get a new queen, you have to get the pawn over to the opponent's last rank. Passed pawns are perfect for these kinds​ of jobs.} {[%fen "8/8/7k/8/1P4K1/8/8/8 w - - 0 1"]}
+{A pawn is passed when enemy pawns can't block or capture it on its way to the promotion square. Here the pawn will simply march in.} {[%fen "8/8/7k/8/1P4K1/8/8/8 w - - 0 1"]} {[%arrow "b4";"b8"]}
+{I have added a black pawn to the position. Is the white pawn still passed?} {[%choice "No";"Yes"]} {[%fen "8/8/7k/1p6/1P4K1/8/8/8 w - - 0 1"]}
+{The black pawn blocks the white pawn, which means it's not passed.     White's only chance to win is to get rid of the blockade by capturing the  pawn with the king.} {[%fen "8/8/7k/1p6/1P4K1/8/8/8 w - - 0 1"]} {[%arrow "g4";"b5"]}
+{I have changed the position a bit. Is the white pawn passed?} {[%choice "No";"Yes"]} {[%fen "8/8/2p4k/8/1P4K1/8/8/8 w - - 0 1"]}
+{The pawn is still not passed, as the black pawn can capture it as soon as it starts moving.     I'll add a few more pawns on the board.} {[%fen "8/8/2p4k/8/1P4K1/8/8/8 w - - 0 1"]} {[%arrow "b4";"b5"]} {[%arrow "c6";"b5"]}
+{Now a lot is going on! In the center of the board, Black has two connected passed pawns. These are normally very strong as they can support each other​ on their way forwards.} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%highlight "d4"]} {[%highlight "e4"]}
+{As soon as one of them moves, the other will protect it. They get stronger the more advanced they are, and sometimes they can be stronger than a bishop, knight or even a rook.} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%arrow "e4";"e3"]} {[%arrow "d4";"e3"]}
+{On the left side of the board, White has a protected passed pawn. The black king can't capture the passed pawn.} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%arrow "b4";"c5"]} {[%highlight "c5"]}
+{As the black king can't take the passed pawn, it makes sense to capture the pawn protecting it. What do you think is the problem with doing this?} {[%choice "The white c-pawn will promote";"Nothing. Let's take it!"]} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%arrow "d5";"b4"]}
+{As soon as the black king goes behind the white passed pawn, it starts to run. When this happens, it's too late for the black king to catch up with the pawn. This is why protected passed pawns are so strong.} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%arrow "d5";"c4"]} {[%arrow "c5";"c8"]}
+{Let's look at the other side of the board. Here White has two pawns against one, which means it's possible to create a passed pawn.} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%highlight "h4"]} {[%highlight "g4"]} {[%highlight "h6"]}
+{Here the g-pawn is the candidate, as by advancing it, White will get a passed pawn.  Let's finish with a game that really illustrates the power of passed pawns!} {[%fen "8/8/7p/1pPk4/1P1pp1PP/8/5K2/8 w - - 0 1"]} {[%arrow "g4";"g5"]}
+{This is a game between Vladimir Malakhov and Vadim Zvjaginsev from 2004, and it's Black to move. Although it has nothing to do with the endgame, it clearly shows you how to treat passed pawns.} {[%fen "3r2k1/5p1p/2P3p1/8/PP2pP2/1N1p2b1/6P1/1R3KQq b - - 0 1"]}
+e3 {[%fen "3r2k1/5p1p/2P3p1/8/PP2pP2/1N1p2b1/6P1/1R3KQq b - - 0 1"]} {[%arrow "g1";"h1"]} {What do you think Black did with his threatened queen?}
+{He sacrificed it! Black is already threatening checkmate. By taking the queen, White gets an escape square for his king.} {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N1pp1b1/6P1/1R3KQq w - - 0 1"]} {[%arrow "e3";"e2"]}
+e2 {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N1pp1b1/6P1/1R3K1Q b - - 0 2"]} {How did Zvjaginsev continue as Black?}
+{Passed pawns must be pushed! Here there are two of them, and they protect each other as they move towards White's first rank.} {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N1p2b1/4p1P1/1R3K1Q w - - 0 2"]} {[%highlight "e2"]} {[%highlight "d3"]}
+d2 {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N1p2b1/4p1P1/1R4KQ b - - 1 3"]} {[%highlight "h1"]} {Look at White's useless queen! What did Black play?}
+{White's problem is that when Black reaches the first rank, he promotes a queen and gives checkmate. As a matter of fact, White resigned. I'll show you why!} {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N4b1/3pp1P1/1R4KQ w - - 0 3"]} {[%arrow "e2";"e1"]} {[%arrow "d2";"d1"]}
+{White can't just sit and wait for the pawns to promote, so the best try is to get rid of them.} {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/1N4b1/3pp1P1/1R4KQ w - - 0 3"]} {[%arrow "b3";"d2"]}
+Rxd2 {[%fen "3r2k1/5p1p/2P3p1/8/PP3P2/6b1/3Np1P1/1R4KQ b - - 0 1"]} {What do you play as Black?}
+{Despite having a huge material advantage, White can't avoid checkmate.} {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6b1/3rp1P1/1R4KQ w - - 0 1"]}
+Rd1+ {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6bQ/3rp1P1/1R4K1 b - - 1 1"]} {How do you finish White off?}
+{White has to take it...} {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6bQ/4p1P1/1R1r2K1 w - - 1 1"]} {[%arrow "b1";"d1"]}
+{...and now we have the chance to be funny.} {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6bQ/4p1P1/3R2K1 b - - 0 1"]}
+{Checkmate! Of course promoting to a queen would also do the job, but it's nice to be childish once in a while.} {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6bQ/6P1/3r2K1 w - - 0 1"]}
+{In this lesson we looked at different types of passed pawns. Remember that they get more dangerous for every step they make.} {[%fen "6k1/5p1p/2P3p1/8/PP3P2/6bQ/6P1/3r2K1 w - - 0 1"]}

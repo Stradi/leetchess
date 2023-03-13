@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Seventh Rank",
+  "slug": "seventh-rank",
+  "description": "Rooks loves here"
+}

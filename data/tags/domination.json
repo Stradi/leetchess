@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Domination",
+  "slug": "domination",
+  "description": "Important"
+}

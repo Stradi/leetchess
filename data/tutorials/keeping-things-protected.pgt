@@ -1,0 +1,13 @@
+[Name "Keeping Things Protected"]
+[Subtitle "Keep and eye for forks."]
+[Description "Having too many unprotected pieces might end in a disaster. In this lesson, I will show you why. Even the best players forget about this from time to time, so you better pay attention!"]
+[Tags "basics,fork"]
+
+{How on earth are we going to keep track of what happens on 64 squares? The chessboard is so big, and even a small detail in one of the corners might have a significant meaning. Those who are new to chess often focus on one part of the board, while strong players keep control of the whole board.} {[%fen "7k/1Q6/8/8/8/8/6K1/r7 w - -"]}
+!Qb2+ {[%fen "7k/1Q6/8/8/8/8/6K1/r7 w - -"]} {The problem with having too many unprotected pieces is that they are exposed to attacks, especially forks. Do you see how White can win the black rook?}
+{Goodbye, rook! The king is in check, so there is no way to save it.} {[%fen "7k/8/8/8/8/8/1Q4K1/r7 b - - 1 1"]} {[%highlight "a1"]}
+{Take a good look at the black position and try to see which pieces are not protected!} {[%fen "5rk1/rp3p1p/2p2np1/8/8/2P2N1P/1P3PPK/3Q4 w - -"]}
+!Qd4 {[%fen "5rk1/rp3p1p/2p2np1/8/8/2P2N1P/1P3PPK/3Q4 w - -"]} {[%highlight "f6"]} {[%highlight "a7"]} {These pieces are unprotected. Now the next step is to see if you can attack them. What is White's best move?}
+{The two pieces are under attack, which means one of them is bound to fall.} {[%fen "5rk1/rp3p1p/2p2np1/8/3Q4/2P2N1P/1P3PPK/8 b - - 1 1"]} {[%arrow "d4";"f6"]} {[%arrow "d4";"a7"]}
+!Qa2 {[%fen "3q1rk1/Q3p2p/1P1p2p1/2pn1b2/8/4B3/1b1NBPPP/5RK1 w - - 0 22"]} {This is a position that Magnus Carlsen had against Vasyl Ivanchuk in 2017. Magnus is playing White, and it's Magnus's turn. You know what to do; find the unprotected pieces and attack them. What do you play?}
+{Once again, two pieces are under attack, which was enough to force Ivanchuk's resignation. Having unprotected pieces is not the end of the world, but it might cause an unnecessary loss of a piece.} {[%fen "3q1rk1/4p2p/1P1p2p1/2pn1b2/8/4B3/Qb1NBPPP/5RK1 b - - 1 22"]} {[%highlight "d5"]} {[%highlight "b2"]}

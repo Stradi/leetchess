@@ -1,0 +1,14 @@
+[Name "The Soul of Chess"]
+[Subtitle ""]
+[Description "Beginners have a tendency to move the pawns too often. The problem is that pawns can't go backward. Let me show you how to use them correctly."]
+[Tags "basics,center"]
+
+{Pawns are the soul of chess. This is a quote from François-André Danican Philidor, the best player in the world in the mid 18th century. But what is so special about pawns?} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{Well, first of all, there are many of them, and they can be promoted to queens. This means that the pawns get stronger towards the end of the game simply because there are fewer enemy pieces to stop them. Every pawn is a potential queen!} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{It's time for a tiny quiz. Which is the only piece that can't go backward?} {[%choice "The pawn";"The rook";"The knight"]} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{The pawn can't go backwards. We are not asking for takebacks, so you better think twice before moving it.} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{Which is the only piece that captures differently compared to how it normally moves?} {[%choice "The pawn";"The bishop";"The king"]} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{Yes, the pawns are very different from all the others!   As the center of the board is very important, the pawns in the middle are stronger than the others. The flank pawns are weaker, as they only control one square.} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]} {[%arrow "d2";"e3"]} {[%arrow "d2";"c3"]} {[%arrow "h2";"g3"]}
+{But does all this really qualify to be the soul of chess? I believe Philidor was talking about  how the pawns control squares.} {[%fen "4k3/pppppppp/8/8/8/8/PPPPPPPP/4K3 w - - 0 1"]}
+{This pawn controls these two squares. When it moves one step ahead, it weakens two squares but takes control of new territory.} {[%fen "4k3/8/8/8/8/8/5P2/4K3 w - - 0 1"]} {[%arrow "f2";"g3"]} {[%arrow "f2";"e3"]}
+{These squares are now weakened.  I can't describe pawns better than Philidor: They are the very life of this game. They alone form the attack and defense. Beginners have a tendency to move the pawns too often, and that's why I suggest you try to remember Philidor.} {[%fen "4k3/8/8/8/5P2/8/8/4K3 b - - 0 1"]} {[%highlight "g3"]} {[%highlight "e3"]} {[%highlight "g4"]} {[%highlight "e4"]}

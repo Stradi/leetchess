@@ -1,0 +1,11 @@
+[Name "Running Diagonally"]
+[Subtitle ""]
+[Description "In the beginning of the game, the king has to be kept safe. However, sometimes it has to do the dirty work, and quite often it's the star player of the game."]
+[Tags "basics"]
+[Next "the-clumsy-knight"]
+
+{Please stand up for His Majesty the king!  Chess is about giving mate to the king, which is why you keep it safe for a long time. However, towards the end of the game, the king can be used actively.} {[%fen "4k3/8/8/8/8/8/8/4K3 w - - 0 1"]}
+{You may all sit down.  Imagine you are standing on the edge of a football field. What is the quickest way to get over to the other side?} {[%choice "Run straight ahead!";"Run diagonally left and right!"]} {[%fen "4k3/8/8/8/8/8/8/4K3 w - - 0 1"]} {[%highlight "e8"]}
+{In real life, running straight ahead would clearly be the best decision. Well, life on the chess board is different. Let's have a race!} {[%fen "4k3/8/8/8/8/8/8/4K3 w - - 0 1"]} {[%arrow "e1";"e8"]}
+{Please stand up for another king! Who will reach the other side first?} {[%choice "Draw - dead heat!";"The white king!";"The black king!"]} {[%fen "8/8/8/8/8/8/8/2k1K3 w - - 0 1"]} {[%arrow "c1";"a3"]} {[%arrow "a3";"c5"]} {[%arrow "c5";"c6"]} {[%arrow "c6";"e8"]} {[%arrow "e1";"e8"]} {[%highlight "e8"]}
+{This is the strange thing. In both cases reaching this square takes seven moves.   Don't underestimate the king! After all, he is the king.} {[%fen "8/8/8/8/8/8/8/2k1K3 w - - 0 1"]} {[%arrow "c1";"a3"]} {[%arrow "a3";"c5"]} {[%arrow "c5";"c6"]} {[%arrow "c6";"e8"]} {[%highlight "e8"]}

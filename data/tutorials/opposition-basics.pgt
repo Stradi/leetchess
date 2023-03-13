@@ -1,0 +1,68 @@
+[Name "Opposition Basics"]
+[Subtitle ""]
+[Description "Have you heard about the opposition? No, we are not talking politics today! Let's learn one of the essential endgame concepts in chess."]
+[Next "transition-to-the-pawn-endgame-basics"]
+
+{In the lesson King and Pawn. vs. King, we briefly touched upon the concept of opposition in chess. Let's discuss it more formally.} {[%fen "8/8/3k4/8/3K4/8/8/8 w - - 0 1"]}
+{Opposition is an important endgame situation where the two kings stand on the same rank, file, or diagonal with one empty square between them. In the diagram, you can see an example of vertical opposition.} {[%fen "8/8/3k4/8/3K4/8/8/8 w - - 0 1"]}
+{Such king placement is called horizontal opposition.} {[%fen "8/8/8/8/3K1k2/8/8/8 w - - 0 1"]}
+{This is diagonal opposition.For the sake of simplicity, people often drop the adjectives and call all kinds of oppositions simply "opposition".} {[%fen "8/8/5k2/8/3K4/8/8/8 w - - 0 1"]}
+{You may wonder why opposition is so important in king and pawn endgames. Let's take a look at the kings on the board. The side that does not have to move is said to "have the opposition".} {[%fen "8/8/3k4/8/3K4/8/8/8 w - - 0 1"]}
+{Having the opposition is usually a serious advantage in king and pawn endgames. The reason for this is that the side that does not have the opposition is essentially in zugzwang and has to move the king, allowing the opponent's king to gain access to some potentially critical squares.} {[%fen "8/8/3k4/8/3K4/8/8/8 w - - 0 1"]}
+{For instance, let's imagine for a moment that the objective of the game is to get your king to the opponent's side of the board.} {[%fen "8/8/3k4/8/3K4/8/8/8 w - - 0 1"]}
+Ke6 {[%fen "8/8/3k4/8/4K3/8/8/8 b - - 1 1"]} {If it is White to move, i.e., Black has the opposition...}
+{...Black can always defend, not allowing the enemy king to sneak by.} {[%fen "8/8/4k3/8/4K3/8/8/8 w - - 2 2"]}
+{However, if it is Black to move (White has the opposition), he has to step aside with the king, allowing the opponent to win instantly.} {[%fen "8/8/3k4/8/3K4/8/8/8 b - -"]}
+{For instance, let's say the black king moves to the side.} {[%fen "8/8/2k5/8/3K4/8/8/8 w - - 1 1"]}
+{White ends up on black's side of the board and wins.} {[%fen "8/8/2k5/4K3/8/8/8/8 b - - 2 1"]}
+{Let's see how well you have mastered the concept of opposition. How would you evaluate this position?} {[%choice "White wins if it is Black's move";"White wins if it is his move";"White wins regardless of whose move it is"]} {[%fen "8/8/6k1/8/6K1/6P1/8/8 w - - 0 1"]}
+{If White has the opposition, i.e., it is Black to move, White wins.If Black has the opposition, i.e., it is White to move, Black holds.} {[%fen "8/8/6k1/8/6K1/6P1/8/8 w - - 0 1"]}
+Kh6 {[%fen "8/8/6k1/8/7K/6P1/8/8 b - - 1 1"]} {Let's say it is White to move, and he tries to test his opponent's defensive skills by moving the king to h4. How does Black reply?}
+{Black keeps the opposition. This is the only saving move!} {[%fen "8/8/7k/8/7K/6P1/8/8 w - - 2 2"]}
+Kg6 {[%fen "8/8/7k/8/6PK/8/8/8 b - - 0 2"]} {White realizes that Black knows what he is doing and does not shuffle the king back and forth. Instead, he tries to confuse the opponent by pushing the pawn forward. Do you know what to do in such cases?}
+{Any other move would allow White to seize the opposition. Please note how the black king is keeping the white monarch at bay.} {[%fen "8/8/6k1/8/6PK/8/8/8 w - - 1 3"]}
+Kf7 {[%fen "8/8/6k1/6P1/7K/8/8/8 b - - 0 3"]} {White advances the pawn. Is Black in trouble? He can't keep the opposition anymore.}
+{Retreating to any of the three highlighted squares holds. The easiest thing to remember is to keep your king in front of the opponent's pawn.} {[%fen "8/6k1/8/6P1/7K/8/8/8 w - - 1 4"]} {[%highlight "f7"]} {[%highlight "g7"]} {[%highlight "h7"]}
+Kh7 {[%fen "8/6k1/8/6PK/8/8/8/8 b - - 2 4"]} {White presses on. How do you prevent the white king from breaking through?}
+{Black has the opposition again!} {[%fen "8/7k/8/6PK/8/8/8/8 w - - 3 5"]}
+Kg8 {[%fen "8/7k/6P1/7K/8/8/8/8 b - - 0 5"]} {Check!}
+{A retreat to g8 works as well, but let's keep it simple and remain in front of the pawn.} {[%fen "8/6k1/6P1/7K/8/8/8/8 w - - 1 6"]} {[%highlight "g7"]} {[%highlight "g8"]}
+Kg8 {[%fen "8/6k1/6P1/6K1/8/8/8/8 b - - 2 6"]} {White makes a waiting move. On which square should the black king be so that he does not have to give up the opposition?}
+{This is the only way to defend against both Kf6 and Kh6. Fortunately, it is easy to remember the "king in front of the pawn" principle.} {[%fen "6k1/8/6P1/6K1/8/8/8/8 w - - 3 7"]} {[%arrow "g5";"f6"]} {[%arrow "g5";"h6"]}
+Kh8 {[%fen "6k1/8/6PK/8/8/8/8/8 b - - 4 7"]} {White chooses this angle of attack.How does Black reply?}
+{Opposition!} {[%fen "7k/8/6PK/8/8/8/8/8 w - - 5 8"]}
+{White can try some waiting moves, but eventually, he will have to push the pawn to make progress.} {[%fen "7k/6P1/7K/8/8/8/8/8 b - - 0 8"]}
+{Forced.} {[%fen "6k1/6P1/7K/8/8/8/8/8 w - - 1 9"]}
+{The game ends in stalemate.} {[%fen "6k1/6P1/6K1/8/8/8/8/8 b - - 2 9"]}
+{For comparison, let's see what happens with Black to move.} {[%fen "8/8/6k1/8/6K1/6P1/8/8 b - - 0 1"]}
+{Black has to give up the opposition. Let's say he remembers to keep the king in front of the opponent's pawn, hoping that it will save him.} {[%fen "8/6k1/8/8/6K1/6P1/8/8 w - - 1 2"]}
+{White keeps the vertical opposition.} {[%fen "8/6k1/8/6K1/8/6P1/8/8 b - - 2 2"]}
+{The black king has to step aside. The only alternative is to retreat to the back rank, which makes matters even easier for White, as you are about to find out soon.} {[%fen "8/7k/8/6K1/8/6P1/8/8 w - - 3 3"]}
+{The white king sneaks by.} {[%fen "8/7k/5K2/8/8/6P1/8/8 b - - 4 3"]}
+g4 {[%fen "8/8/5K1k/8/8/6P1/8/8 w - - 5 4"]} {Black seizes the horizontal opposition and hints that he may be interested in going after the white pawn. What is the easiest winning move for White?}
+{Fortunately for White, he does not have to move the king and, by advancing the pawn, may force Black to give up the horizontal opposition.} {[%fen "8/8/5K1k/8/6P1/8/8/8 b - - 0 4"]}
+{A sad necessity.} {[%fen "8/7k/5K2/8/6P1/8/8/8 w - - 1 5"]}
+{White may as well keep pushing.} {[%fen "8/7k/5K2/6P1/8/8/8/8 b - - 0 5"]}
+Kg6 {[%fen "6k1/8/5K2/6P1/8/8/8/8 w - - 1 6"]} {This is an important moment. What do you do?}
+{White must keep the opposition. We have discussed a similar endgame at the beginning of the King and Pawn vs. King lesson. I hope you remember that White is winning here, regardless of whose move it is.} {[%fen "6k1/8/6K1/6P1/8/8/8/8 b - - 2 6"]}
+{With more pawns on the board, you have to pay extra attention to every detail. For example, let's say you are White here and it is your move. How do you defend against Black's idea to penetrate with the king?} {[%choice "Move the king to c2";"Move the king to b2";"Move the king to d2"]} {[%fen "8/8/8/3p4/k2Pp3/2K1P3/8/8 w - - 0 1"]} {[%arrow "c3";"b2"]} {[%arrow "c3";"c2"]} {[%arrow "c3";"d2"]}
+Kb4 {[%fen "8/8/8/3p4/k2Pp3/4P3/1K6/8 b - - 1 1"]} {Moving the king to b2 would be a fatal mistake. How does Black convert?}
+{Black seizes the vertical opposition.} {[%fen "8/8/8/3p4/1k1Pp3/4P3/1K6/8 w - - 2 1"]}
+Kc4 {[%fen "8/8/8/3p4/1k1Pp3/4P3/2K5/8 b - - 3 1"]} {White has to step aside. What's next?}
+{Vertical opposition again.} {[%fen "8/8/8/3p4/2kPp3/4P3/2K5/8 w - - 4 2"]}
+{White reluctantly moves to the right.} {[%fen "8/8/8/3p4/2kPp3/4P3/3K4/8 b - - 5 2"]}
+{Unfortunately for White, he can't seize the horizontal opposition here since the black pawn is stopping him from doing so. White has to concede even more space and will eventually lose.} {[%fen "8/8/8/3p4/3Pp3/1k2P3/3K4/8 w - - 6 3"]} {[%arrow "d2";"d3"]}
+{Similarly, retreating to d2 loses, but even quicker.} {[%fen "8/8/8/3p4/k2Pp3/4P3/3K4/8 b - -"]} {[%arrow "c3";"d2"]}
+{We have just discussed this position. White has to make further concessions and loses.} {[%fen "8/8/8/3p4/3Pp3/1k2P3/3K4/8 w - - 1 1"]}
+{The only move that keeps White afloat is Kc2, seizing the diagonal opposition. This is an important technique, making a waiting move to see what the opponent does and then seize the horizontal or vertical opposition.} {[%fen "8/8/8/3p4/k2Pp3/4P3/2K5/8 b - -"]}
+Kc3 {[%fen "8/8/8/3p4/3Pp3/k3P3/2K5/8 w - - 1 1"]} {For example, how does White defend against this move?}
+{White has horizontal opposition. "You shall not pass!"} {[%fen "8/8/8/3p4/3Pp3/k1K1P3/8/8 b - - 2 1"]}
+Kb2 {[%fen "8/8/8/3p4/1k1Pp3/4P3/2K5/8 w - -"]} {[%arrow "a4";"b4"]} {And how about this attempt?}
+{White seizes vertical opposition this time, not allowing Black to break through. It is a draw. The reason I chose this exercise as the final task of the lesson is that it features three main types of opposition – vertical, horizontal, and diagonal.} {[%fen "8/8/8/3p4/1k1Pp3/4P3/1K6/8 b - - 1 1"]}
+{One last warning: Remember that the purpose of opposition is to seize the key squares from the opponent's king, allowing your pawn to promote.} {[%fen "8/8/5k2/8/3PK3/8/8/8 w - - 0 1"]}
+Ke6 {[%fen "8/8/5k2/8/3P1K2/8/8/8 b - - 0 1"]} {For example, in this case, seizing the opposition would let Black escape. After which move?}
+{The black king should try to stand in front of the white pawn, drawing.} {[%fen "8/8/4k3/8/3P1K2/8/8/8 w - - 1 1"]}
+{Instead, the correct way to treat this position as White is to centralize the king.} {[%fen "8/8/5k2/3K4/3P4/8/8/8 b - - 0 1"]} {[%arrow "e4";"d5"]}
+{If Black tries to run the same way as before...} {[%fen "8/4k3/8/3K4/3P4/8/8/8 w - - 1 1"]}
+{...we can push him aside. This time, White should be able to queen the pawn easily.} {[%fen "8/4k3/2K5/8/3P4/8/8/8 b - - 2 1"]}
+{Knowing the main rules of opposition will make your life significantly easier in king and pawn endgames, especially when you are in time trouble and have to rely on your instincts.However, if you have more time, and especially if there are a few pawns on the board, don't forget to calculate a bit instead of seizing the opposition on auto-pilot! The opposition is an essential tool but not a philosopher's stone.} {[%fen "8/8/4k3/8/4K3/8/8/8 w - - 0 1"]}

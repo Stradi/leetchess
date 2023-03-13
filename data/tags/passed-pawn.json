@@ -1,0 +1,7 @@
+{
+  "$schema": "../definitions/tag.schema.json",
+  "id": 0,
+  "name": "Passed Pawn",
+  "slug": "passed-pawn",
+  "description": "A pawn that has advanced to the seventh rank and is not blocked by any pawns of either color."
+}

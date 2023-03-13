@@ -1,0 +1,47 @@
+[Name "Counting Moves"]
+[Subtitle "1, 2, 3. Easy, right?"]
+[Description "Calculation skills are especially important towards the end of the game, as the result might depend on a single tempo. In some endgames it can be useful to count the moves, instead of doing more ordinary calculations."]
+[Tags "passed-pawn,pawn-endgame"]
+[Next "the-rule-of-the-square"]
+
+{Counting moves is an important technique that helps you calculate long variations. Alternatively you can calculate move by move, but this makes it difficult to keep track of the position and whose move it is.} {[%fen "8/8/4k3/1p4p1/1P1K2P1/8/8/8 w - - 0 1"]}
+{When working like this, you simply count the  moves it takes to pursue your plan. When you have done this, you do the same to map out your opponent resources. Yep, it's a lot of counting!} {[%fen "8/8/4k3/1p4p1/1P1K2P1/8/8/8 w - - 0 1"]}
+{Let's go ahead! White would like to take the b-pawn and promote the passed pawn. How many moves does that take?} {[%choice "7 moves";"6 moves";"8 moves"]} {[%fen "8/8/4k3/1p4p1/1P1K2P1/8/8/8 w - - 0 1"]} {[%arrow "d4";"b5"]} {[%arrow "b4";"b8"]}
+{It takes seven moves to get a new queen!   Two moves to capture the b-pawn and one move to get the king out of the way. Finally, it takes four pawn moves to reach the promotion square.} {[%fen "8/8/4k3/1p4p1/1P1K2P1/8/8/8 w - - 0 1"]} {[%arrow "d4";"b5"]} {[%arrow "b4";"b8"]}
+{Now we have to do the same for Black. He would like to capture the white g-pawn and to promote his own pawn. How many moves does it take?} {[%choice "8 moves";"6 moves";"7 moves"]} {[%fen "8/8/4k3/1pK3p1/1P4P1/8/8/8 w - -"]}
+{Black needs eight moves to promote the pawn.This means White will get a queen one move earlier than Black. As it is White to make the first move, it's clear that White wins the race.} {[%fen "8/8/4k3/1pK3p1/1P4P1/8/8/8 w - -"]} {[%arrow "e6";"e5"]} {[%arrow "e5";"f4"]} {[%arrow "f4";"g4"]} {[%arrow "g4";"f3"]} {[%arrow "g5";"g4"]} {[%arrow "g4";"g3"]} {[%arrow "g3";"g2"]} {[%arrow "g2";"g1"]}
+{Let's see the moves!  Unfortunately for Black, it takes some time to attack White's pawn.} {[%fen "8/8/4k3/1pK3p1/1P4P1/8/8/8 b - - 1 1"]} {[%arrow "e6";"e5"]} {[%arrow "e5";"f4"]} {[%arrow "f4";"g4"]}
+Kxb5 {[%fen "8/8/8/1pK1k1p1/1P4P1/8/8/8 w - - 2 2"]} {What do you play?}
+{It's clear that White is far ahead in the race.} {[%fen "8/8/8/1K2k1p1/1P4P1/8/8/8 b - - 0 2"]}
+{Now White needs to move the king to let the pawn advance. In such cases it's normal to place the king on a square where it will not be in check after the opponent promotes. This diagonal might be problematic.} {[%fen "8/8/8/1K4p1/1P3kP1/8/8/8 w - - 1 3"]} {[%arrow "g1";"a7"]}
+{We found a safe square. Black must take the pawn.} {[%fen "8/8/2K5/6p1/1P3kP1/8/8/8 b - - 2 3"]}
+{Now the white pawn has to run as quickly as possible.} {[%fen "8/8/2K5/6p1/1P4k1/8/8/8 w - - 0 4"]}
+{Black has to spend another move before the pawn can start advancing.} {[%fen "8/8/2K5/1P4p1/6k1/8/8/8 b - - 0 4"]}
+b6 {[%fen "8/8/2K5/1P4p1/8/7k/8/8 w - - 1 5"]} {What do you play?}
+{Finally, Black can start running...} {[%fen "8/8/1PK5/6p1/8/7k/8/8 b - - 0 5"]}
+b7 {[%fen "8/8/1PK5/8/6p1/7k/8/8 w - - 0 6"]} {...but our pawn is far ahead.}
+{One more step.} {[%fen "8/1P6/2K5/8/6p1/7k/8/8 b - - 0 6"]}
+b8Q {[%fen "8/1P6/2K5/8/8/6pk/8/8 w - - 0 7"]} {What do you do?}
+{White won the pawn race! It's possible to see all the way here from the first position we had.  By the way, this position is a theoretical win, but you will learn this in another session. I want to do more counting!} {[%fen "1Q6/8/2K5/8/8/6pk/8/8 b - - 0 7"]}
+{This is a position Magnus Carlsen had against Victor Hansen in 2002. Magnus is playing with the black pieces, and it's his turn.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P1r3RK/8 b - - 0 1"]}
+{Magnus have an extra pawn and the option to exchange rooks. Such a possibility should be considered carefully, as it might be a direct path to victory.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P1r3RK/8 b - - 0 1"]}
+{At this point in a real game you should try to visualize to the very end, but here I will make it a bit easier by first exchanging the rooks.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P1r3RK/8 b - - 0 1"]}
+{White has to recapture.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5rK/8 w - - 0 1"]}
+{With two pawns against one on the queenside, Black should be able to create a passed pawn. The question is if Black can get a queen, or if White has the time to stop the pawns with the king.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]} {[%arrow "a7";"a1"]} {[%arrow "b4";"b1"]} {[%arrow "g2";"a1"]}
+{First of all, I challenge you to try to calculate everything move by move. Like this: Black makes a move, White replies, Black makes a move, and so on.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]}
+{If the variation is long, it's easy to get lost by calculating this way. You might forget who is to move, or where the pawn is. Once again counting is the solution!} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]}
+{White needs five moves with the a-pawn and one with the b-pawn to lure the white pawn away. As White also has to spend a move capturing the b-pawn, we have found out that it takes five moves for the a-pawn to promote.} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]} {[%arrow "a7";"a5"]} {[%arrow "a5";"a4"]} {[%arrow "b4";"b3"]} {[%arrow "a2";"b3"]} {[%arrow "a4";"a3"]} {[%arrow "a3";"a2"]} {[%arrow "a2";"a1"]}
+{Now we need to count how many moves White needs to reach the promotion square. How many is it?} {[%choice "6";"5";"7"]} {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]} {[%arrow "g2";"f1"]} {[%arrow "f1";"e1"]} {[%arrow "e1";"d1"]} {[%arrow "d1";"c1"]} {[%arrow "c1";"b1"]} {[%arrow "b1";"a1"]}
+a5 {[%fen "6k1/p3pp2/6p1/8/1p2P3/5P1P/P5K1/8 b - - 0 2"]} {It takes five moves for me to promote, while it takes six moves for White to stop it. As it's white's move as well, it sounds like a good deal! What do you play?}
+{It gets a bit clearer when we see the moves being played out on the board.} {[%fen "6k1/4pp2/6p1/p7/1p2P3/5P1P/P5K1/8 w - - 0 2"]}
+a4 {[%fen "6k1/4pp2/6p1/p7/1p2P3/5P1P/P4K2/8 b - - 1 3"]} {White had to bring the king closer.}
+{White simply hopes for the best.} {[%fen "6k1/4pp2/6p1/8/pp2P3/5P1P/P4K2/8 w - - 0 3"]} {[%arrow "f2";"e2"]}
+b3 {[%fen "6k1/4pp2/6p1/8/pp2P3/5P1P/P3K3/8 b - - 1 4"]} {Now what?}
+{Black is threatening to take the white pawn, and White is not going to make it in time to prevent the promotion.} {[%fen "6k1/4pp2/6p1/8/p3P3/1p3P1P/P3K3/8 w - - 0 4"]}
+a3 {[%fen "6k1/4pp2/6p1/8/p3P3/1P3P1P/4K3/8 b - - 0 5"]} {[%arrow "a4";"b3"]} {[%arrow "b3";"b2"]} {[%arrow "b2";"b1"]} {[%arrow "e2";"d1"]} {[%arrow "d1";"c1"]} {[%arrow "c1";"b1"]} {If Black takes the pawn, White will arrive just in time to stop the pawn. Once again you work this out by counting. It takes three moves for the pawn to be promoted, and three moves for the king to stop it. What do you do?}
+{Nothing can stop us now!} {[%fen "6k1/4pp2/6p1/8/4P3/pP3P1P/4K3/8 w - - 0 5"]}
+a2 {[%fen "6k1/4pp2/6p1/8/4P3/pP3P1P/3K4/8 b - - 1 6"]} {Please continue!}
+{The white king is getting close...} {[%fen "6k1/4pp2/6p1/8/4P3/1P3P1P/p2K4/8 w - - 0 6"]}
+a1Q {[%fen "6k1/4pp2/6p1/8/4P3/1P3P1P/p1K5/8 b - - 1 7"]} {...but not close enough! Now what?}
+{We got there in the end!} {[%fen "6k1/4pp2/6p1/8/4P3/1P3P1P/2K5/q7 w - - 0 7"]}
+{I have now showed you the concept of counting in the pawn endgame. Quite often it works well, but later you will see that things can also get more complicated.} {[%fen "6k1/4pp2/6p1/8/4P3/1P3P1P/2K5/q7 w - - 0 7"]}

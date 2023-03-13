@@ -7,6 +7,49 @@
       "slug": "pieces",
       "description": "Get to know your chess army and learn how to combat enemy pieces.",
       "lessons": ["the-pawn", "the-rook", "the-knight", "the-bishop", "the-queen", "the-king"]
+    },
+    {
+      "id": 1,
+      "name": "How to Win Enemy Pieces and not Lose Yours",
+      "slug": "how-to-win-enemy-pieces-and-not-lose-yours",
+      "description": "Some chess pieces are way more powerful and hence valuable than others. Your goal is to initiate favorable trades and avoid making bad deals.",
+      "lessons": [
+        "the-value-of-pieces",
+        "sit-on-your-hands",
+        "avoiding-blunders",
+        "keeping-things-protected",
+        "how-to-deal-with-chess-threats",
+        "dealing-with-multiple-chess-threats"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "More About the Pieces",
+      "slug": "more-about-the-pieces",
+      "description": "Learn more about pieces' strengths and weaknesses and how to exploit them in your games.",
+      "lessons": [
+        "a-sad-story-about-bishops",
+        "running-diagonally",
+        "the-clumsy-knight",
+        "expert-use-of-the-rooks",
+        "dominating-a-knight",
+        "the-soul-of-chess"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pawn Endgame Basics",
+      "slug": "pawn-endgame-basics",
+      "description": "Pawn endgames may be deceivingly simple at first glance, yet they require knowledge of typical ideas and long, precise calculation.",
+      "lessons": [
+        "passed-pawns",
+        "counting-moves",
+        "the-rule-of-the-square",
+        "king-and-pawn-vs-king",
+        "flank-pawns",
+        "opposition-basics",
+        "transition-to-the-pawn-endgame-basics"
+      ]
     }
   ]
 }
