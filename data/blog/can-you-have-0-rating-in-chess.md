@@ -1,5 +1,5 @@
 ---
-title: "Can You Have 0 Rating in Chess?"
+name: "Can You Have 0 Rating in Chess?"
 slug: "can-you-have-0-rating-in-chess"
 description: "Chess rating is an important aspect for every chess player, but what happens when your rating reaches zero? Find out the implications of having zero rating, reasons why it may happen, and learn how to improve your chess game and rating."
 ---

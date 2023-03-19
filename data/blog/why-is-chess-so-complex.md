@@ -1,7 +1,7 @@
 ---
-name: 'Why is chess so complex?'
-slug: 'why-is-chess-so-complex'
-description: 'Chess is a board game that is known for its complex gameplay, infinite positions, and requirement of multiple skills. This article explores the reasons behind chess's complexity, the necessary skills to play it, its challenge as an intellectual activity, and its importance as a sport and mental discipline.'
+name: "Why is chess so complex?"
+slug: "why-is-chess-so-complex"
+description: "Chess is a board game that is known for its complex gameplay, infinite positions, and requirement of multiple skills. This article explores the reasons behind chess's complexity, the necessary skills to play it, its challenge as an intellectual activity, and its importance as a sport and mental discipline."
 ---
 
 # Chess gameplay and its unique complexity

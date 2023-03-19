@@ -1,5 +1,5 @@
 ---
-title: "The Most Important Moves in Chess"
+name: "The Most Important Moves in Chess"
 slug: "the most important moves in chess"
 description: "Learn about the key moves in chess for beginners and advanced players, understanding piece value and coordination, endgame techniques, studying famous games, and improving decision-making skills."
 ---

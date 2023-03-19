@@ -1,5 +1,5 @@
 ---
-title: "Is 13 Too Late for Chess?"
+name: "Is 13 Too Late for Chess?"
 slug: "is-13-too-late-for-chess"
 description: "This article explores whether it is too late to start playing chess at the age of 13. It provides tips on learning chess, benefits of playing chess as a hobby, and joining chess clubs and tournaments."
 ---
