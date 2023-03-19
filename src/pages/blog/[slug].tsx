@@ -1,6 +1,8 @@
+import Container from '@/components/Container';
 import { IBlogPost } from '@/types';
 import { getAllPosts, getPost } from '@/utils/blog';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 import ReactMarkdown from 'react-markdown';
 
@@ -14,9 +16,15 @@ interface PageProps {
 
 export default function Page({ post }: PageProps) {
   return (
-    <div>
-      <ReactMarkdown className="prose prose-invert md:prose-lg">{post.contents}</ReactMarkdown>
-    </div>
+    <>
+      <Head>
+        <title>{post.name} | LeetChess</title>
+        <meta name="description" content={post.description} />
+      </Head>
+      <Container>
+        <ReactMarkdown className="prose prose-base prose-invert md:prose-lg">{post.contents}</ReactMarkdown>
+      </Container>
+    </>
   );
 }
 
