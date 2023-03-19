@@ -28,3 +28,10 @@ interface ILearningPath {
   description: string;
   lessons: ITutorial[] | string[];
 }
+
+interface IBlogPost {
+  name: string;
+  slug: string;
+  description: string;
+  contents: string;
+}
